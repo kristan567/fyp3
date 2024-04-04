@@ -315,7 +315,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="navbar-container" >
+        <div class="navbar-container">
             <!--logo div-->
             <div class="navbar-logo-div">
                 <a class="navbar-logo-link" href="#">
@@ -329,16 +329,16 @@
             <br>
 
             <!--item list-->
-            <ul class="menu-list" >
+            <ul class="menu-list">
                 <li class="menu-item">
                     <a class="menu-link" href="{{ route('App.dashboard') }}">
                         <i class="fas fa-solid fa-table"></i>
-                        <span class="menu-link-text">Dashboard</span>
+                        <span class="menu-link-text">Dashboard </span>
                     </a>
                 </li>
                 @role('Project Manager')
                     <li class="menu-item">
-                        <a class="menu-link" class="menu-link" href="{{ route('users.index') }}">
+                        <a class="menu-link"  href="{{ route('users.index') }}">
                             <i class="fas fa-solid fa-user"></i>
                             <span class="menu-link-text">Users</span>
                         </a>
@@ -361,6 +361,15 @@
                     </li>
                 @endrole
 
+                @role('Project Manager')
+                <li class="menu-item">
+                    <a class="menu-link" href="{{ route('recommend.index') }}">
+                        <i class="fas fa-solid fa-paw"></i>
+                        <span class="menu-link-text">Recommend</span>
+                    </a>
+                </li>
+                @endrole
+
                 <li class="menu-item">
                     <a class="menu-link" href="#">
                         <i class="fas fa-regular fa-stethoscope"></i>
@@ -377,20 +386,19 @@
         </div>
 
         <!--div user info-->
-            <div class="user-container">
-                <div class="user-info">
-            
-                    <div class="user-details">
-                        <h3 class="user-name">Eleanor Pena</h3>
-                        <p class="user-occupation">Veterinary </p>
-                    </div>
+        <div class="user-container">
+            <div class="user-info">
+                {{-- <i class="fas fa-solid fa-user-secret"></i> --}}
+                <div class="user-details">
+                    <h3 class="user-name">Eleanor Pena</h3>
+                    <p class="user-occupation">Veterinary </p>
                 </div>
-                <a class="logout-btn" href="#">
-                    <i class="fas fa-solid fa-user-secret"></i>
-                </a>
             </div>
+            <a class="logout-btn" href="#">
+                <i class="fas fa-solid fa-user-secret"></i>
+            </a>
+        </div>
     </nav>
-
 
     <main class="dashboard">
         <x-tenant-app-layout>

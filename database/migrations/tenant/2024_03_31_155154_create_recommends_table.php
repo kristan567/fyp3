@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('Project_Name');
+            // $table->foreignId('housetype_id')->constrained()->onDelete('cascade')->nullable(true);
             $table->string('project_type');
             $table->integer('number_of_workers');
             $table->integer('floor');
@@ -33,10 +34,6 @@ return new class extends Migration
             $table->string('description');
             $table->string('duration');
             $table->string('images')->nullable(true);
-            
-
-
-
             $table->timestamps();
         });
     }

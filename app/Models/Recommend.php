@@ -14,7 +14,8 @@ class Recommend extends Model
         'ProjectID',
         'user_id',
         'Project_Name',
-        'Project_Type',
+        'project_type',
+        // 'housetype_id',
         'number_of_workers',
         'floor',
         'Location',
@@ -36,4 +37,10 @@ class Recommend extends Model
         
 
     ];
+
+    public function Housetype()
+    {
+        return $this->belongsTo(Housetype::class,'housetype_id');
+    }
+
 }

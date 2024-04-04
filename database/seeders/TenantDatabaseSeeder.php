@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Housetype;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -19,6 +21,8 @@ class TenantDatabaseSeeder extends Seeder
 
 
         $this ->call([tenantRecommendSeeder::class]);
+
+        // $this ->call([HousetypeSeeder::class]);
         
     }
 }
