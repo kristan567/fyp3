@@ -23,6 +23,8 @@ class TenantDatabaseSeeder extends Seeder
         $this ->call([tenantRecommendSeeder::class]);
 
         // $this ->call([HousetypeSeeder::class]);
+
+        
         
     }
 }

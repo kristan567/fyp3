@@ -13,10 +13,10 @@
 
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="">Enter Category Name</label>
+                                <label for="">Enter Category Name</label> <br>
                                 <input type="text"  class="form-control form-control-lg" name="title" :value="old('title')" required autofocus />
                             </div>
-                        
+                        <br>
                                 <div class="form-group">
                                     <select  class="form-control"  name="project_id">
                                         <option value="">Select Project</option>  
@@ -31,9 +31,9 @@
                                     </select>
                                 </div>
                        
-            
+                                <br>
                             <div class="form-group">
-                                <label for="">Enter Description</label>
+                                <label for="">Enter Description</label><br>
                                 <textarea id="description" cols="30" rows="4" class="block mt-1 w-full" name="description" :value="old('description')"required autofocus style="border-radius: 5px;" required ></textarea>
                             </div>
                         </div>

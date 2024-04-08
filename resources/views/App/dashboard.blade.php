@@ -548,7 +548,7 @@
                 </li>
                 @role('Project Manager')
                     <li class="menu-item">
-                        <a class="menu-link"  href="{{ route('users.index') }}">
+                        <a class="menu-link" href="{{ route('users.index') }}">
                             <i class="fas fa-solid fa-user"></i>
                             <span class="menu-link-text">Users</span>
                         </a>
@@ -572,24 +572,24 @@
                 @endrole
 
                 @role('Project Manager')
-                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('recommend.index') }}">
-                        <i class="fas fa-solid fa-paw"></i>
-                        <span class="menu-link-text">Recommend</span>
-                    </a>
-                </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="{{ route('recommend.index') }}">
+                            <i class="fas fa-solid fa-paw"></i>
+                            <span class="menu-link-text">Recommend</span>
+                        </a>
+                    </li>
                 @endrole
 
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('materials.index') }}">
                         <i class="fas fa-regular fa-stethoscope"></i>
-                        <span class="menu-link-text">Task</span>
+                        <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('equipments.index') }}">
                         <i class="fas fa-duotone fa-gear"></i>
-                        <span class="menu-link-text">Settings</span>
+                        <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
             </ul>
@@ -621,21 +621,21 @@
                         {{ __('Dashboard') }}
                     </h2>
                 </x-slot>
-            
+
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    
-    
+
+
                             <div class="p-6 text-gray-900">
-            
-            
+
+
                                 @role('worker')
                                     {{ __('view Task ') }}
-            
+
                                     <x-btn-link href="{{ route('projects.index') }}">View Tasks</x-btn-link>
                                 @endrole
-            
+
                             </div>
                         </div>
                     </div>
@@ -648,121 +648,150 @@
 
         @role('Project Manager')
 
-        <x-tenant-app-layout>
-            {{-- <x-slot name="header">
+            <x-tenant-app-layout>
+                {{-- <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('Dashboard') }}
                 </h2>
             </x-slot> --}}
-    \
-            <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                \
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                        <div class="p-6 text-gray-900">
+                            <div class="p-6 text-gray-900">
                                 <strong>
                                     <h1 style="font-size: 30px">Dashboard</h1>
                                 </strong>
-                        </div>
+                            </div>
 
-                        <div class="p-6 text-gray-900">
-                            <div class="page">
+                            <div class="p-6 text-gray-900">
+                                <div class="page">
 
-                                <div class="layout">
-                                    <div>
-                                        <div>
-                                            <h2>Total user: {{ $totaluser }}</h2>
-                                        </div>
-                                    </div>
-                                    <div class="hovercontainer">
+                                    <div class="layout">
                                         <div>
                                             <div>
-
-                                                <p class="icon">users engaged in tasks: {{ $totaluserwithtasks }} </p>
+                                                <h2>Total user: {{ $totaluser }}</h2>
                                             </div>
-
                                         </div>
-                                        <div class="popup">
-                                            <p>
-
-                                            <ul>
-                                                @foreach ($userwithtasks as $user)
-                                                    <li>{{ $user->name }}</li>
-                                                @endforeach
-                                            </ul>
-
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="hovercontainer">
-                                        <div>
+                                        <div class="hovercontainer">
                                             <div>
+                                                <div>
 
-                                                <p class="icon">
+                                                    <p class="icon">users engaged in tasks: {{ $totaluserwithtasks }} </p>
 
-                                                    users not engaged in tasks:
-                                                    {{ $totalUsersWithoutTasks }}
+                                                </div>
+
+                                            </div>
+                                            <div class="popup">
+                                                <p>
+
+                                                <ul>
+
+                                                    @foreach ($userwithtasks as $user)
+                                                        <li>{{ $user->name }}</li>
+                                                    @endforeach
+                                                    
+                                                </ul>
 
                                                 </p>
                                             </div>
-
                                         </div>
-                                        <div class="popup">
-                                            <p>
-                                            <div class="users-without-tasks">
-                                                <ul>
-                                                    @foreach ($usersWithoutTasks as $user)
-                                                        <li>{{ $user->name }}</li>
-                                                    @endforeach
-                                                </ul>
+
+                                        <div class="hovercontainer">
+                                            <div>
+                                                <div>
+
+                                                    <p class="icon">
+
+                                                        users not engaged in tasks:
+                                                        {{ $totalUsersWithoutTasks }}
+
+                                                    </p>
+                                                </div>
+
                                             </div>
-                                            </p>
+                                            <div class="popup">
+                                                <p>
+                                                <div class="users-without-tasks">
+                                                    <ul>
+                                                        @foreach ($usersWithoutTasks as $user)
+                                                            <li>{{ $user->name }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
 
 
-                                    <div>
                                         <div>
-                                            <h2>Element 4</h2>
+                                            <div>
+                                                <h2>Element 4</h2>
+                                            </div>
                                         </div>
-                                    </div>
-                                    {{-- <div>
+                                        {{-- <div>
                                         <div>
                                             <h2>Element 5</h2>
                                         </div>
                                     </div> --}}
+                                    </div>
                                 </div>
+
+
+                            </div>
+
+                            <div class="chartContainer">
+                                <div class="charts" style="width:45%;">
+                                    <div class="p-6 text-gray-900 ">
+                                        <canvas id="myChart" style="width: 400px; height: 300px;"></canvas>
+
+                                    </div>
+                                </div>
+
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 ">
+                                        <canvas id="taskchart" style="width: 200px; height: 300px;"></canvas>
+
+                                    </div>
+                                </div>
+
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 ">
+                                        <canvas id="projectStatusChart"
+                                            style="width:width: 200px; height: 300px;"></canvas>
+
+                                    </div>
+                                </div>
+
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 ">
+                                        <canvas id="totalTasksChart" style="width: 200px; height: 300px;"></canvas>
+
+                                    </div>
+                                </div>
+
+                                <div class="charts" style="width:80%; ">
+                                    <div class="p-6 text-gray-900 ">
+                                        <canvas id="totalTasksByProjectChart" style="width: 100%; height: 300px;"></canvas>
+
+                                    </div>
+                                </div>
+
+
+
+
                             </div>
 
 
-                        </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
-                        <div class="chartContainer">
-                            <div class="charts" style="width:45%;">
-                                <div class="p-6 text-gray-900 ">
-                                    <canvas id="myChart" style="width: 400px; height: 300px;"></canvas>
-
-                                </div>
-                            </div>
-
-                            <div class="charts" style="width:45%; ">
-                                <div class="p-6 text-gray-900 ">
-                                    <canvas id="taskchart" style="width: 200px; height: 300px;"></canvas>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-                        {{-- <div class="naavigatorbuttons">
+                            {{-- <div class="naavigatorbuttons">
 
                             <div class="p-6 text-gray-900">
                                 {{ __("You're logged in!") }}
@@ -795,80 +824,80 @@
                             </div>
                         </div> --}}
 
-                        <center><strong>
-                                <h1 style="font-size: 30px">Task In Progress</h1>
-                            </strong></center>
-                        <div class="p-6 text-gray-900">
+                            <center><strong>
+                                    <h1 style="font-size: 30px">Task In Progress</h1>
+                                </strong></center>
+                            <div class="p-6 text-gray-900">
 
 
 
-                            <div class="Tasks">
-                              
+                                <div class="Tasks">
 
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
 
-                                            <th>Priority</th>
-                                            <th>status</th>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
 
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Assigned To </th>
+                                                <th>Priority</th>
+                                                <th>status</th>
 
-                                            
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Assigned To </th>
 
 
 
-                                        </tr>
 
-                                    </thead>
-                                    <tbody>
-                                        @role('Project Manager')
-                                            {{-- @if ($project->tasks) --}}
-                                            @if ($tasks)
-                                                {{-- @foreach ($project->tasks as $task) --}}
-                                                @foreach ($tasks as $task)
+
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            @role('Project Manager')
+                                                {{-- @if ($project->tasks) --}}
+                                                @if ($tasks)
+                                                    {{-- @foreach ($project->tasks as $task) --}}
+                                                    @foreach ($tasks as $task)
+                                                        <tr>
+                                                            <td>{{ $task->id }}</td>
+                                                            <td>{{ $task->title }}</td>
+
+                                                            <td>{{ $task->priority }}</td>
+                                                            <td>{{ $task->status == 0 ? 'Not Started' : '' }}
+                                                                {{ $task->status == 1 ? 'Started' : '' }}
+                                                                {{ $task->status == 2 ? 'Pending' : '' }}
+                                                                {{ $task->status == 3 ? 'Complete' : '' }}</td>
+                                                            <td>{{ $task->start_date }}</td>
+                                                            <td>{{ $task->end_date }}</td>
+                                                            <td>{{ $task->user->name }}</td>
+
+
+
+                                                        </tr>
+                                                    @endforeach
+                                                @else
                                                     <tr>
-                                                        <td>{{ $task->id }}</td>
-                                                        <td>{{ $task->title }}</td>
-
-                                                        <td>{{ $task->priority }}</td>
-                                                        <td>{{ $task->status == 0 ? 'Not Started' : '' }}
-                                                            {{ $task->status == 1 ? 'Started' : '' }}
-                                                            {{ $task->status == 2 ? 'Pending' : '' }}
-                                                            {{ $task->status == 3 ? 'Complete' : '' }}</td>
-                                                        <td>{{ $task->start_date }}</td>
-                                                        <td>{{ $task->end_date }}</td>
-                                                        <td>{{ $task->user->name }}</td>
-
-                                                       
-
+                                                        <td colspan="3">No Tasks found</td>
                                                     </tr>
-                                                @endforeach
-                                            @else
-                                                <tr>
-                                                    <td colspan="3">No Tasks found</td>
-                                                </tr>
-                                            @endif
+                                                @endif
 
-                                        @endrole
+                                            @endrole
 
 
 
 
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </x-tenant-app-layout>
+            </x-tenant-app-layout>
         @endrole
     </main>
 
@@ -987,6 +1016,112 @@
             );
         </script>
     @endpush
+
+
+    @push('scripts')
+        <script>
+            // Get the counts from the controller
+            var completedCount = {{ $completedProjectsCount }};
+            var incompleteCount = {{ $incompleteProjectsCount }};
+
+            // Render pie chart
+            var ctx = document.getElementById('projectStatusChart').getContext('2d');
+            var myChartproject = new Chart(ctx, {
+                type: 'pie',
+                data: {
+
+                    labels: ['Completed', 'Incomplete'],
+                    datasets: [{
+                        data: [completedCount, incompleteCount],
+                        backgroundColor: ['#36a2eb', '#ff6384']
+                    }]
+                },
+                options: {
+                    // Disable responsiveness
+                    maintainAspectRatio: false, // Disable aspect ratio
+                    // Set height
+                }
+            });
+        </script>
+    @endpush
+
+
+    @push('scripts')
+        <script>
+            // Get data from the PHP variables passed from the controller
+            var projectLabels = <?php echo json_encode($projectLabels); ?>;
+            var taskCounts = <?php echo json_encode($taskCounts); ?>;
+
+            // Create the bar chart
+            var ctx = document.getElementById('totalTasksChart').getContext('2d');
+            var myCharttotaltask = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: projectLabels,
+                    datasets: [{
+                        label: 'Total Tasks',
+                        data: taskCounts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+        
+    @endpush
+
+
+
+    @push('scripts')
+        <script>
+
+            // Get data from the PHP variables passed from the controller
+            var projectIds = <?php echo json_encode($projectIds); ?>;
+            var completedTaskCounts = <?php echo json_encode($completedTaskCounts); ?>;
+            var incompleteTaskCounts = <?php echo json_encode($incompleteTaskCounts); ?>;
+
+            // Create the grouped bar chart
+            var ctx = document.getElementById('totalTasksByProjectChart').getContext('2d');
+            var totalcompleteincomplete = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: projectIds,
+                    datasets: [{
+                        label: 'Completed Tasks',
+                        data: completedTaskCounts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Incomplete Tasks',
+                        data: incompleteTaskCounts,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @endpush
+
+
 
 
 

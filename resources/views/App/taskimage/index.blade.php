@@ -26,32 +26,59 @@
 
 
     <style>
-        /* Style for the form container */
-        .form-container {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+        .contact-form {
+            width: 80%;
+            margin: 0 auto;
         }
 
-        /* Style for form labels */
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .half {
+            width: 48%;
+            /* Adjust this value as needed */
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
         }
 
-        /* Style for input fields */
         input[type="text"],
+        input[type="email"],
+        input[type="tel"],
         textarea {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
+            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
             box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         /* Style for image */
@@ -73,11 +100,6 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        /* Style for submit button on hover */
-        button[type="submit"]:hover {
-            background-color: #45a049;
         }
     </style>
 
@@ -103,14 +125,91 @@
 
 
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
+                            <strong>
+                                <h1 class="text-center" style="font-size:30px">Upload Images for  {{ $task->title }}</h1>
+                            </strong>
 
-
-                            {{ $task->title }}
-
-
+                            <a class="btn btn-primary float-right" href="{{ url('tasks/' . $task->id . '/show') }}">
+                                Back</a>
                         </h2>
 
-                        <br>
+
+
+                        {{-- <div class="contact-form">
+                            <form method="post" action="#">
+
+                                <div class="form-group">
+                                    <div class="half left">
+                                        <label for="name">Project Name:</label>
+                                        <input type="text" id="name" name="name"
+                                            value="{{ $project->title }}" disabled>
+
+                                        <label for="name">Task Name:</label>
+                                        <input type="text" id="name" name="name" value="{{ $task->title }}"
+                                            disabled>
+
+                                        <label for="name">start date:</label>
+                                        <input type="text" id="name" name="name"
+                                            value="{{ $task->start_date }}" disabled>
+
+                                
+
+                                    </div>
+                                    <div class="half right">
+                                        <label for="email">Project Manager:</label>
+                                        <input type="email" id="email" name="email" value="{{ $manager->name }}"
+                                            disabled>
+
+                                        <label for="email">Assigned To:</label>
+                                        <input type="email" id="email" name="email"
+                                            value="{{ $task->user->name }}" disabled>
+
+                                        <label for="name">End date:</label>
+                                        <input type="text" id="name" name="name"
+                                            value="{{ $task->end_date }}" disabled>
+
+                                 
+                                    </div>
+                                </div>
+
+
+                                <p>description:</p>
+                                <div class="form-group">
+
+                                    <input type="text" id="name" name="name" style="height: 100px;"
+                                        value="{{ $project->description }}" disabled />
+                                </div>
+                            </form>
+                        </div> --}}     
+
+                        {{-- <strong>
+                            <hr style="">
+                        </strong> --}}
+
+                        {{-- <div class="taskstatus">
+                            <form method="POST" action="{{ route('task.userupdate', $task->id) }}">
+                                @csrf
+                                @method('PUT')
+                                <x-input-label for="status" :value="__('Enter Status')"  /><br>
+                                <select class="block mt-1 w-full" id="status" name="status" :value=" $task->status ">
+                                    <option value="0">Not started</option>
+                                    <option value="1">Started</option>
+                                    <option value="2">Pending</option>
+                                    <option value="3">Complete</option>
+                                </select>
+                                <x-input-error :messages="$errors->get('status')" class="mt-2" />
+
+                                <div class="flex items-center justify-end mt-4">
+                                    <x-primary-button class="ms-4">
+                                        {{ __('Update') }}
+                                    </x-primary-button>
+                                </div>
+                            </form>
+                        </div> --}}
+
+
+
+
 
                         @if ($errors->any())
                             <ul class="alert alert-warning">
@@ -120,80 +219,79 @@
                             </ul>
                         @endif
 
+                        <div class="uploadimg" style="padding: 100px;">
 
-                        <form action="{{ url('tasks/' . $task->id . '/upload') }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
+                            <form action="{{ url('tasks/' . $task->id . '/upload') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
 
 
-                            <div class="mt-4">
-                                <x-input-label for="task_id" :value="__('Enter Task')" /><br>
-                                <select class="block mt-1 w-full" id="task_id" name="task_id">
-                                    <option value="">Select Task</option>
+                                {{-- <div class="mt-4">
+                                    <x-input-label for="task_id" :value="__('Enter Task')" /><br>
+                                    <select class="block mt-1 w-full" id="task_id" name="task_id">
+                                        <option value="">Select Task</option>
 
-                                    <option value="{{ $task->id }}">{{ $task->title }}</option>
+                                        <option value="{{ $task->id }}">{{ $task->title }}</option>
 
-                                </select>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <h3>Before</h3>
-                                <div class="image" style="display:inline-block" >
-                                    <label for="current_photo">Current Photo:</label>
-                                    @foreach ($taskImages as $image)
-
+                                    </select>
+                                </div> --}}
+                                <br>
 
                              
 
-                                        <img src="{{global_asset($image->images)}}"   /> 
-
-                                        <a class="btn btn-danger" href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove Image</a><br/>
-
-                                     
-                                
-      
-                                    @endforeach
-
-                                </div>
-
+                                <br>
+                                <br>
                                 <!-- Upload New Photo -->
                                 <div class="mb-3">
                                     <label for="new_photo">Upload New Photo:</label>
                                     <input type="file" id="new_photo" name="images[]" multiple class="form-control">
+                                    
                                 </div>
 
                                 <!-- Submit Button -->
                                 <div>
-                                    <button type="submit">Update Task</button>
+                                    <div class="flex items-center justify-end mt-4">
+                                        <x-primary-button class="ms-4">
+                                            {{ __('Update') }}
+                                        </x-primary-button>
+                                    </div>
                                 </div>
-                            </div>
+                                <br>
+                                <br>
 
-                            {{-- <div class="col-sm-4">
-                                <h3>Column 2</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                            </div>
+                                <div class="col-sm-4">
+                                    {{-- <h3>Before</h3> --}}
+                                    <div class="image-container">
+                                        <div class="image">
+                                            <strong>
+                                                <h2 style="font-size: 30px; ">Progress Images:</h2>
+                                            </strong>
+                                            <br>
+                                            <div class="image-row">
+                                                @foreach ($taskImages as $image)
+                                                    <div class="img" style="">
+                                                        <img src="{{ global_asset($image->images) }}" />
+                                                    </div>
+                                                    <a class="btn btn-danger" style="margin-bottom: 7%"
+                                                        href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
+                                                        Image</a><br />
+                                                @endforeach
+                                            </div>
 
-                            <div class="col-sm-4">
-                                <h3>After</h3>
-                                <div>
-                                    <label for="current_photo">Current Photo:</label>
-                                    <img src="{{ asset('storage/' . $task->photo) }}" alt="Current Photo"
-                                        width="200">
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <!-- Upload New Photo -->
-                                <div>
-                                    <label for="new_photo">Upload New Photo:</label>
-                                    <input type="file" id="new_photo" name="new_photo2">
-                                </div>
 
-                                <!-- Submit Button -->
-                                <div>
-                                    <button type="submit">Update Task</button>
-                                </div>
-                            </div> --}}
-                        </form>
+
+
+
+                            </form>
+
+                        </div>
 
 
                     </div>

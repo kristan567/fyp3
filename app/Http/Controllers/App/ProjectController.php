@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
@@ -17,9 +18,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::Latest()->paginate(5);
-        
-        return view('App.projects.Layout',compact('projects'))->with(request()->input('page'));
-        
+
+        return view('App.projects.Layout', compact('projects'))->with(request()->input('page'));
     }
 
     /**
@@ -37,7 +37,7 @@ class ProjectController extends Controller
     {
         // dd($request->all());
         //validate the input
-        $validatedData = $request-> validate([
+        $validatedData = $request->validate([
 
             'title' => 'required',
             'description' => 'required',
@@ -46,7 +46,7 @@ class ProjectController extends Controller
             'end_date' => 'required',
 
         ]);
-        
+
 
         // create a new project in thr database
 
@@ -71,7 +71,7 @@ class ProjectController extends Controller
 
     //             $categories = Category::get();
     //             $project = Project::findOrFail($id);
-               
+
     //             // $tasks = Task::get();
 
     //             // $tasks = Task::where('user_id', Auth::id())->get();
@@ -83,7 +83,7 @@ class ProjectController extends Controller
 
 
     //             return view('App.projects.show',compact('project','categories','tasks'));
-  
+
     //         }
     //     }
 
@@ -95,25 +95,34 @@ class ProjectController extends Controller
 
         $categories = Category::get();
         $project = Project::findOrFail($id);
+        $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
         // $tasks = Task::get();
+
+
+
+
+        // $tasks = Task::get();
+
+        // $tasks = Task::where('user_id', Auth::id())->get();
+
+        // $user = Auth::user();
+        // $tasks =  $user->tasks()->get(); // Assuming you have defined a relationship between User and Task models
+
  
-
-             
-               
-                // $tasks = Task::get();
-
-                // $tasks = Task::where('user_id', Auth::id())->get();
-
-                // $user = Auth::user();
-                // $tasks =  $user->tasks()->get(); // Assuming you have defined a relationship between User and Task models
-
-                $tasks= Task::where('completed',false)->orderBy('priority','desc')->orderBy('end_date')->get();
+        //for percantage
+        $totalTasks = Task::where('project_id', $id)->count();
+        $completedTasks = Task::where('project_id', $id)->where('completed', true)->count();
+        $completionPercentage = $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0;
 
 
-                return view('App.projects.show',compact('project','categories','tasks'));
-  
+        //for total task in th eproject
+        $totalTasks = Task::where('project_id', $id)->count();
 
-       
+        $totalUsers = Task::where('project_id', $id)->distinct('user_id')->count('user_id');
+        $manager = User::first();
+
+
+        return view('App.projects.show', compact('project', 'categories', 'tasks','completionPercentage','totalTasks','totalUsers','manager'));
     }
 
     /**
@@ -126,7 +135,7 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-       
+
         return view('App.projects.edit', compact('project'));
     }
 
@@ -135,8 +144,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        
-        $validatedData = $request-> validate([
+
+        $validatedData = $request->validate([
 
             'title' => 'required',
             'description' => 'required',
@@ -145,18 +154,15 @@ class ProjectController extends Controller
             'end_date' => 'required',
 
         ]);
-        
+
 
         // Update project in thr database
 
         $project->update($validatedData);
 
         // $message= "project Updated";
-      
+
         return redirect()->route('projects.index')->with('success', 'Project Updated successfully');
-
-
-
     }
 
     /**
@@ -167,7 +173,7 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->route('projects.index')
-                        ->with('success','Projectt deleted successfully');
+            ->with('success', 'Projectt deleted successfully');
     }
 
 
@@ -175,17 +181,19 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
         $project->update([
-            'completed'=>true,
-            'completed_at'=>now(),
+            'completed' => true,
+            'completed_at' => now(),
         ]);
-        return redirect()->back()->with('success','Project completed ');
+        return redirect()->back()->with('success', 'Project completed ');
     }
 
     public function showcompleted()
     {
-        $Completedproject= Project ::where(
-            'completed', true)->orderBy('completed_at','desc')->get();
+        $Completedproject = Project::where(
+            'completed',
+            true
+        )->orderBy('completed_at', 'desc')->get();
 
-        return view('App.projects.finishedproject',compact('Completedproject'));
+        return view('App.projects.finishedproject', compact('Completedproject'));
     }
 }

@@ -25,26 +25,63 @@ class ChartJSController extends Controller
             ->get();
 
 
-            $taskdata = Task::selectRaw("date_format(completed_at, '%Y-%m-%d') as date, count(*) as aggregate")
-            ->whereDate('completed_at','>=',now()->subdays(30))
+        $taskdata = Task::selectRaw("date_format(completed_at, '%Y-%m-%d') as date, count(*) as aggregate")
+            ->whereDate('completed_at', '>=', now()->subdays(30))
             ->groupBy('date')
             ->get();
 
 
-            $totaluser = User::count();
+        $totaluser = User::count();
 
-            $usersWithoutTasks = User::doesntHave('tasks')->get();
-            $totalUsersWithoutTasks = User::doesntHave('tasks')->count();
+        $usersWithoutTasks = User::doesntHave('tasks')->get();
+        $totalUsersWithoutTasks = User::doesntHave('tasks')->count();
 
-            $userwithtasks = User::has('tasks')->get();
-            $totaluserwithtasks = User::has('tasks')->count();
+        $userwithtasks = User::has('tasks')->get();
+        $totaluserwithtasks = User::has('tasks')->count();
 
 
-            $categories = Category::get();
+        $categories = Category::get();
         $project = Project::get();
-        $tasks= Task::where('completed',false)->orderBy('priority','desc')->orderBy('end_date')->get();
+        $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
 
-        return view('App.Dashboard', compact('data','taskdata','usersWithoutTasks','totalUsersWithoutTasks','userwithtasks','totaluserwithtasks','totaluser','categories','project','tasks'));
+        // $projectuser = Task::where('project_id')
+        //              ->distinct('user_id')
+        //              ->count('user_id');
+
+        $completedProjectsCount = Project::where('completed', '1')->count();
+        $incompleteProjectsCount = Project::where('completed', '0')->count();
+
+
+        // Query the database to get the total number of tasks for each project
+        $totalTasksByProject = Task::select('project_id')
+            ->selectRaw('count(*) as total_tasks')
+            ->groupBy('project_id')
+            ->get();
+
+        // Prepare data for the chart
+        $projectLabels = $totalTasksByProject->pluck('project_id')->toArray();
+        $taskCounts = $totalTasksByProject->pluck('total_tasks')->toArray();
+
+
+
+        // Query the database to get the total number of completed and incomplete tasks for each project
+        $totalTasksByProject = Task::select('project_id')
+                                    ->selectRaw('sum(case when completed = true then 1 else 0 end) as completed_tasks')
+                                    ->selectRaw('sum(case when completed = false then 1 else 0 end) as incomplete_tasks')
+                                    ->groupBy('project_id')
+                                    ->get();
+
+        // Prepare data for the chart
+        $projectIds = $totalTasksByProject->pluck('project_id')->toArray();
+        $completedTaskCounts = $totalTasksByProject->pluck('completed_tasks')->toArray();
+        $incompleteTaskCounts = $totalTasksByProject->pluck('incomplete_tasks')->toArray();
+
+
+      
+
+
+
+        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount','projectLabels', 'taskCounts','projectIds', 'completedTaskCounts', 'incompleteTaskCounts'));
     }
 
     // public function taskindex()
@@ -62,8 +99,6 @@ class ChartJSController extends Controller
      */
     public function create()
     {
-        
-       
     }
 
     /**

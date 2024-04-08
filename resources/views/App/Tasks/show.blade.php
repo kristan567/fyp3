@@ -1,194 +1,159 @@
+<x-tenant-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('update task') }}
 
+        </h2>
+    </x-slot>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-        <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    
-
-
-   
-    <style>
-        /* Style for the form container */
-        .form-container {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-        /* Style for form labels */
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        /* Style for input fields */
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        /* Style for image */
-        img {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* Style for file input */
-        input[type="file"] {
-            margin-bottom: 10px;
-        }
-
-        /* Style for submit button */
-        button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Style for submit button on hover */
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-    </style>
-
-</head>
-<body>
-    
-       
-            
-      
-    <x-tenant-app-layout>
-        <div class="py-12">
-            
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-             
-                    <div class="p-6 text-gray-900">
-                  
-
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-                            
-                         {{ $task->title }}
-            
-                        </h2>
-
-                        <br>
-                      
-    
-                        <form action="{{ route('task.update', $task->id) }}" method="POST" enctype="multipart/form-data">
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+                    
+                    @role('worker')
+                        <form method="POST" action="{{ route('task.update', $task->id) }}">
                             @csrf
                             @method('PUT')
-                            
+
+                            <!-- Name -->
+                            <div>
+                                <x-input-label for="title" value="{{ old('name', $task->title) }}" />
+                                <x-text-input id="title" class="block mt-1 w-full" type="text" name="title"
+                                    :value="$task->title" required autofocus />
+                                <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                            </div>
+
+
+                            {{-- add project --}}
+
                             <div class="mt-4">
-                                <x-input-label for="task_id" :value="__('Enter Task')" /><br>
-                                <select class="block mt-1 w-full" id="task_id" name="task_id">
-                                    <option value="">Select Task</option>
+                                <x-input-label for="project_id" :value="__('Enter Project')" /><br>
+                                <select class="block mt-1 w-full" id="project_id" name="project_id"
+                                    :value="$task - > project_id">
+                                    <option value="">Select Project</option>
 
-                                    <option value="{{ $task->id }}">{{ $task->title }}</option>
 
+                                    @foreach ($projects as $project)
+                                        <option value="{{ $project->id }}">{{ $project->title }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
-                            <div class="col-sm-4">
-                                <h3>Before</h3>
-                                <div>
-                                    <label for="current_photo">Current Photo:</label>
-                                    <img src="{{ asset('storage/' . $task->photo) }}" alt="Current Photo"
-                                        width="200">
-                                </div>
-
-                                <!-- Upload New Photo -->
-                                <div>
-                                    <label for="new_photo">Upload New Photo:</label>
-                                    <input type="file" id="new_photo" name="new_photo1">
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div>
-                                    <button type="submit">Update Task</button>
-                                </div>
+                            {{-- selectCategory --}}
+                            <div class="mt-4">
+                                <x-input-label for="category_id" :value="__('Enter Category')" /><br>
+                                <select class="block mt-1 w-full" id="category_id" name="category_id"
+                                    :value="$task - > category_id">
+                                    <option value="">Select Category</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
-                            <div class="col-sm-4">
-                                <h3>Column 2</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+
+
+
+
+                            <!-- Description -->
+                            <div class="mt-4">
+                                <x-input-label for="description" :value="__('Description')" />
+
+                                <textarea id="description" cols="30" rows="4" class="block mt-1 w-full" name="description"
+                                    :value="$task - > description" required autofocus style="border-radius: 5px;" required>{{ $task->description }}</textarea>
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                <x-input-label for="priority" :value="__('priority')" /><br>
+                                <select class="block mt-1 w-full" id="priority" name="priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
                             </div>
 
-                            <div class="col-sm-4">
-                                <h3>After</h3>
-                                <div>
-                                    <label for="current_photo">Current Photo:</label>
-                                    <img src="{{ asset('storage/' . $task->photo) }}" alt="Current Photo"
-                                        width="200">
-                                </div>
+                            <!-- status -->
+                            <div class="mt-4">
+                                <x-input-label for="status" :value="__('Enter Status')" /><br>
+                                <select class="block mt-1 w-full" id="status" name="status" :value="$task - > status">
+                                    <option value="0">Not started</option>
+                                    <option value="1">Started</option>
+                                    <option value="2">Pending</option>
+                                    <option value="3">Complete</option>
+                                </select>
+                                <x-input-error :messages="$errors->get('status')" class="mt-2" />
 
-                                <!-- Upload New Photo -->
-                                <div>
-                                    <label for="new_photo">Upload New Photo:</label>
-                                    <input type="file" id="new_photo" name="new_photo2">
-                                </div>
+                            </div>
 
-                                <!-- Submit Button -->
-                                <div>
-                                    <button type="submit">Update Task</button>
-                                </div>
+                            {{-- adduser --}}
+                            <div class="mt-4">
+                                <x-input-label for="user_id" :value="__('Enter User')" /><br>
+                                <select class="block mt-1 w-full" id="user_id" name="user_id" :value="$task - > user_id">
+                                    <option value="">Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="mt-4">
+                                <x-input-label for="start_date" :value="__('Enter Start Date')" />
+                                <x-text-input type="date" class="block mt-1 w-full" id="start_date" name="start_date"
+                                    :value="$task->start_date" />
+
+                                <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
+
+
+                            </div>
+
+                            <div class="mt-4">
+                                <x-input-label for="end_date" :value="__('Enter End Date')" />
+                                <x-text-input type="date" class="block mt-1 w-full" id="end_date" name="end_date"
+                                    :value="$task->end_date" />
+
+                                <x-input-error :messages="$errors->get('end_date')" class="mt-2" />
+
+
+                            </div>
+
+                            <div class="flex items-center justify-end mt-4">
+
+                                <a class="btn btn-primary" href="{{ route('projects.index') }}"> Back</a>
+                                <x-primary-button class="ms-4">
+                                    {{ __('Update') }}
+                                </x-primary-button>
                             </div>
                         </form>
-                        
-    
-                    </div>
+
+                    @endrole
+
+                    
+
+
+
                 </div>
             </div>
         </div>
-
-   
-
-   
-
-
-
-    </x-tenant-app-layout>
-   
-</body>
-</html>
-
-
-
-
-
-
-
+    </div>
+</x-tenant-app-layout>

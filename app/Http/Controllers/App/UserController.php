@@ -30,9 +30,11 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('app.users..create');
+
+        $roles = Role::all();
+        return view('app.users..create', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
@@ -43,9 +45,12 @@ class UserController extends Controller
         // dd($request->all());
 
         //validate
+        
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email',
+            'roles' => 'nullable|array',
 
             'password' => ['required', 'confirmed', Rules\Password::defaults()::defaults()],
 

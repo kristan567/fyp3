@@ -15,6 +15,8 @@
     <!--fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <style>
@@ -557,15 +559,15 @@
                 @endrole
 
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('materials.index') }}">
                         <i class="fas fa-regular fa-stethoscope"></i>
-                        <span class="menu-link-text">Task</span>
+                        <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('equipments.index') }}">
                         <i class="fas fa-duotone fa-gear"></i>
-                        <span class="menu-link-text">Settings</span>
+                        <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
             </ul>
@@ -585,6 +587,7 @@
             </a>
         </div>
     </nav>
+    
 
     <main class="dashboard">
 
@@ -596,7 +599,60 @@
 
                         <div class="p-6 text-gray-900">
 
-                            <section class="section">
+                            <form id="filterForm">
+                                <!-- Price Range -->
+                                <input type="number" id="min_price" name="min_price" placeholder="Min Price">
+                                <input type="number" id="max_price" name="max_price" placeholder="Max Price">
+
+                                <!-- Project Type Checkboxes -->
+                                <input type="checkbox" class="project_type" name="project_types[]" value="Vacation Home">
+                                Vacation Home
+                                <input type="checkbox" class="project_type" name="project_types[]" value="residential">
+                                Residential
+                                <!-- Add other project types as needed -->
+
+                                <!-- Land Size -->
+                                <input type="number" id="land_size" name="land_size" placeholder="Land Size (sq)">
+
+                                <!-- Time -->
+                                <input type="text" id="time" name="time" placeholder="Time">
+                            </form>
+
+                            <div id="filteredData">
+
+                                <section class="section">
+
+                                    <div class="card-list">
+                                        @foreach ($data as $filteredItem)
+                                            <div class="card-list__item card">
+                                                <h3 class="card__title">{{ $filteredItem->Project_Name }}</h3>
+                                                <div class="card__content">
+                                                    <div class="card__image-wrapper">
+                                                        <div class="card__image">
+                                                            <img src="https://picsum.photos/800/600?random=1"
+                                                                alt="">
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="card__text">{{ $filteredItem->description }}
+                                                    </div>
+                                                </div>
+                                                <div class="card__button-wrapper">
+    
+                                                    <td>
+                                                        <a href="{{ url('recommend/' . $filteredItem->id . '/show') }}"
+                                                            class="btn btn-primary">Show</a>
+                                                    </td>
+    
+    
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </section>
+                            </div>
+
+                            {{-- <section class="section">
 
                                 <div class="card-list">
                                     @foreach ($recommends as $recommend)
@@ -625,7 +681,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                 </section>
+                            </section> --}}
 
 
                         </div>
@@ -646,8 +702,37 @@
         btnToggler.addEventListener('click', () => {
             navbar.classList.toggle('active');
         });
-        
     </script>
+
+
+
+    <script>
+        $(document).ready(function() {
+
+            $('#filterForm input').on('change', function() {
+                index();
+            });
+
+            function index() {
+                var formData = $('#filterForm').serialize();
+
+                $.ajax({
+                    url: "{{ route('recommend.index') }}",
+                    method: "GET",
+                    data: formData,
+                    success: function(response) {
+                        $('#filteredData').html(response);
+                    }
+                });
+            }
+
+         
+
+
+        });
+    </script>
+
+
 
 
 

@@ -347,7 +347,7 @@
                 </li>
                 @role('Project Manager')
                     <li class="menu-item">
-                        <a class="menu-link"  href="{{ route('users.index') }}">
+                        <a class="menu-link" href="{{ route('users.index') }}">
                             <i class="fas fa-solid fa-user"></i>
                             <span class="menu-link-text">Users</span>
                         </a>
@@ -371,24 +371,24 @@
                 @endrole
 
                 @role('Project Manager')
-                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('recommend.index') }}">
-                        <i class="fas fa-solid fa-paw"></i>
-                        <span class="menu-link-text">Recommend</span>
-                    </a>
-                </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="{{ route('recommend.index') }}">
+                            <i class="fas fa-solid fa-paw"></i>
+                            <span class="menu-link-text">Recommend</span>
+                        </a>
+                    </li>
                 @endrole
 
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('materials.index') }}">
                         <i class="fas fa-regular fa-stethoscope"></i>
-                        <span class="menu-link-text">Task</span>
+                        <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('equipments.index') }}">
                         <i class="fas fa-duotone fa-gear"></i>
-                        <span class="menu-link-text">Settings</span>
+                        <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
             </ul>
@@ -409,6 +409,7 @@
         </div>
     </nav>
 
+    
     <main class="dashboard">
 
         <x-tenant-app-layout>
@@ -441,7 +442,12 @@
                                 </div>
                             @endif
 
+                            
+
                             @role('worker')
+                            <center><strong><h2 style="font-size: 35px">Projects</h2></center>
+                                <br>
+                                <br></strong>
 
                                 <table class="table table-bordered">
                                     <tr>
@@ -492,6 +498,8 @@
                             @endrole
 
                             @role('Project Manager')
+                            <center><strong><h2 style="font-size: 35px">Projects</h2></strong></center>
+                                <br>
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>ID</th>

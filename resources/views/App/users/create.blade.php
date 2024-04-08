@@ -29,7 +29,7 @@
                             </div>
                             <br>
 
-                            {{-- <div class="mt-4">
+                            <div class="mt-4">
                                 <x-input-label for="role" :value="__('Enter Role')" /><br>
                                 <select class="block mt-1 w-full" id="role" name="role">
                                     <option value="0">Project Manager</option>
@@ -38,7 +38,7 @@
                                 </select>
                                 <x-input-error :messages="$errors->get('role')" class="mt-2" />
                         
-                            </div> --}}
+                            </div>
                             
 
 

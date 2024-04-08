@@ -30,9 +30,9 @@
                                     <option value="">Select Project</option>  
                                 
                                       
-                                    @foreach ($projects as $project)
+                                    {{-- @foreach ($projects as $project) --}}
                                     <option value="{{ $project->id }}">{{ $project->title }}</option>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                     
 
                                
@@ -45,8 +45,8 @@
                                 <x-input-label for="category_id" :value="__('Enter Category')" /><br>
                                 <select class="block mt-1 w-full" id="category_id" name="category_id"> 
                                     <option value="">Select Category</option>  
-                                    @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @foreach ($categories as $id => $title)
+                                    <option value="{{ $id }}">{{ $title }}</option>
                                     @endforeach
                                 </select>
                             </div>

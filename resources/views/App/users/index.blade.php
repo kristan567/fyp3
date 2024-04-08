@@ -314,6 +314,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar">
         <div class="navbar-container">
             <!--logo div-->
@@ -338,7 +339,7 @@
                 </li>
                 @role('Project Manager')
                     <li class="menu-item">
-                        <a class="menu-link"  href="{{ route('users.index') }}">
+                        <a class="menu-link" href="{{ route('users.index') }}">
                             <i class="fas fa-solid fa-user"></i>
                             <span class="menu-link-text">Users</span>
                         </a>
@@ -362,24 +363,24 @@
                 @endrole
 
                 @role('Project Manager')
-                <li class="menu-item">
-                    <a class="menu-link" href="{{ route('recommend.index') }}">
-                        <i class="fas fa-solid fa-paw"></i>
-                        <span class="menu-link-text">Recommend</span>
-                    </a>
-                </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="{{ route('recommend.index') }}">
+                            <i class="fas fa-solid fa-paw"></i>
+                            <span class="menu-link-text">Recommend</span>
+                        </a>
+                    </li>
                 @endrole
 
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('materials.index') }}">
                         <i class="fas fa-regular fa-stethoscope"></i>
-                        <span class="menu-link-text">Task</span>
+                        <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="{{ route('equipments.index') }}">
                         <i class="fas fa-duotone fa-gear"></i>
-                        <span class="menu-link-text">Settings</span>
+                        <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
             </ul>
@@ -400,6 +401,8 @@
         </div>
     </nav>
 
+
+
     <main class="dashboard">
         <x-tenant-app-layout>
             <x-slot name="header">
@@ -413,6 +416,9 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
+
+                            <center><strong><h2 style="font-size: 35px">Total Users</h2></center>
+                            <br></strong>
         
                             <table>
                                 <thead>

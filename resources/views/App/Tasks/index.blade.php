@@ -57,11 +57,12 @@
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
 
-                            <x-btn-link class="ml-4 float-right" href="{{ route('task.create', $project->id) }}">Add
+                            <x-btn-link class="ml-4 float-right" href="{{ url('task/' . $project->id . '/create') }}">Add
                                 Tasks</x-btn-link>
-                            <a href="{{ url('tasks/' . $project->id . '/showcompleted') }}" class="btn btn-secondary mb-3">Show Completed Tasks</a>
+                            <a href="{{ url('tasks/' . $project->id . '/showcompleted') }}"
+                                class="btn btn-secondary mb-3">Show Completed Tasks</a>
 
-                      
+
 
                             {{--  --}}
                         </h2>
@@ -86,7 +87,9 @@
                                 @role('Project Manager')
                                     <th>status</th>
                                 @endrole
+
                                 <th>Send Email</th>
+                          
 
 
 
@@ -102,10 +105,10 @@
                                         {{-- @foreach ($tasks as $task) --}}
                                         @if ($task->user_id == auth()->id())
                                             <tr>
-                                                <td>{{ $task->id }}</td>
+                                                {{-- <td>{{ $task->id }}</td> --}}
                                                 <td>{{ $task->title }}</td>
-                                                <td>{{ $task->description }}</td>
-                                                <td>{{ $task->category_id }}</td>
+                                                {{-- <td>{{ $task->description }}</td> --}}
+                                                <td>{{ $task->category->title }}</td>
                                                 <td>{{ $task->priority }}</td>
                                                 <td>{{ $task->status == 0 ? 'Not Started' : '' }}
                                                     {{ $task->status == 1 ? 'Started' : '' }}
@@ -113,15 +116,18 @@
                                                     {{ $task->status == 3 ? 'Complete' : '' }}</td>
                                                 <td>{{ $task->start_date }}</td>
                                                 <td>{{ $task->end_date }}</td>
-                                                <td>{{ $task->user_id }}</td>
+                                                <td>{{ $task->user->name }}</td>
 
                                                 <td>
                                                     <form action="{{ route('task.destroy', $task->id) }}" method="POST">
+
                                                         {{-- <a class="btn btn-info"
                                                             href="{{ route('task.show', $task->id) }}">Show</a> --}}
+                                                            
+
+
                                                         <a class="btn btn-primary"
                                                             href="{{ route('task.edit', $task->id) }}">Edit</a>
-
                                                         @csrf
                                                         {{-- @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button> --}}
@@ -131,11 +137,22 @@
                                                 <td>
                                                     <a href="{{ url('tasks/' . $task->id . '/upload') }}"
                                                         class="btn btn-info">Images</a>
+
+
+                                                    {{-- <a href="{{ url('tasks/' . $task->id . '/upload') }}"
+                                                        class="btn btn-info">Update</a> --}}
+
                                                 </td>
 
                                                 <td> <a class="btn btn-primary"
                                                         href="{{ url('tasks/' . $task->id . '/usermail') }}">Send Mail</a>
                                                 </td>
+
+                                                {{-- <td>
+                                                    <a class="btn btn-info"
+                                                    href="{{ route('task.usershow', $task->id) }}">Show</a>
+                                                    
+                                                </td> --}}
 
                                                 {{-- <td>
                                                     @if (!$task->completed)
@@ -202,9 +219,18 @@
                                                 </td> --}}
 
                                                 <td>
+
                                                     <a href="{{ url('tasks/' . $task->id . '/upload') }}"
                                                         class="btn btn-info">Images</a>
+
+
+
                                                 </td>
+
+
+
+
+
 
 
 

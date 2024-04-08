@@ -19,14 +19,17 @@ class ImageController extends Controller
     public function index($id)
     {
         $categories = Category::get();
-        $projects = Project::get();
+        $project = Project::findOrFail($id);
         $users= User::get();
         $task = Task::findorfail($id);
         $taskImages = Image::where('task_id',$id)->get();
+        $manager = User::first();
     
+
+        
         
 
-      return view('App.taskimage.index',compact('task', 'categories','projects', 'users','taskImages'));  
+      return view('App.taskimage.index',compact('task', 'categories','project', 'users','taskImages','manager'));  
     
     }
 
@@ -36,6 +39,30 @@ class ImageController extends Controller
     public function create()
     {
         //
+    }
+
+    public function back($id){
+
+        $categories = Category::get();
+        $project = Project::findorfail($id);    
+        $users= User::get();
+        $tasks = Task::findorfail($id);
+
+        $totalTasks = Task::where('project_id', $id)->count();
+        $completedTasks = Task::where('project_id', $id)->where('completed', true)->count();
+        $completionPercentage = $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0;
+
+
+        //for total task in th eproject
+        $totalTasks = Task::where('project_id', $id)->count();
+
+        $totalUsers = Task::where('project_id', $id)->distinct('user_id')->count('user_id');
+        $manager = User::first();
+        
+
+        return view('App.projects.show',compact('project', 'categories', 'tasks','users','completionPercentage','totalTasks','totalUsers','manager'));
+
+
     }
 
     /**
@@ -50,6 +77,7 @@ class ImageController extends Controller
         ]);
 
         $tasks = Task::findorfail($id);
+        $project = Project::findorfail($id); 
 
         
         
@@ -101,6 +129,8 @@ class ImageController extends Controller
     {
         //
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
