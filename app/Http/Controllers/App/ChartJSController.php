@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Chart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Equipment;
+use App\Models\Material;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
@@ -66,10 +68,10 @@ class ChartJSController extends Controller
 
         // Query the database to get the total number of completed and incomplete tasks for each project
         $totalTasksByProject = Task::select('project_id')
-                                    ->selectRaw('sum(case when completed = true then 1 else 0 end) as completed_tasks')
-                                    ->selectRaw('sum(case when completed = false then 1 else 0 end) as incomplete_tasks')
-                                    ->groupBy('project_id')
-                                    ->get();
+            ->selectRaw('sum(case when completed = true then 1 else 0 end) as completed_tasks')
+            ->selectRaw('sum(case when completed = false then 1 else 0 end) as incomplete_tasks')
+            ->groupBy('project_id')
+            ->get();
 
         // Prepare data for the chart
         $projectIds = $totalTasksByProject->pluck('project_id')->toArray();
@@ -77,11 +79,18 @@ class ChartJSController extends Controller
         $incompleteTaskCounts = $totalTasksByProject->pluck('incomplete_tasks')->toArray();
 
 
-      
+        $totalEquipmentCost = DB::table('equipment')->sum(DB::raw('price * qty'));
+        $totalMaterialCost = DB::table('materials')->sum(DB::raw('price * qty'));
+        $totalCost = $totalEquipmentCost + $totalMaterialCost;
+
+
+        $equipmentTypes = Equipment::pluck('type')->toArray();
+        $equipmentQuantities = Equipment::pluck('quantity')->toArray();
+        $materialQuantities = Material::pluck('quantity')->toArray();
 
 
 
-        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount','projectLabels', 'taskCounts','projectIds', 'completedTaskCounts', 'incompleteTaskCounts'));
+        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost','equipmentTypes','equipmentQuantities','materialQuantities'));
     }
 
     // public function taskindex()

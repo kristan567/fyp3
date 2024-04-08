@@ -141,9 +141,12 @@ Route::middleware([
             // Route::get('recommend', [RecommendController::class,'filterData'])->name('recommend');
             Route::resource('recommend', RecommendController::class);
 
-
+            // Route::get('/recommend/filter', [RecommendController::class, 'filterData'])->name('recommend.filter');
 
             Route::get('recommend/{id}/show', [App\Http\Controllers\App\RecommendController::class, 'show']);
+
+          
+
         });
     });
 

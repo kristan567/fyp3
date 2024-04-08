@@ -587,11 +587,12 @@
             </a>
         </div>
     </nav>
-    
 
-    <main class="dashboard">
 
-        <x-tenant-app-layout>
+    <div class="content-wrapper">
+    <x-tenant-app-layout>
+        <main class="dashboard">
+
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -605,20 +606,26 @@
                                 <input type="number" id="max_price" name="max_price" placeholder="Max Price">
 
                                 <!-- Project Type Checkboxes -->
-                                <input type="checkbox" class="project_type" name="project_types[]" value="Vacation Home">
+                                <input type="checkbox" class="project_type" name="project_types[]"
+                                    value="Vacation Home">
                                 Vacation Home
                                 <input type="checkbox" class="project_type" name="project_types[]" value="residential">
                                 Residential
+
+                                <input type="checkbox" class="project_type" name="project_types[]" value="Apartment Renovation">
+                                Apartment Renovation
+                                
                                 <!-- Add other project types as needed -->
 
                                 <!-- Land Size -->
-                                <input type="number" id="land_size" name="land_size" placeholder="Land Size (sq)">
+                                <input type="number" id="size" name="size" placeholder="Land Size (sq)">
 
                                 <!-- Time -->
-                                <input type="text" id="time" name="time" placeholder="Time">
+                                <input type="text" id="duration" name="duration" placeholder="Time">
+                                <button type="submit" class="btn btn-primary">Apply Filters</button>
                             </form>
 
-                            <div id="filteredData">
+                            <div class="filteredData">
 
                                 <section class="section">
 
@@ -633,18 +640,18 @@
                                                                 alt="">
                                                         </div>
                                                     </div>
-    
+
                                                     <div class="card__text">{{ $filteredItem->description }}
                                                     </div>
                                                 </div>
                                                 <div class="card__button-wrapper">
-    
+
                                                     <td>
                                                         <a href="{{ url('recommend/' . $filteredItem->id . '/show') }}"
                                                             class="btn btn-primary">Show</a>
                                                     </td>
-    
-    
+
+
                                                 </div>
                                             </div>
                                         @endforeach
@@ -687,8 +694,10 @@
                         </div>
                     </div>
                 </div>
-        </x-tenant-app-layout>
-    </main>
+        </main>
+    </x-tenant-app-layout>
+    </div>
+
 
 
     <script>
@@ -707,29 +716,50 @@
 
 
     <script>
-        $(document).ready(function() {
+//        $(document).ready(function() {
+//     $('#filterForm input').on('change', function() {
+//         index();
+//     });
 
-            $('#filterForm input').on('change', function() {
-                index();
+//     function index() {
+//         var formData = $('#filterForm').serialize();
+
+//         $.ajax({
+//             url: "{{ route('recommend.index') }}",
+//             method: "GET",
+//             data: formData,
+//             success: function(response) {
+//                 $('.content-wrapper .filteredData').html(response); // Update the content inside .dashboard
+//             }
+//         });
+//     }
+// });
+
+$(document).ready(function() {
+        // Function to handle form submission and update filtered data
+        $('#filterForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Serialize form data
+            var formData = $(this).serialize();
+            // console.log(formData)
+            // AJAX request to fetch filtered data
+            $.ajax({
+                url: "{{ route('recommend.create') }}", // Update the URL as needed
+                method: "GET",
+                data: formData,
+                success: function(response) {
+                    // Update the content inside .filteredData with the filtered data
+                    $('.filteredData .card-list').html(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error(error);
+                }
             });
-
-            function index() {
-                var formData = $('#filterForm').serialize();
-
-                $.ajax({
-                    url: "{{ route('recommend.index') }}",
-                    method: "GET",
-                    data: formData,
-                    success: function(response) {
-                        $('#filteredData').html(response);
-                    }
-                });
-            }
-
-         
-
-
         });
+    });
+
     </script>
 
 
@@ -739,7 +769,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
+    {{-- </div> --}}
 </body>
 
 </html>

@@ -12,6 +12,7 @@ class RecommendController extends Controller
      */
     public function index(Request $request)
     {
+    
 
         $recommends = Recommend::get(); 
 
@@ -32,24 +33,47 @@ class RecommendController extends Controller
         }
 
         $filteredData = $query->get();
+
+        return view('App.recommends.recommend')->with('data', $filteredData);
         
 
-        return view('App.recommends.recommend',compact('recommends'))->with('data', $filteredData);
 
     }
 
-    public function filterData(Request $request)
+    public function create(Request $request)
     {
+    
+
+        $recommends = Recommend::get(); 
+
+        $query = Recommend::query();
+
+        // Apply Filters
+        if ($request->filled('min_price') && $request->filled('max_price')) {
+            $query->whereBetween('price', [$request->min_price, $request->max_price]);
+        }
+        if ($request->filled('project_types')) {
+            $query->whereIn('project_type', $request->project_types);
+        }
+        if ($request->filled('size')) {
+            $query->where('size', $request->size);
+        }
+        if ($request->filled('duration')) {
+            $query->where('duration', $request->duration);
+        }
+
+        $filteredData = $query->get();
+
+        return view('App.recommends.recommendlayout')->with('data', $filteredData);
+        
+
 
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -69,6 +93,7 @@ class RecommendController extends Controller
         
         $recommends = Recommend::findOrFail($id); 
         return view('App.recommends.show',compact('recommends'));
+
     }
 
     /**

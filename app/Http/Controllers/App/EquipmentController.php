@@ -5,6 +5,7 @@ namespace App\Http\Controllers\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Equipment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,8 @@ class EquipmentController extends Controller
     {
 
         $equipments = Equipment::orderBy('created_at','Desc')->get();
-        return view('App.equipments.index',compact('equipments'));
+        $totalCost = DB::table('equipment')->sum(DB::raw('price * qty'));
+        return view('App.equipments.index',compact('equipments', 'totalCost'));
     }
 
     /**

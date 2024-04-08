@@ -634,6 +634,7 @@
                                     {{ __('view Task ') }}
 
                                     <x-btn-link href="{{ route('projects.index') }}">View Tasks</x-btn-link>
+
                                 @endrole
 
                             </div>
@@ -727,14 +728,16 @@
 
                                         <div>
                                             <div>
-                                                <h2>Element 4</h2>
+                                                <h2>Total Budget: {{ $totalCost }}</h2>
                                             </div>
                                         </div>
+
                                         {{-- <div>
                                         <div>
                                             <h2>Element 5</h2>
                                         </div>
                                     </div> --}}
+
                                     </div>
                                 </div>
 
