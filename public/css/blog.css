@@ -1,0 +1,61 @@
+.navbar-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    background-color: transparent;/* Ensure navbar is above other content */
+  }
+  
+  .navbar-hover-bg {
+    transition: background-color 0.3s; /* Add transition for smooth effect */
+  }
+  
+  .navbar-hover-bg:hover {
+    background-color: #f8f9fa; /* Change background color on hover */
+  }
+  
+  body {
+      background-image: url('../images/blog/paper.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 20px;
+    }
+  
+    .banner {
+      width: 100%;
+    }
+  
+    .title {
+      text-align: center;
+    }
+  
+    .container {
+    column-width: 300px;
+    column-gap: 2em;
+    padding-bottom: 10px;
+    }
+  
+    .paragraph {
+    margin-top: 0px;
+    font-size: 1.2em;
+    }
+  
+    .col-img {
+      width: 100%;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+  

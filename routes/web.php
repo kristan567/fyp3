@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,32 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('tenants', TenantController::class);
 });
+
+Route::get('/blog', function () {
+    return view('landingpage.mainBlogpage');
+})->name('mainblogpage');
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::get('/aboutus', function () {
+    return view('landingpage.aboutus');
+})->name('aboutus');
+
+Route::get('/contactus', function () {
+    return view('landingpage.contactus');
+})->name('contactus');
+
+Route::resource('newuser', NewuserController::class)->names([
+    'index' => 'newuser.index',
+    'create' => 'newuser.create',
+    'store' => 'newuser.store',
+    'show' => 'newuser.show',
+    'edit' => 'newuser.edit',
+    'update' => 'newuser.update',
+    'destroy' => 'newuser.destroy',
+]);
+
 
 require __DIR__.'/auth.php';

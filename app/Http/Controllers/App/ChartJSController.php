@@ -84,13 +84,25 @@ class ChartJSController extends Controller
         $totalCost = $totalEquipmentCost + $totalMaterialCost;
 
 
-        $equipmentTypes = Equipment::pluck('type')->toArray();
-        $equipmentQuantities = Equipment::pluck('quantity')->toArray();
-        $materialQuantities = Material::pluck('quantity')->toArray();
+        $equipmentData = Equipment::all();
+        $equipmentTypes = $equipmentData->pluck('type')->toArray();
+        $equipmentQuantities = $equipmentData->pluck('qty')->toArray();
 
 
 
-        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost','equipmentTypes','equipmentQuantities','materialQuantities'));
+        $equipment = Equipment::all(); // Assuming Equipment is your model name
+        $equipmentLabels = $equipment->pluck('name')->toArray();
+        $equipmentQuantities = $equipment->pluck('qty')->toArray();
+
+        //    dd($equipmentTypes, $equipmentQuantities);
+
+        $materials = Material::all(); // Assuming Material is your model name
+        $materialLabels = $materials->pluck('name')->toArray();
+        $materialQuantities = $materials->pluck('qty')->toArray();
+
+
+
+        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost', 'equipmentTypes', 'equipmentQuantities', 'equipmentLabels', 'equipmentQuantities','materialLabels', 'materialQuantities'));
     }
 
     // public function taskindex()

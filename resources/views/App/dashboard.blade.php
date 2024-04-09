@@ -62,6 +62,10 @@
     <!--fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
     <!-- Add these lines to your HTML layout file, like resources/views/layouts/app.blade.php -->
@@ -634,7 +638,6 @@
                                     {{ __('view Task ') }}
 
                                     <x-btn-link href="{{ route('projects.index') }}">View Tasks</x-btn-link>
-
                                 @endrole
 
                             </div>
@@ -679,7 +682,8 @@
                                             <div>
                                                 <div>
 
-                                                    <p class="icon">users engaged in tasks: {{ $totaluserwithtasks }} </p>
+                                                    <p class="icon">users engaged in tasks: {{ $totaluserwithtasks }}
+                                                    </p>
 
                                                 </div>
 
@@ -692,7 +696,7 @@
                                                     @foreach ($userwithtasks as $user)
                                                         <li>{{ $user->name }}</li>
                                                     @endforeach
-                                                    
+
                                                 </ul>
 
                                                 </p>
@@ -774,12 +778,37 @@
                                     </div>
                                 </div>
 
-                                <div class="charts" style="width:80%; ">
+                                <div class="charts" style="width:45%; ">
                                     <div class="p-6 text-gray-900 ">
-                                        <canvas id="totalTasksByProjectChart" style="width: 100%; height: 300px;"></canvas>
+                                        <canvas id="totalTasksByProjectChart"
+                                        style="width: 200px; height: 100px;"></canvas>
 
                                     </div>
                                 </div>
+
+
+
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
+                                        <canvas id="equipmentPieChart"></canvas>
+
+                                    </div>
+                                </div>
+
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
+                                        <canvas id="equipmentChart" width="400" height="400"></canvas>
+
+                                    </div>
+                                </div>
+                                <div class="charts" style="width:45%; ">
+                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
+                                        <canvas id="materialChart" width="400" height="400"></canvas>
+
+                                    </div>
+                                </div>
+
+
 
 
 
@@ -957,37 +986,7 @@
         </script>
     @endpush
 
-    {{-- @push('scripts')
-        <script>
-            const taskdata = {
-                labels: @json($taskdata->map(fn($taskdata) => $taskdata->date)),
-                datasets: [{
-                    label: 'Registered users in the last 30 days',
-                    backgroundColor: 'rgba(255, 99, 132, 0.3)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: @json($taskdata->map(fn($taskdata) => $taskdata->aggregate)),
-                }]
-            };
-            const config = {
-                type: 'bar',
-                taskdata: taskdata,
-                options: {
-                    maintainAspectRatio: false, // Disable aspect ratio to allow resizing
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true // Start y-axis from zero
-                        }
-                    }
-                }
-            };
-            const taskchart = new Chart(
-                document.getElementById('taskchart'),
-                config
-            );
-          
-        </script>
-    @endpush --}}
+
 
     @push('scripts')
         <script>
@@ -1080,14 +1079,12 @@
                 }
             });
         </script>
-        
     @endpush
 
 
 
     @push('scripts')
         <script>
-
             // Get data from the PHP variables passed from the controller
             var projectIds = <?php echo json_encode($projectIds); ?>;
             var completedTaskCounts = <?php echo json_encode($completedTaskCounts); ?>;
@@ -1123,6 +1120,111 @@
             });
         </script>
     @endpush
+
+    @push('scripts')
+        <script>
+            var equipmentTypes = <?php echo json_encode($equipmentTypes); ?>;
+            var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
+
+            var ctx = document.getElementById('equipmentPieChart').getContext('2d');
+            var equipmentChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: equipmentTypes,
+                    datasets: [{
+                        data: equipmentQuantities,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    // You can add more options here
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        </script>
+    @endpush
+
+
+
+    @push('scripts')
+        <script>
+            var equipmentLabels = <?php echo json_encode($equipmentLabels); ?>;
+            var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
+
+            var ctx = document.getElementById('equipmentChart').getContext('2d');
+            var qtyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: equipmentLabels,
+                    datasets: [{
+                        label: 'Quantity',
+                        data: equipmentQuantities,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @endpush
+
+    @push('scripts')
+        <script>
+            var materialLabels = <?php echo json_encode($materialLabels); ?>;
+            var materialQuantities = <?php echo json_encode($materialQuantities); ?>;
+
+            var ctx = document.getElementById('materialChart').getContext('2d');
+            var materialChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: materialLabels,
+                    datasets: [{
+                        label: 'Quantity',
+                        data: materialQuantities,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @endpush
+
+
+
 
 
 
