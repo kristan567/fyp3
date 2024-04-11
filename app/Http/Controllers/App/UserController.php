@@ -107,6 +107,16 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      */
 
+     public function complete(Request $request, $id)
+     {
+         $user = User::findOrFail($id);
+         $user->update([
+             'completed' => true,
+             'completed_at' => now(),
+         ]);
+         return redirect()->back()->with('success', 'left user Removed successfully');
+     }
+
     public function destroy($id)
     {
         $user= User::findOrFail($id);

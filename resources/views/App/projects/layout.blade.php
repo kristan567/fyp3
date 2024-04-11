@@ -10,7 +10,7 @@
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> --}}
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> --}}
@@ -95,16 +95,16 @@
             justify-content: space-between;
             transition: all .3s ease;
 
-           
-            
+
+
         }
 
 
-        .navbar .navbar-container  {
+        .navbar .navbar-container {
             /* padding: 1rem; */
 
-          
-          
+
+
         }
 
         /*logo*/
@@ -134,7 +134,7 @@
 
 
 
- 
+
         /*menu list*/
         .navbar .menu-list {
             display: flex;
@@ -284,6 +284,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -306,16 +310,21 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
-
-
-     
     </style>
 
 
@@ -409,7 +418,7 @@
         </div>
     </nav>
 
-    
+
     <main class="dashboard">
 
         <x-tenant-app-layout>
@@ -442,43 +451,47 @@
                                 </div>
                             @endif
 
-                            
+
 
                             @role('worker')
-                            <center><strong><h2 style="font-size: 35px">Projects</h2></center>
+                                <center><strong>
+                                        <h2 style="font-size: 35px">Projects</h2>
+                                </center>
                                 <br>
                                 <br></strong>
 
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>status</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        @role('Project Manager')
-                                            <th>status</th>
-                                        @endrole
+                                <div style="overflow-x:auto;">
 
-                                        <th width="280px">Action</th>
-                                    </tr>
-                                    @foreach ($projects as $project)
+                                    <table class="table table-bordered">
                                         <tr>
-                                            <td>{{ $project->id }}</td>
-                                            <td>{{ $project->title }}</td>
-                                            <td>{{ $project->description }}</td>
-                                            <td>{{ $project->status == 0 ? 'Not Started' : '' }}
-                                                {{ $project->status == 1 ? 'Started' : '' }}
-                                                {{ $project->status == 2 ? 'Pending' : '' }}
-                                                {{ $project->status == 3 ? 'Complete' : '' }}
-                                            </td>
-                                            <td>{{ $project->start_date }}</td>
-                                            <td>{{ $project->end_date }}</td>
-                                            <td><a class="btn btn-info"
-                                                    href="{{ route('projects.show', $project->id) }}">Show</a>
-                                            </td>
-                                            {{-- <td>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>status</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            @role('Project Manager')
+                                                <th>status</th>
+                                            @endrole
+
+                                            <th width="280px">Action</th>
+                                        </tr>
+                                        @foreach ($projects as $project)
+                                            <tr>
+                                                <td>{{ $project->id }}</td>
+                                                <td>{{ $project->title }}</td>
+                                                <td>{{ $project->description }}</td>
+                                                <td>{{ $project->status == 0 ? 'Not Started' : '' }}
+                                                    {{ $project->status == 1 ? 'Started' : '' }}
+                                                    {{ $project->status == 2 ? 'Pending' : '' }}
+                                                    {{ $project->status == 3 ? 'Complete' : '' }}
+                                                </td>
+                                                <td>{{ $project->start_date }}</td>
+                                                <td>{{ $project->end_date }}</td>
+                                                <td><a class="btn btn-info"
+                                                        href="{{ route('projects.show', $project->id) }}">Show</a>
+                                                </td>
+                                                {{-- <td>
                                             <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                                 <a class="btn btn-info"
                                                     href="{{ route('projects.show', $project->id) }}">Show</a>
@@ -491,67 +504,75 @@
                                             </form>
                                         </td> --}}
 
-                                        </tr>
-                                    @endforeach
+                                            </tr>
+                                        @endforeach
 
-                                </table>
+                                    </table>
+                                </div>
                             @endrole
 
                             @role('Project Manager')
-                            <center><strong><h2 style="font-size: 35px">Projects</h2></strong></center>
+                                <center><strong>
+                                        <h2 style="font-size: 35px">Projects</h2>
+                                    </strong></center>
                                 <br>
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>status</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th width="280px">Action</th>
-                                        @role('Project Manager')
+
+                                <div style="overflow-x:auto;">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
                                             <th>status</th>
-                                        @endrole
-                                    </tr>
-                                    @foreach ($projects as $project)
-                                        @if (!$project->completed)
-                                            <tr>
-                                                <td>{{ $project->id }}</td>
-                                                <td>{{ $project->title }}</td>
-                                                <td>{{ $project->description }}</td>
-                                                <td>{{ $project->status == 0 ? 'Not Started' : '' }}
-                                                    {{ $project->status == 1 ? 'Started' : '' }}
-                                                    {{ $project->status == 2 ? 'Pending' : '' }}
-                                                    {{ $project->status == 3 ? 'Complete' : '' }}
-                                                </td>
-                                                <td>{{ $project->start_date }}</td>
-                                                <td>{{ $project->end_date }}</td>
-                                                <td>
-                                                    <form action="{{ route('projects.destroy', $project->id) }}"
-                                                        method="POST">
-                                                        <a class="btn btn-info"
-                                                            href="{{ route('projects.show', $project->id) }}">Show</a>
-                                                        <a class="btn btn-primary"
-                                                            href="{{ route('projects.edit', $project->id) }}">Edit</a>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th width="280px">Action</th>
+                                            @role('Project Manager')
+                                                <th>status</th>
+                                            @endrole
+                                        </tr>
+                                        @foreach ($projects as $project)
+                                            @if (!$project->completed)
+                                                <tr>
+                                                    <td>{{ $project->id }}</td>
+                                                    <td>{{ $project->title }}</td>
+                                                    <td>{{ $project->description }}</td>
+                                                    <td>{{ $project->status == 0 ? 'Not Started' : '' }}
+                                                        {{ $project->status == 1 ? 'Started' : '' }}
+                                                        {{ $project->status == 2 ? 'Pending' : '' }}
+                                                        {{ $project->status == 3 ? 'Complete' : '' }}
+                                                    </td>
+                                                    <td>{{ $project->start_date }}</td>
+                                                    <td>{{ $project->end_date }}</td>
+                                                    <td>
+                                                        <form action="{{ route('projects.destroy', $project->id) }}"
+                                                            method="POST">
+                                                            <a class="btn btn-info"
+                                                                href="{{ route('projects.show', $project->id) }}">Show</a>
+                                                            <a class="btn btn-primary"
+                                                                href="{{ route('projects.edit', $project->id) }}">Edit</a>
 
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                 
-                                                    @if (!$project->completed)
-                                                        <a class="btn btn-warning"
-                                                            href="{{ url('projects/' . $project->id . '/complete') }}">complete</a>
-                                                    @endif
-                                                </td>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"
+                                                                onclick="return confirm('Are you sure you want to delete this Project?')">Delete</button>
+                                                        </form>
+                                                    </td>
+                                                    <td>
 
-                                            </tr>
-                                        @endif
-                                    @endforeach
+                                                        @if (!$project->completed)
+                                                            <a class="btn btn-warning"
+                                                                href="{{ url('projects/' . $project->id . '/complete') }}"
+                                                                onclick="return confirm('Are you sure you want this Project to Be completed?')">complete</a>
+                                                        @endif
+                                                    </td>
 
-                                </table>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+
+                                    </table>
+                                </div>
 
                             @endrole
 
@@ -591,11 +612,11 @@
 
 
 
-        <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 
 
-        <!-- Modal -->
-        {{-- <div class="modal fade" id="updateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    {{-- <div class="modal fade" id="updateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -667,9 +688,9 @@
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form> --}}
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
+    </div>
 
 </body>
 

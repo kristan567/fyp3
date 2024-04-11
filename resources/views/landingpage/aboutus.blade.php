@@ -26,7 +26,7 @@
         @include( 'landingpage.layout.navbar' )
 
 
-        <img class="banner" src="{{ asset('images/blog/newspaper.jpg') }}" style="height: 500px;" alt="Image banner which reads Tech Talk Tutorials">
+        <img class="banner" src="{{ asset('images/aboutus/aboutus.jpg') }}" style="height: 500px;" alt="Image banner which reads Tech Talk Tutorials">
 
 
 

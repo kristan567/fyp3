@@ -67,94 +67,96 @@
                             {{--  --}}
                         </h2>
                     @endrole
-
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                {{-- <th>ID</th> --}}
-                                <th>Name</th>
-                                {{-- <th>Description</th> --}}
-                                <th>Category</th>
-                                <th>Priority</th>
-                                <th>status</th>
-
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Assigned To </th>
-
-                                <th width="160px">Action</th>
-                                <th>images</th>
-                                @role('Project Manager')
+                    <div style="overflow-x:auto;">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    {{-- <th>ID</th> --}}
+                                    <th>Name</th>
+                                    {{-- <th>Description</th> --}}
+                                    <th>Category</th>
+                                    <th>Priority</th>
                                     <th>status</th>
-                                @endrole
 
-                                <th>Send Email</th>
-                          
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Assigned To </th>
+
+                                    <th width="160px">Action</th>
+                                    <th>images</th>
+                                    @role('Project Manager')
+                                        <th>status</th>
+                                    @endrole
+
+                                    <th>Send Email</th>
 
 
 
-                            </tr>
 
-                        </thead>
-                        <tbody>
+                                </tr>
 
-                            @role('worker')
-                                @if ($project->tasks)
-                                    {{-- @if ($tasks) --}}
-                                    @foreach ($project->tasks as $task)
-                                        {{-- @foreach ($tasks as $task) --}}
-                                        @if ($task->user_id == auth()->id())
-                                            <tr>
-                                                {{-- <td>{{ $task->id }}</td> --}}
-                                                <td>{{ $task->title }}</td>
-                                                {{-- <td>{{ $task->description }}</td> --}}
-                                                <td>{{ $task->category->title }}</td>
-                                                <td>{{ $task->priority }}</td>
-                                                <td>{{ $task->status == 0 ? 'Not Started' : '' }}
-                                                    {{ $task->status == 1 ? 'Started' : '' }}
-                                                    {{ $task->status == 2 ? 'Pending' : '' }}
-                                                    {{ $task->status == 3 ? 'Complete' : '' }}</td>
-                                                <td>{{ $task->start_date }}</td>
-                                                <td>{{ $task->end_date }}</td>
-                                                <td>{{ $task->user->name }}</td>
+                            </thead>
+                            <tbody>
 
-                                                <td>
-                                                    <form action="{{ route('task.destroy', $task->id) }}" method="POST">
+                                @role('worker')
+                                    @if ($project->tasks)
+                                        {{-- @if ($tasks) --}}
+                                        @foreach ($project->tasks as $task)
+                                            {{-- @foreach ($tasks as $task) --}}
+                                            @if ($task->user_id == auth()->id())
+                                                <tr>
+                                                    {{-- <td>{{ $task->id }}</td> --}}
+                                                    <td>{{ $task->title }}</td>
+                                                    {{-- <td>{{ $task->description }}</td> --}}
+                                                    <td>{{ $task->category->title }}</td>
+                                                    <td>{{ $task->priority }}</td>
+                                                    <td>{{ $task->status == 0 ? 'Not Started' : '' }}
+                                                        {{ $task->status == 1 ? 'Started' : '' }}
+                                                        {{ $task->status == 2 ? 'Pending' : '' }}
+                                                        {{ $task->status == 3 ? 'Complete' : '' }}</td>
+                                                    <td>{{ $task->start_date }}</td>
+                                                    <td>{{ $task->end_date }}</td>
+                                                    <td>{{ $task->user->name }}</td>
 
-                                                        {{-- <a class="btn btn-info"
+                                                    <td>
+                                                        <form action="{{ route('task.destroy', $task->id) }}"
+                                                            method="POST">
+
+                                                            {{-- <a class="btn btn-info"
                                                             href="{{ route('task.show', $task->id) }}">Show</a> --}}
-                                                            
 
 
-                                                        <a class="btn btn-primary"
-                                                            href="{{ route('task.edit', $task->id) }}">Edit</a>
-                                                        @csrf
-                                                        {{-- @method('DELETE')
+
+                                                            <a class="btn btn-primary"
+                                                                href="{{ route('task.edit', $task->id) }}">Edit</a>
+                                                            @csrf
+                                                            {{-- @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button> --}}
-                                                    </form>
-                                                </td>
+                                                        </form>
+                                                    </td>
 
-                                                <td>
-                                                    <a href="{{ url('tasks/' . $task->id . '/upload') }}"
-                                                        class="btn btn-info">Images</a>
+                                                    <td>
+                                                        <a href="{{ url('tasks/' . $task->id . '/upload') }}"
+                                                            class="btn btn-info">Images</a>
 
 
-                                                    {{-- <a href="{{ url('tasks/' . $task->id . '/upload') }}"
+                                                        {{-- <a href="{{ url('tasks/' . $task->id . '/upload') }}"
                                                         class="btn btn-info">Update</a> --}}
 
-                                                </td>
+                                                    </td>
 
-                                                <td> <a class="btn btn-primary"
-                                                        href="{{ url('tasks/' . $task->id . '/usermail') }}">Send Mail</a>
-                                                </td>
+                                                    <td> <a class="btn btn-primary"
+                                                            href="{{ url('tasks/' . $task->id . '/usermail') }}">Send
+                                                            Mail</a>
+                                                    </td>
 
-                                                {{-- <td>
+                                                    {{-- <td>
                                                     <a class="btn btn-info"
                                                     href="{{ route('task.usershow', $task->id) }}">Show</a>
                                                     
                                                 </td> --}}
 
-                                                {{-- <td>
+                                                    {{-- <td>
                                                     @if (!$task->completed)
                                                         <form action="{{ route('task.complete', $task->id) }}"
                                                             method="POST" style="display: inline;">
@@ -170,73 +172,75 @@
 
 
 
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="3">No Tasks found</td>
-                                    </tr>
-                                @endif
-                            @endrole
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="3">No Tasks found</td>
+                                        </tr>
+                                    @endif
+                                @endrole
 
-                            @role('Project Manager')
-                                @if ($project->tasks)
-                                    @foreach ($project->tasks as $task)
-                                        @if (!$task->completed)
-                                            <tr>
-                                                {{-- <td>{{ $task->id }}</td> --}}
-                                                <td>{{ $task->title }}</td>
-                                                {{-- <td>{{ $task->description }}</td> --}}
-                                                <td>{{ $task->category->title }}</td>
-                                                <td>{{ $task->priority }}</td>
-                                                <td>{{ $task->status == 0 ? 'Not Started' : '' }}
-                                                    {{ $task->status == 1 ? 'Started' : '' }}
-                                                    {{ $task->status == 2 ? 'Pending' : '' }}
-                                                    {{ $task->status == 3 ? 'Complete' : '' }}</td>
-                                                <td>{{ $task->start_date }}</td>
-                                                <td>{{ $task->end_date }}</td>
-                                                <td>{{ $task->user->name }}</td>
+                                @role('Project Manager')
+                                    @if ($project->tasks)
+                                        @foreach ($project->tasks as $task)
+                                            @if (!$task->completed)
+                                                <tr>
+                                                    {{-- <td>{{ $task->id }}</td> --}}
+                                                    <td>{{ $task->title }}</td>
+                                                    {{-- <td>{{ $task->description }}</td> --}}
+                                                    <td>{{ $task->category->title }}</td>
+                                                    <td>{{ $task->priority }}</td>
+                                                    <td>{{ $task->status == 0 ? 'Not Started' : '' }}
+                                                        {{ $task->status == 1 ? 'Started' : '' }}
+                                                        {{ $task->status == 2 ? 'Pending' : '' }}
+                                                        {{ $task->status == 3 ? 'Complete' : '' }}</td>
+                                                    <td>{{ $task->start_date }}</td>
+                                                    <td>{{ $task->end_date }}</td>
+                                                    <td>{{ $task->user->name }}</td>
 
-                                                <td>
-                                                    <form action="{{ route('task.destroy', $task->id) }}" method="POST">
-                                                        {{-- <a class="btn btn-info"
+                                                    <td>
+                                                        <form action="{{ route('task.destroy', $task->id) }}"
+                                                            method="POST">
+                                                            {{-- <a class="btn btn-info"
                                                         href="{{ route('task.show', $task->id) }}">Show</a> --}}
-                                                        <a class="btn btn-primary"
-                                                            href="{{ route('task.edit', $task->id) }}">Edit</a>
+                                                            <a class="btn btn-primary"
+                                                                href="{{ route('task.edit', $task->id) }}">Edit</a>
 
 
 
-                                                        @csrf
+                                                            @csrf
 
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </td>
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"
+                                                                onclick="return confirm('Are you sure you want to delete this task')">Delete</button>
+                                                        </form>
+                                                    </td>
 
-                                                {{-- <td>
+                                                    {{-- <td>
                                                     <a href="{{ route('image.index', ['id' => $task->id]) }}" class="btn btn-info">Images</a>
                                                 </td> --}}
 
-                                                <td>
+                                                    <td>
 
-                                                    <a href="{{ url('tasks/' . $task->id . '/upload') }}"
-                                                        class="btn btn-info">Images</a>
-
-
-
-                                                </td>
+                                                        <a href="{{ url('tasks/' . $task->id . '/upload') }}"
+                                                            class="btn btn-info">Images</a>
 
 
+
+                                                    </td>
 
 
 
 
 
 
-                                                <td>
-                                                    @if (!$task->completed)
-                                                        {{-- <form action="{{ route('task.complete', $task->id) }}" method="POST"
+
+
+                                                    <td>
+                                                        @if (!$task->completed)
+                                                            {{-- <form action="{{ route('task.complete', $task->id) }}" method="POST"
                                                         style="display: inline;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-warning btn-sm">
@@ -244,36 +248,40 @@
                                                         </button>
                                                          </form> --}}
 
-                                                        <a class="btn btn-warning"
-                                                            href="{{ url('tasks/' . $task->id . '/complete') }}">complete</a>
-                                                    @endif
+                                                            <a class="btn btn-warning"
+                                                                href="{{ url('tasks/' . $task->id . '/complete') }}"
+                                                                onclick="return confirm('Are you sure you want to complete this task?')">complete</a>
+                                                        @endif
 
 
 
-                                                </td>
+                                                    </td>
 
-                                                <td> <a class="btn btn-primary"
-                                                        href="{{ url('tasks/' . $task->id . '/mail') }}">Send Mail</a>
-                                                </td>
-
-
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="3">No Tasks found</td>
-                                    </tr>
-                                @endif
-
-                            @endrole
+                                                    <td> <a class="btn btn-primary"
+                                                            href="{{ url('tasks/' . $task->id . '/mail') }}"
+                                                            onclick="return confirm('Are you sure you want to send email to this user?')">Send
+                                                            Mail</a>
+                                                    </td>
 
 
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="3">No Tasks found</td>
+                                        </tr>
+                                    @endif
+
+                                @endrole
 
 
 
-                        </tbody>
-                    </table>
+
+
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>

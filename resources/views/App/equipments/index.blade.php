@@ -279,6 +279,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -301,11 +305,19 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
+            }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
             }
         }
     </style>

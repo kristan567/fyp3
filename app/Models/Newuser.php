@@ -12,7 +12,7 @@ class Newuser extends Model
     protected $fillable = [
         'name',
         'company_name',
-        'number_of_users',
+        'number_of_users', 
         'email',
         'password',
         'message',

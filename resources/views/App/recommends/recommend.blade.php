@@ -104,11 +104,11 @@
             box-sizing: border-box;
         }
 
-        img {
+        /* img {
             width: 100%;
             height: auto;
             vertical-align: bottom;
-        }
+        } */
 
         /*css variables*/
         :root {
@@ -393,6 +393,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.content-wrapper {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -415,11 +419,23 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.content-wrapper {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
+            }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
+
+            .navbar+.content-wrapper {
+                margin-left: 15%;
             }
         }
     </style>
@@ -639,7 +655,7 @@
                                                             <img src="https://picsum.photos/800/600?random=1"
                                                                 alt="">
                                                         </div>
-                                                    </div>
+                                                    </div>  
 
                                                     <div class="card__text">{{ $filteredItem->description }}
                                                     </div>

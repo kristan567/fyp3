@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/blog', function () {
-    return view('landingpage.mainBlogpage');
-})->name('mainblogpage');
+    return view('landingpage.mainservice');
+})->name('mainservice');
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +43,39 @@ Route::get('/', function () {
 Route::get('/aboutus', function () {
     return view('landingpage.aboutus');
 })->name('aboutus');
+
+Route::get('/task', function () {
+    return view('landingpage.task');
+})->name('task');
+
+Route::get('/recommendation', function () {
+    return view('landingpage.recommendation');
+})->name('recommendation');
+
+Route::get('/notification', function () {
+    return view('landingpage.notification');
+})->name('notification');
+
+Route::get('/inventory', function () {
+    return view('landingpage.inventory');
+})->name('inventory');
+
+Route::get('/dashboardV', function () {
+    return view('landingpage.dashboard');
+})->name('dashboardV');
+
+Route::get('/blog', function () {
+    return view('landingpage.blog');
+})->name('blog');
+
+Route::get('/blog2', function () {
+    return view('landingpage.blog2');
+})->name('blog2');
+
+Route::get('/blog3', function () {
+    return view('landingpage.blog3');
+})->name('blog3');
+
 
 Route::get('/contactus', function () {
     return view('landingpage.contactus');

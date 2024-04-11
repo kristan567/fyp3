@@ -98,7 +98,7 @@ class TaskController extends Controller
             //     // Handle email sending failure
             //     return response()->json(['message' => 'Email sending failed'], 500);
             // }
-            return response()->json(['message' => 'Email sent successfully'], 200);
+            return redirect()->back()->with('success', 'email sent successfully.');
         } catch (\Exception $e) {
 
             return response()->json(['message' => 'An error occurred while sending the email'], 500);
@@ -134,7 +134,7 @@ class TaskController extends Controller
             //     // Handle email sending failure
             //     return response()->json(['message' => 'Email sending failed'], 500);
             // }
-            return response()->json(['message' => 'Email sent successfully'], 200);
+            return redirect()->back()->with('success', 'email sent successfully.');
         } catch (\Exception $e) {
 
             return response()->json(['message' => 'An error occurred while sending the email'], 500);

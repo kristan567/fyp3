@@ -7,28 +7,30 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 55%;">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ route('home') }}">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contactus') }}">contact us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('mainblogpage') }}">Blog</a>
-                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ route('mainservice') }}">Blog</a>
+                </li> --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Our Services
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{{ route('task') }}">Task Mamangement</a>
+                        <a class="dropdown-item" href="{{ route('recommendation') }}">View Recommendation</a>
+                        <a class="dropdown-item" href="{{ route('notification') }}">Notifying Users</a>
+                        <a class="dropdown-item" href="{{ route('inventory') }}">Inventory</a>
+                        <a class="dropdown-item" href="{{ route('dashboardV') }}">Analytical Dashboard</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contactus') }}">contact us</a>
                 </li>
                 @if (Route::has('login'))
                     @auth

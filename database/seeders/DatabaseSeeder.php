@@ -14,11 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@gmail.com',
-            'password' => bcrypt('superadmin'),
-        ]);
+        $this ->call([UserSeeder::class]);
 
         // $this ->call([RecommendSeeder::class]);
     }

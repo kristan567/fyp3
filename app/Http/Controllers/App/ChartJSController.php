@@ -33,6 +33,12 @@ class ChartJSController extends Controller
             ->get();
 
 
+        $userdata = User::selectRaw("date_format(completed_at, '%Y-%m-%d') as date, count(*) as aggregate")
+            ->whereDate('completed_at', '>=', now()->subdays(30))
+            ->groupBy('date')
+            ->get();
+
+
         $totaluser = User::count();
 
         $usersWithoutTasks = User::doesntHave('tasks')->get();
@@ -102,7 +108,7 @@ class ChartJSController extends Controller
 
 
 
-        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost', 'equipmentTypes', 'equipmentQuantities', 'equipmentLabels', 'equipmentQuantities','materialLabels', 'materialQuantities'));
+        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost', 'equipmentTypes', 'equipmentQuantities', 'equipmentLabels', 'equipmentQuantities', 'materialLabels', 'materialQuantities','userdata'));
     }
 
     // public function taskindex()

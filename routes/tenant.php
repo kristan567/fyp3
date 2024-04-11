@@ -52,6 +52,7 @@ Route::middleware([
         Route::group(['middleware' => ['role:Project Manager']], function () {
             Route::resource('users', UserController::class);
             Route::get('users/{id}/delete', [App\Http\Controllers\App\UserController::class, 'destroy']);
+            Route::get('users/{id}/complete', [App\Http\Controllers\App\UserController::class, 'complete'])->name('user.complete');
 
             Route::resource('projects', ProjectController::class);
             Route::resource('category', CategoryController::class);

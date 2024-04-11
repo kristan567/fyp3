@@ -26,8 +26,7 @@
                     <tr>
                         <td style="text-align:center;">
                             <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                                <img width="60" src="https://i.ibb.co/hL4XZp2/android-chrome-192x192.png"
-                                    title="logo" alt="logo">
+                                <img width="50" height="50" class="rounded-circle" src="{{ global_asset('images/forApp/Untitled-1.png') }}" >
                             </a>
                         </td>
                     </tr>
@@ -193,10 +192,7 @@
                         <td style="height:20px;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="text-align:center;">
-                            <p style="font-size:14px; color:#455056bd; line-height:18px; margin:0 0 0;">&copy;
-                                <strong>www.rakeshmandal.com</strong></p>
-                        </td>
+                        
                     </tr>
                 </table>
             </td>

@@ -1,6 +1,6 @@
 .main-container {
-  padding: 100px;
-    display: inline-flex;
+    padding: 5%;
+    display: flex;
     width: 100%;
     text-align: center;
   }
@@ -9,7 +9,7 @@
     width: 40%;
     border: 2px solid dodgerblue;
     height: 350px;
-   margin:50px;
+    margin:20px;
   }
   
   div h3 {
@@ -146,6 +146,20 @@
     .ban_text {
       left: 2%;
     }
+  }
+
+  @media only screen and (max-width: 480px) {
+
+    .main-container {
+      flex-direction: column; /* Display columns in mobile view */
+      align-items: center; /* Center items in mobile view */
+    }
+  
+    .main-container div {
+      width: 100%; /* Make columns take full width in mobile view */
+      margin: 10px auto; /* Adjust margin for mobile view */
+    }
+
   }
   
   

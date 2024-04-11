@@ -264,6 +264,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -286,11 +290,19 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
+            }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
             }
         }
     </style>
@@ -424,77 +436,78 @@
                             </div>
 
                             <div class="card-body">
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Sku</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>total Cost</th>
-                                            <th>item Added At</th>
-                                            <th>image</th>
-                                            
-                                            <th>Action</th>
+                                <div style="overflow-x:auto;">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Sku</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>total Cost</th>
+                                                <th>item Added At</th>
+                                                <th>image</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if ($materials->isNotEmpty())
+                                                <th>Action</th>
 
-                                            @foreach ($materials as $material)
-                                             
-                                                <tr>
-                                                    <th>{{ $material->name }}</th>
-                                                    <th>{{ $material->sku }}</th>
-                                                    <th>{{ $material->price }}</th>
-                                                    <th>{{ $material->qty }}</th>
-                                                    <th>{{ $material->price * $material->qty }}</th>
-                                                    <th>{{ \Carbon\Carbon::parse($material->created_at)->format('d,M,Y') }}
-                                                    </th>
-                                                    <th>
-                                                        @if ($material->image != '')
-                                                            <img width="80"
-                                                                src="{{ global_asset('materialuploads\materialproducts' . '/' . $material->image) }}" />
-                                                        @endif
-                                                    </th>
-                                                    
-                                                    <th>
-                                                        <a href="{{ route('materials.edit', $material->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if ($materials->isNotEmpty())
 
-                                                        <a href="#"
-                                                            onclick="deleteMaterial({{ $material->id }});"
-                                                            class="btn btn-danger">Delete</a>
+                                                @foreach ($materials as $material)
+                                                    <tr>
+                                                        <th>{{ $material->name }}</th>
+                                                        <th>{{ $material->sku }}</th>
+                                                        <th>{{ $material->price }}</th>
+                                                        <th>{{ $material->qty }}</th>
+                                                        <th>{{ $material->price * $material->qty }}</th>
+                                                        <th>{{ \Carbon\Carbon::parse($material->created_at)->format('d,M,Y') }}
+                                                        </th>
+                                                        <th>
+                                                            @if ($material->image != '')
+                                                                <img width="80"
+                                                                    src="{{ global_asset('materialuploads\materialproducts' . '/' . $material->image) }}" />
+                                                            @endif
+                                                        </th>
 
-                                                        <form id="delete-product-from-{{ $material->id }}"
-                                                            action="{{ route('materials.destroy', $material->id) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                        </form>
+                                                        <th>
+                                                            <a href="{{ route('materials.edit', $material->id) }}"
+                                                                class="btn btn-primary">Edit</a>
 
-                                                    </th>
-                                                </tr>
-                                            @endforeach
+                                                            <a href="#"
+                                                                onclick="deleteMaterial({{ $material->id }});"
+                                                                class="btn btn-danger">Delete</a>
 
-                                        @endif
+                                                            <form id="delete-product-from-{{ $material->id }}"
+                                                                action="{{ route('materials.destroy', $material->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                @method('delete')
+                                                            </form>
 
-                                    </tbody>
-                                    <tfoot  style="margin-top: 10px;">
-                                        <tr>
-                                            <th style="border: 1px solid black; ">Total Cost Sum:</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th style="border: 1px solid black; ">{{ $totalCost }}</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
+                                                        </th>
+                                                    </tr>
+                                                @endforeach
 
-                                </table>
+                                            @endif
+
+                                        </tbody>
+                                        <tfoot style="margin-top: 10px;">
+                                            <tr>
+                                                <th style="border: 1px solid black; ">Total Cost Sum:</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th style="border: 1px solid black; ">{{ $totalCost }}</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
 
                             </div>
 

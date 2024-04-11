@@ -44,27 +44,33 @@
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 62%;">
+                <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 55%;">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ route('home') }}">Home <span
+                                    class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('mainblogpage') }}">Blog</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Our Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="{{ route('task') }}">Task Mamangement</a>
+                                <a class="dropdown-item" href="{{ route('recommendation') }}">View Recommendation</a>
+                                <a class="dropdown-item" href="{{ route('notification') }}">Notifying Users</a>
+                                <a class="dropdown-item" href="{{ route('inventory') }}">Inventory</a>
+                                <a class="dropdown-item" href="{{ route('dashboardV') }}">Analytical Dashboard</a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contactus') }}">contact us</a>
                         </li>
                         @if (Route::has('login'))
                             @auth
@@ -357,31 +363,23 @@
                         <img src="https://plus.unsplash.com/premium_photo-1675186049574-061fba2d243c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt="Product 1">
                         <div class="button-container">
-                            <button class="button">View Details</button>
+                            <a class="btn btn-primary" href="{{ route('blog') }}"> Nepal Construction</a>
                         </div>
                     </div>
                     <div class="product-item">
                         <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt="Product 2">
                         <div class="button-container">
-                            <button class="button">View Details</button>
+                            <a class="btn btn-primary" href="{{ route('blog2') }}">Nepal Construction</a>
                         </div>
                     </div>
                     <div class="product-item">
                         <img src="https://plus.unsplash.com/premium_photo-1675130119382-6f891206f406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt="Product 3">
                         <div class="button-container">
-                            <button class="button">View Details</button>
+                            <a class="btn btn-primary" href="{{ route('blog3') }}">Nepal Contruction</a>
                         </div>
                     </div>
-                    <div class="product-item">
-                        <img src="https://plus.unsplash.com/premium_photo-1675130119382-6f891206f406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                            alt="Product 3">
-                        <div class="button-container">
-                            <button class="button">View Details</button>
-                        </div>
-                    </div>
-
 
                 </div>
             </div>
@@ -495,6 +493,22 @@
             @endauth
         </div>
     @endif --}}
+
+    {{-- <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/66152024a0c6737bd129e7a3/1hr18b42i';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script--> --}}
 </body>
 
 </html>

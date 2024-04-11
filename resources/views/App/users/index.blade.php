@@ -280,6 +280,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -302,11 +306,19 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
+            }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
             }
         }
     </style>
@@ -314,7 +326,7 @@
 </head>
 
 <body>
-    
+
     <nav class="navbar">
         <div class="navbar-container">
             <!--logo div-->
@@ -411,57 +423,74 @@
                     <x-btn-link class="ml-4 float-right" href="{{ route('users.create') }}">Add User</x-btn-link>
                 </h2>
             </x-slot>
-        
+
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
 
-                            <center><strong><h2 style="font-size: 35px">Total Users</h2></center>
+                            <center><strong>
+                                    <h2 style="font-size: 35px">Total Users</h2>
+                            </center>
                             <br></strong>
-        
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>name</th>
-                                        <th>Email</th>
-                                        <th>role</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-        
-                                @foreach ($users as $user)
-                                    <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-        
-                                        <td>
-                                            @foreach ($user->roles as $role)
-                                                {{ $role->name }} {{ $loop->last ? '' : ',' }}
-                                            @endforeach
-                                        </td>
-        
-                                        <td style="display: flex;">
-                                            <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
+                            <div style="overflow-x:auto;">
 
-                                            <a href="{{ url('users/' . $user->id . '/delete ') }}" class="btn btn-danger">Delete</a>
-                                            
-                                        </td>
-                                    </tr>
-                                @endforeach
-        
-        
-        
-        
-                            </table>
-        
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>name</th>
+                                            <th>Email</th>
+                                            <th>role</th>
+                                            <th>Action</th>
+                                            <th>Available user</th>
+                                        </tr>
+                                    </thead>
+
+                                    @foreach ($users as $user)
+                                        @if (!$user->completed)
+                                            <tr>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+
+                                                <td>
+                                                    @foreach ($user->roles as $role)
+                                                        {{ $role->name }} {{ $loop->last ? '' : ',' }}
+                                                    @endforeach
+                                                </td>
+
+                                                <td style="display: flex;">
+                                                    <a class="btn btn-primary"
+                                                        href="{{ route('users.edit', $user->id) }}">Edit</a>
+
+                                                    {{-- <a href="{{ url('users/' . $user->id . '/delete ') }}"
+                                                    class="btn btn-danger">Delete</a> --}}
+
+                                                </td>
+
+                                                <td>
+                                                    @if (!$user->completed)
+                                                        <a class="btn btn-danger"
+                                                            href="{{ url('users/' . $user->id . '/complete') }}"
+                                                            onclick="return confirm('Are you sure you want to delte this user?')">Remove</a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+
+
+
+
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </x-tenant-app-layout>
     </main>
-    
+
     <script>
         //elements 
         const btnToggler = window.document.querySelector(".navbar-toggler");

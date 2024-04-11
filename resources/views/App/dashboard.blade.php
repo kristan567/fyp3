@@ -66,6 +66,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
 
     <!-- Add these lines to your HTML layout file, like resources/views/layouts/app.blade.php -->
@@ -343,6 +347,10 @@
             .navbar.active+.dashboard {
                 margin-left: 30%;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
         }
 
         @media only screen and (max-width: 670px) {
@@ -365,11 +373,21 @@
                 position: relative;
                 top: 4rem;
             }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
+            }
+
+
         }
 
         @media only screen and (max-width: 350px) {
             .dashboard .title {
                 font-size: 1.7rem;
+            }
+
+            .navbar+.dashboard {
+                margin-left: 15%;
             }
         }
 
@@ -434,7 +452,7 @@
             display: block;
             border-radius: 10px;
             inline-size: 100%;
-            border-radius: inherit;
+            border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 8px grey;
         }
@@ -522,7 +540,64 @@
             opacity: 0;
             display: none;
         }
+
+
+
+        .charts {
+            width: 45%;
+        }
+
+        #myChart,
+        #userchart,
+        #taskchart,
+        #projectStatusChart,
+        #totalTasksChart,
+        #totalTasksByProjectChart,
+        #equipmentChart,
+        #materialChart {
+
+            width: 400px;
+            height: 300px;
+
+        }
+
+        .descharts {
+            display: block;
+            border-radius: 10px;
+            inline-size: 100%;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 8px grey;
+            height: 300px;
+            padding: 50px;
+        }
+
+        .descharts {
+            width: 45%;
+        }
+
+        /* .descharts:hover {
+            box-shadow: 0 0 16px grey;
+            transition-duration: 0.2s;
+        } */
+
+        @media only screen and (max-width: 600px) {
+
+            .charts {
+                width: 100%;
+            }
+
+            .descharts {
+
+                height: 400px;
+                width: 100%;
+                padding: 10px;
+            }
+        }
     </style>
+
+
+
 </head>
 
 <body>
@@ -604,8 +679,8 @@
             <div class="user-info">
                 {{-- <i class="fas fa-solid fa-user-secret"></i> --}}
                 <div class="user-details">
-                    <h3 class="user-name">Eleanor Pena</h3>
-                    <p class="user-occupation">Veterinary </p>
+                    <h3 class="user-name"><div>{{ Auth::user()->name }}</div></h3>
+                  
                 </div>
             </div>
             <a class="logout-btn" href="#">
@@ -658,7 +733,7 @@
                     {{ __('Dashboard') }}
                 </h2>
             </x-slot> --}}
-                \
+
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -748,71 +823,199 @@
 
                             </div>
 
-                            <div class="chartContainer">
-                                <div class="charts" style="width:45%;">
-                                    <div class="p-6 text-gray-900 ">
-                                        <canvas id="myChart" style="width: 400px; height: 300px;"></canvas>
+                            <div class="p-6 text-gray-900 ">
+                                <div class="chartContainer">
+                                    <div data-aos="fade-down-right" class="charts">
+
+                                        <canvas id="myChart"></canvas>
+
+
 
                                     </div>
-                                </div>
 
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 ">
-                                        <canvas id="taskchart" style="width: 200px; height: 300px;"></canvas>
+                                    <div data-aos="flip-right" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">User Added In Month</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>This shows the total number of user which was added in the company from last
+                                                30 days</p>
+                                        </div>
+
 
                                     </div>
-                                </div>
 
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 ">
-                                        <canvas id="projectStatusChart"
-                                            style="width:width: 200px; height: 300px;"></canvas>
+                                    <div data-aos="flip-left" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">User who left</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>This shows the total numbwe of user who have left the team from last 30 days.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div data-aos="fade-left" class="charts">
+
+                                        <canvas id="userchart"></canvas>
+
 
                                     </div>
-                                </div>
 
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 ">
-                                        <canvas id="totalTasksChart" style="width: 200px; height: 300px;"></canvas>
+                                    <div data-aos="fade-right" class="charts">
 
-                                    </div>
-                                </div>
-
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 ">
-                                        <canvas id="totalTasksByProjectChart"
-                                        style="width: 200px; height: 100px;"></canvas>
+                                        <canvas id="taskchart"></canvas>
 
                                     </div>
-                                </div>
 
+                                    <div data-aos="flip-left" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Task Completion</h1>
+                                            </strong>
 
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>This shows the total number of task which was completed in the last 30 days.
+                                            </p>
+                                        </div>
 
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
-                                        <canvas id="equipmentPieChart"></canvas>
 
                                     </div>
-                                </div>
 
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
-                                        <canvas id="equipmentChart" width="400" height="400"></canvas>
+                                    <div data-aos="flip-right" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Project Evaluation</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>The pie chart visually represents the distribution of projects, illustrating
+                                                the proportion of completed projects versus those still in progress or
+                                                pending completion. </p>
+                                        </div>
+
 
                                     </div>
-                                </div>
-                                <div class="charts" style="width:45%; ">
-                                    <div class="p-6 text-gray-900 "  style="width: 200px; height: 300px;">
-                                        <canvas id="materialChart" width="400" height="400"></canvas>
+
+                                    <div data-aos="fade-left" class="charts">
+
+                                        <canvas id="projectStatusChart"></canvas>
+
 
                                     </div>
+
+                                    <div data-aos="fade-right" class="charts">
+
+                                        <canvas id="totalTasksChart"></canvas>
+
+                                    </div>
+
+                                    <div data-aos="flip-left" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Project Task </h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>The chart provides an insightful overview of the total number of tasks
+                                                associated with each project. </p>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div data-aos="flip-right" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Project Task Status</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>The bar graph offers a comprehensive depiction of the task status for each
+                                                project, providing valuable insights into project progress and performance.
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div data-aos="fade-left" class="charts">
+
+                                        <canvas id="totalTasksByProjectChart"></canvas>
+
+
+                                    </div>
+
+
+
+                                    <div data-aos="fade-right" class="charts">
+
+                                        <canvas id="equipmentChart"></canvas>
+
+                                    </div>
+
+                                    <div data-aos="flip-left" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Quantity of each Material</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>To allow users to detect the number of materials they can utilize before
+                                                needing to restore a certain material</p>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div data-aos="flip-right" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Availabilty of each Equipment</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>To track the availability of each equipment, you can implement a system that
+                                                monitors the usage and status of equipment in your inventory. </p>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div data-aos="fade-up-left" class="charts">
+
+                                        <canvas id="materialChart"></canvas>
+
+
+                                    </div>
+
+
+
                                 </div>
-
-
-
-
-
-
                             </div>
 
 
@@ -823,7 +1026,9 @@
                             <br>
                             <br>
 
-                            {{-- <div class="naavigatorbuttons">
+                            <div class="old">
+
+                                {{-- <div class="naavigatorbuttons">
 
                             <div class="p-6 text-gray-900">
                                 {{ __("You're logged in!") }}
@@ -854,75 +1059,74 @@
                                 @endrole
 
                             </div>
-                        </div> --}}
+                            </div> --}}
+                            </div>
 
-                            <center><strong>
+
+                            <center>
+                                <strong>
                                     <h1 style="font-size: 30px">Task In Progress</h1>
-                                </strong></center>
+                                </strong>
+                            </center>
+
                             <div class="p-6 text-gray-900">
 
-
-
                                 <div class="Tasks">
+                                    <div style="overflow-x:auto;">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
 
+                                                    <th>Priority</th>
+                                                    <th>status</th>
 
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-
-                                                <th>Priority</th>
-                                                <th>status</th>
-
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
-                                                <th>Assigned To </th>
-
-
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Assigned To </th>
 
 
 
-                                            </tr>
 
-                                        </thead>
-                                        <tbody>
-                                            @role('Project Manager')
-                                                {{-- @if ($project->tasks) --}}
-                                                @if ($tasks)
-                                                    {{-- @foreach ($project->tasks as $task) --}}
-                                                    @foreach ($tasks as $task)
+
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                @role('Project Manager')
+                                                    {{-- @if ($project->tasks) --}}
+                                                    @if ($tasks)
+                                                        {{-- @foreach ($project->tasks as $task) --}}
+                                                        @foreach ($tasks as $task)
+                                                            <tr>
+                                                                <td>{{ $task->id }}</td>
+                                                                <td>{{ $task->title }}</td>
+
+                                                                <td>{{ $task->priority }}</td>
+                                                                <td>{{ $task->status == 0 ? 'Not Started' : '' }}
+                                                                    {{ $task->status == 1 ? 'Started' : '' }}
+                                                                    {{ $task->status == 2 ? 'Pending' : '' }}
+                                                                    {{ $task->status == 3 ? 'Complete' : '' }}</td>
+                                                                <td>{{ $task->start_date }}</td>
+                                                                <td>{{ $task->end_date }}</td>
+                                                                <td>{{ $task->user->name }}</td>
+
+
+
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
                                                         <tr>
-                                                            <td>{{ $task->id }}</td>
-                                                            <td>{{ $task->title }}</td>
-
-                                                            <td>{{ $task->priority }}</td>
-                                                            <td>{{ $task->status == 0 ? 'Not Started' : '' }}
-                                                                {{ $task->status == 1 ? 'Started' : '' }}
-                                                                {{ $task->status == 2 ? 'Pending' : '' }}
-                                                                {{ $task->status == 3 ? 'Complete' : '' }}</td>
-                                                            <td>{{ $task->start_date }}</td>
-                                                            <td>{{ $task->end_date }}</td>
-                                                            <td>{{ $task->user->name }}</td>
-
-
-
+                                                            <td colspan="3">No Tasks found</td>
                                                         </tr>
-                                                    @endforeach
-                                                @else
-                                                    <tr>
-                                                        <td colspan="3">No Tasks found</td>
-                                                    </tr>
-                                                @endif
+                                                    @endif
 
-                                            @endrole
+                                                @endrole
 
-
-
-
-
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                 </div>
                             </div>
@@ -945,8 +1149,6 @@
             navbar.classList.toggle('active');
         });
     </script>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -986,8 +1188,6 @@
         </script>
     @endpush
 
-
-
     @push('scripts')
         <script>
             const taskdata = {
@@ -1019,6 +1219,36 @@
         </script>
     @endpush
 
+    @push('scripts')
+        <script>
+            const userdata = {
+                labels: @json($userdata->map(fn($userdata) => $userdata->date)),
+                datasets: [{
+                    label: 'Task completed in the last 30 days',
+                    backgroundColor: 'rgba(255, 99, 132, 0.3)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: @json($userdata->map(fn($userdata) => $userdata->aggregate)),
+                }]
+            };
+            const configUser = {
+                type: 'line',
+                data: userdata,
+                options: {
+                    maintainAspectRatio: false, // Disable aspect ratio to allow resizing
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true // Start y-axis from zero
+                        }
+                    }
+                }
+            };
+            const userchart = new Chart(
+                document.getElementById('userchart'),
+                configUser
+            );
+        </script>
+    @endpush
 
     @push('scripts')
         <script>
@@ -1046,7 +1276,6 @@
             });
         </script>
     @endpush
-
 
     @push('scripts')
         <script>
@@ -1080,8 +1309,6 @@
             });
         </script>
     @endpush
-
-
 
     @push('scripts')
         <script>
@@ -1121,47 +1348,48 @@
         </script>
     @endpush
 
-    @push('scripts')
+    // @push('scripts')
+        //
         <script>
-            var equipmentTypes = <?php echo json_encode($equipmentTypes); ?>;
-            var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
+            //         var equipmentTypes = <?php echo json_encode($equipmentTypes); ?>;
+            //         var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
 
-            var ctx = document.getElementById('equipmentPieChart').getContext('2d');
-            var equipmentChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: equipmentTypes,
-                    datasets: [{
-                        data: equipmentQuantities,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    // You can add more options here
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
+            //         var ctx = document.getElementById('equipmentPieChart').getContext('2d');
+            //         var equipmentChart = new Chart(ctx, {
+            //             type: 'pie',
+            //             data: {
+            //                 labels: equipmentTypes,
+            //                 datasets: [{
+            //                     data: equipmentQuantities,
+            //                     backgroundColor: [
+            //                         'rgba(255, 99, 132, 0.2)',
+            //                         'rgba(54, 162, 235, 0.2)',
+            //                         'rgba(255, 206, 86, 0.2)',
+            //                         'rgba(75, 192, 192, 0.2)',
+            //                         'rgba(153, 102, 255, 0.2)',
+            //                         'rgba(255, 159, 64, 0.2)'
+            //                     ],
+            //                     borderColor: [
+            //                         'rgba(255, 99, 132, 1)',
+            //                         'rgba(54, 162, 235, 1)',
+            //                         'rgba(255, 206, 86, 1)',
+            //                         'rgba(75, 192, 192, 1)',
+            //                         'rgba(153, 102, 255, 1)',
+            //                         'rgba(255, 159, 64, 1)'
+            //                     ],
+            //                     borderWidth: 1
+            //                 }]
+            //             },
+            //             options: {
+            //                 // You can add more options here
+            //                 responsive: true,
+            //                 maintainAspectRatio: false
+            //             }
+            //         });
+            //     
         </script>
+        //
     @endpush
-
-
 
     @push('scripts')
         <script>
@@ -1234,9 +1462,9 @@
     @stack('scripts')
 
 
-</body>
-
-</html>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
