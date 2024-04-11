@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CreateUser;
+use App\Models\Newuser;
 use App\Models\Tenant;
 
 use Illuminate\Http\Request;
-
- use \Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+use \Illuminate\Validation\Rules;
 
 class TenantController extends Controller
 {
@@ -24,7 +26,9 @@ class TenantController extends Controller
      */
     public function create()
     {
+
         return view('tenants.create');
+
     }
 
     /**
@@ -50,8 +54,41 @@ class TenantController extends Controller
 
        ]);
 
-       
+
        return redirect()->route('tenants.index');
+
+
+    }
+
+    public function storeemail(Request $request, $id)
+    {
+
+
+        $Newuser = Tenant::findOrFail($id);
+
+
+        $from = 'Field magnet';
+        $name = $Newuser->name;
+        $to = $Newuser->email;
+        $email = $Newuser->email;
+        $subject = "Account Creation";
+        $password = $Newuser->password;
+        $message =  "Mr/Mrs ".$name . " Your New account has been created with following credentials";
+
+        try {
+
+            Mail::to($to)->send(new CreateUser($subject, $message, $name, $password, $email));
+
+
+            // if (Mail::hasFailures()) {
+            //     // Handle email sending failure
+            //     return response()->json(['message' => 'Email sending failed'], 500);
+            // }
+            return redirect()->back()->with('success', 'email sent successfully.');
+        } catch (\Exception $e) {
+
+            return response()->json(['message' => 'An error occurred while sending the email'], 500);
+        }
     }
 
     /**

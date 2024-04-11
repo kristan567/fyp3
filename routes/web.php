@@ -93,5 +93,6 @@ Route::resource('newuser', NewuserController::class)->names([
 ]);
 
 
+Route::get('tenant/{id}/createtenant', [TenantController::class, 'storeemail']);
 
 require __DIR__.'/auth.php';

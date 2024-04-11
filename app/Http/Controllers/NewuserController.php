@@ -51,6 +51,8 @@ class NewuserController extends Controller
 
     }
 
+ 
+
     /**
      * Display the specified resource.
      */

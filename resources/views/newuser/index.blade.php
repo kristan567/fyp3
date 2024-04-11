@@ -53,6 +53,7 @@
                                     <th>Prefered Password</th>
                                     <th>message</th>
                                     <th>add</th>
+                                   
 
                                 </tr>
                                 @foreach ($Newuser as $newuser)
@@ -63,7 +64,8 @@
                                     <td>{{ $newuser->email }}</td>
                                     <td>{{ $newuser->password }}</td>
                                     <td>{{ $newuser->message }}</td>
-                                    <td><x-btn-link href="{{route('tenants.index')}}">Tenants</x-btn-link></td>
+                                    <td><x-btn-link href="{{route('tenants.create')}}">Tenants</x-btn-link></td>
+                                   
 
                                 </tr>
                                 @endforeach

@@ -37,6 +37,7 @@
                                 <th>Email</th>
                                 <th>Domain</th>
                                 <th>Action</th>
+                                <th>Notify Project Manager</th>
                               </tr>
                         </thead>
                   
@@ -50,8 +51,10 @@
                                             {{ $domain ->domain}} {{$loop->last ? '' : ','}}
                                         @endforeach
                                     </td>
-                                    
                                     <td></td>
+                                    
+                                    <td><x-btn-link class="btn btn-primary"
+                                        href="{{ url('tenant/' . $tenant->id . '/createtenant') }}">Notify User!</x-btn-link></td>
                                 </tr>
                                 
                             @endforeach
