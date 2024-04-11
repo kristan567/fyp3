@@ -75,7 +75,11 @@ Route::middleware([
             Route::delete('/equipments/{id}', [EquipmentController::class, 'destroy'])->name('equipments.destroy');
 
 
-
+            Route::get('/export_task_pdf/{id}', [TaskController::class,'pdf'])->name('export_task_pdf');
+            Route::get('/export_project_pdf', [ProjectController::class,'pdf'])->name('export_project_pdf');
+            Route::get('/export_user_pdf', [UserController::class,'pdf'])->name('export_user_pdf');
+            Route::get('/export_material_pdf', [MaterialController::class,'pdf'])->name('export_material_pdf');
+            Route::get('/export_equipment_pdf', [EquipmentController::class,'pdf'])->name('export_equipment_pdf');
             
 
 

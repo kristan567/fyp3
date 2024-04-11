@@ -3,6 +3,7 @@
 use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenantController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,6 +91,7 @@ Route::resource('newuser', NewuserController::class)->names([
     'update' => 'newuser.update',
     'destroy' => 'newuser.destroy',
 ]);
+
 
 
 require __DIR__.'/auth.php';

@@ -446,6 +446,7 @@
                                     <a href="{{ route('equipments.create') }}" class="btn btn-dark float-right">
                                         Create
                                     </a>
+                                    <a class= "btn btn-success float-left" href="{{ route('export_equipment_pdf') }}">Export PDF</a>
                                 </h1>
 
 

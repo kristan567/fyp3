@@ -430,10 +430,13 @@
                                     <a href="{{ route('materials.create') }}" class="btn btn-dark float-right">
                                         Create
                                     </a>
+                                    <a class= "btn btn-success float-left" href="{{ route('export_material_pdf') }}">Export PDF</a>
                                 </h1>
+                                
 
 
                             </div>
+                           
 
                             <div class="card-body">
                                 <div style="overflow-x:auto;">

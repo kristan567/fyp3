@@ -441,10 +441,16 @@
                             @role('Project Manager')
                                 <x-btn-link class="ml-4 float-right" href="{{ route('projects.create') }}">Add
                                     Projects</x-btn-link>
+
+                                    
                             @endrole
 
-                            <a href="{{ route('finishedproject') }}" class="btn btn-secondary mb-3">Show Completed
+                            <a href="{{ route('finishedproject') }}" class="btn btn-secondary">Show Completed
                                 project</a>
+
+                            <a class= "btn btn-success" href="{{ route('export_project_pdf') }}">Export PDF</a>
+
+                            
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}

@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -273,5 +274,18 @@ class TaskController extends Controller
         )->orderBy('completed_at', 'desc')->get();
 
         return view('App.Tasks.taskshow', compact('Completedtask', 'project'));
+    }
+
+    public function pdf($id){
+
+        $categories = Category::get();
+        $project = Project::findOrFail($id);
+        $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
+
+        $pdf = Pdf::loadView('App.pdf.task',compact('categories','project','tasks'));
+        return $pdf->download('task.pdf');
+
+        return view('App.projects.show', compact('project', 'categories', 'tasks'));
+
     }
 }

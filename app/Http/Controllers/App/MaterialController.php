@@ -5,6 +5,7 @@ namespace App\Http\Controllers\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Material;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -190,5 +191,18 @@ class MaterialController extends Controller
 
 
 
+    }
+
+    public function pdf(){
+
+   
+        $materials = Material::get();
+        $totalCost = DB::table('materials')->sum(DB::raw('price * qty'));
+   
+
+        $pdf = Pdf::loadView('App.pdf.material',compact('materials','totalCost'));
+        return $pdf->download('material.pdf');
+
+      
     }
 }

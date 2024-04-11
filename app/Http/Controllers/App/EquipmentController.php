@@ -5,6 +5,7 @@ namespace App\Http\Controllers\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Equipment;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -178,5 +179,18 @@ class EquipmentController extends Controller
         return redirect()->route('equipments.index')->with('success', 'Equipment deleted Successfully.');
 
 
+    }
+
+    public function pdf(){
+
+   
+        $equipments = Equipment::get();
+        $totalCost = DB::table('equipment')->sum(DB::raw('price * qty'));
+   
+
+        $pdf = Pdf::loadView('App.pdf.equipment',compact('equipments','totalCost'));
+        return $pdf->download('equipment.pdf');
+
+      
     }
 }

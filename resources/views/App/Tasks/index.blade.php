@@ -59,10 +59,11 @@
 
                             <x-btn-link class="ml-4 float-right" href="{{ url('task/' . $project->id . '/create') }}">Add
                                 Tasks</x-btn-link>
+
                             <a href="{{ url('tasks/' . $project->id . '/showcompleted') }}"
-                                class="btn btn-secondary mb-3">Show Completed Tasks</a>
+                                class="btn btn-secondary ">Show Completed Tasks</a>
 
-
+                            <a class= "btn btn-success " href="{{ route('export_task_pdf', $project->id) }}">Export PDF</a>
 
                             {{--  --}}
                         </h2>

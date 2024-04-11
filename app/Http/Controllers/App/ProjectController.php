@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Task;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
@@ -195,5 +196,17 @@ class ProjectController extends Controller
         )->orderBy('completed_at', 'desc')->get();
 
         return view('App.projects.finishedproject', compact('Completedproject'));
+    }
+
+    public function pdf(){
+
+   
+        $projects = Project::get();
+   
+
+        $pdf = Pdf::loadView('App.pdf.project',compact('projects'));
+        return $pdf->download('project.pdf');
+
+      
     }
 }

@@ -11,9 +11,7 @@ use \Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 
 use App\Models\User;
-
-
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -126,7 +124,17 @@ class UserController extends Controller
                         ->with('success','Task deleted successfully');
 
 
+    }
 
-        
+    public function pdf(){
+
+   
+        $users = User::get();
+   
+
+        $pdf = Pdf::loadView('App.pdf.user',compact('users'));
+        return $pdf->download('user.pdf');
+
+      
     }
 }

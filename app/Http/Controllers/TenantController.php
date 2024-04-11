@@ -49,6 +49,8 @@ class TenantController extends Controller
             'domain' => $validatedData['domain_name'].'.'.config('app.domain')
 
        ]);
+
+       
        return redirect()->route('tenants.index');
     }
 

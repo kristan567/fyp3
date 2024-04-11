@@ -421,6 +421,8 @@
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('users') }}
                     <x-btn-link class="ml-4 float-right" href="{{ route('users.create') }}">Add User</x-btn-link>
+
+                    
                 </h2>
             </x-slot>
 
@@ -428,6 +430,8 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
+
+                            <a class= "btn btn-success  " href="{{ route('export_user_pdf') }}">Export PDF</a>
 
                             <center><strong>
                                     <h2 style="font-size: 35px">Total Users</h2>
