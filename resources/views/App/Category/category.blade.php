@@ -199,7 +199,7 @@
 
                                                      @csrf
                                                      @method('DELETE')
-                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                     <button type="submit" onclick="return confirm('Are you sure you want to delete to this category?')" class="btn btn-danger">Delete</button>
                                                  </form>
 
                                              </td>

@@ -466,8 +466,8 @@
                                                     <a class="btn btn-primary"
                                                         href="{{ route('users.edit', $user->id) }}">Edit</a>
 
-                                                    {{-- <a href="{{ url('users/' . $user->id . '/delete ') }}"
-                                                    class="btn btn-danger">Delete</a> --}}
+                                                    <a href="{{ url('users/' . $user->id . '/delete ') }}"
+                                                    class="btn btn-danger">Delete</a>
 
                                                 </td>
 

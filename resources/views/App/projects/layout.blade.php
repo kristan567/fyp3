@@ -473,6 +473,8 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
+                                            <th>Lalitude</th>
+                                            <th>Longitude</th>
                                             <th>status</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
@@ -487,6 +489,8 @@
                                                 <td>{{ $project->id }}</td>
                                                 <td>{{ $project->title }}</td>
                                                 <td>{{ $project->description }}</td>
+                                                <td></td>
+                                                <td></td>
                                                 <td>{{ $project->status == 0 ? 'Not Started' : '' }}
                                                     {{ $project->status == 1 ? 'Started' : '' }}
                                                     {{ $project->status == 2 ? 'Pending' : '' }}

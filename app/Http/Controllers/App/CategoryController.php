@@ -109,7 +109,7 @@ class CategoryController extends Controller
 
         $category->delete();
       
-        return redirect()->route('projects.index')
+        return redirect()->back()
                         ->with('success','Product deleted successfully');
        
     }

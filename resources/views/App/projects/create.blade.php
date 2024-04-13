@@ -31,6 +31,18 @@
                             
                             <br>
 
+                            <div>
+                                <x-input-label for="title" :value="__('latitude')" />
+                                <x-text-input id="latitude" class="block mt-1 w-full" type="text" name="latitude" :value="old('latitude')" required autofocus />
+                                <x-input-error :messages="$errors->get('latitude')" class="mt-2" />
+                            </div>
+
+                            <div>
+                                <x-input-label for="title" :value="__('longitude')" />
+                                <x-text-input id="longitude" class="block mt-1 w-full" type="text" name="longitude" :value="old('longitude')" required autofocus />
+                                <x-input-error :messages="$errors->get('longitude')" class="mt-2" />
+                            </div>
+
                             <!-- status -->
                             <div class="mt-4">
                                 <x-input-label for="status" :value="__('Enter Status')" /><br>

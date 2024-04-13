@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('completed')->default(false);
             $table->timestamp('completed_at')->nullable();
             
+            
             $table->timestamps();
         });
     }
