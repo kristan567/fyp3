@@ -97,7 +97,7 @@ class CategoryController extends Controller
 
         // $message= "project Updated";
       
-        return redirect()->route('projects.index')->with('success', 'Product Updated successfully');
+        return redirect()->back()->with('success', 'Product Updated successfully');
     }
 
     /**

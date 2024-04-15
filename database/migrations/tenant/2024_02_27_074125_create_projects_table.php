@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('end_date');
             $table->boolean('completed')->default(false);
             $table->timestamp('completed_at')->nullable();
-            
+            // $table->string('location');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             
             $table->timestamps();
         });

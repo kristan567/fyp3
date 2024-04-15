@@ -91,6 +91,10 @@
                                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
+
+                                @error('user_id')
+                                <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                     
                             <!-- Confirm start_date -->

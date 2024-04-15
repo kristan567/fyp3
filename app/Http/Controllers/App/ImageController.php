@@ -19,17 +19,18 @@ class ImageController extends Controller
     public function index($id)
     {
         $categories = Category::get();
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
+        $project = Project::get();
         $users= User::get();
         $task = Task::findorfail($id);
         $taskImages = Image::where('task_id',$id)->get();
-        $manager = User::first();
+        // $manager = User::first();
     
 
         
         
 
-      return view('App.taskimage.index',compact('task', 'categories','project', 'users','taskImages','manager'));  
+      return view('App.taskimage.index',compact('task', 'categories','project', 'users','taskImages'));  
     
     }
 
@@ -77,7 +78,7 @@ class ImageController extends Controller
         ]);
 
         $tasks = Task::findorfail($id);
-        $project = Project::findorfail($id); 
+        $project = Project::get();
 
         
         

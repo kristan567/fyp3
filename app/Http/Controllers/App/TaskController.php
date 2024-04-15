@@ -56,12 +56,14 @@ class TaskController extends Controller
             'title' => 'required',
             'project_id' => 'required',
             'category_id' => 'required',
-            'user_id' => 'required',
+            'user_id' => 'required|unique:tasks,user_id,NULL,id,start_date,' . $request->start_date . ',end_date,' . $request->end_date,
             'description' => 'required',
             'priority'  =>  'required',
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+        ], [
+            'user_id.unique' => 'The selected user is already assigned to a task within the specified date range.',
         ]);
 
 
@@ -187,13 +189,15 @@ class TaskController extends Controller
                 'title' => 'required',
                 'project_id' => 'required',
                 'category_id' => 'required',
-                'user_id' => 'required',
+                'user_id' => 'required|unique:tasks,user_id,NULL,id,start_date,' . $request->start_date . ',end_date,' . $request->end_date,
                 'description' => 'required',
                 'priority'  =>  'required',
                 'status' => 'required',
                 'start_date' => 'required',
                 'end_date' => 'required',
-            ]);
+            ], [
+                'user_id.unique' => 'The selected user is already assigned to a task within the specified date range.',
+            ]); //this was the change
         } elseif ($role == 'worker') {
             $validatedData = $request->validate([
                 'status' => 'required',
@@ -285,7 +289,7 @@ class TaskController extends Controller
         $pdf = Pdf::loadView('App.pdf.task',compact('categories','project','tasks'));
         return $pdf->download('task.pdf');
 
-        return view('App.projects.show', compact('project', 'categories', 'tasks'));
+       
 
     }
 }

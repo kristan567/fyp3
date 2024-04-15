@@ -59,7 +59,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    @if ($errors->any())
+                   @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
@@ -68,7 +68,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif 
 
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">

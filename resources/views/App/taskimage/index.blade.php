@@ -128,9 +128,9 @@
                             <strong>
                                 <h1 class="text-center" style="font-size:30px">Upload Images for  {{ $task->title }}</h1>
                             </strong>
-
+{{-- 
                             <a class="btn btn-primary float-right" href="{{ url('tasks/' . $task->id . '/show') }}">
-                                Back</a>
+                                Back</a> --}}
                         </h2>
 
 
@@ -226,7 +226,7 @@
                                 @csrf
 
 
-                                {{-- <div class="mt-4">
+                                <div class="mt-4">
                                     <x-input-label for="task_id" :value="__('Enter Task')" /><br>
                                     <select class="block mt-1 w-full" id="task_id" name="task_id">
                                         <option value="">Select Task</option>
@@ -234,7 +234,7 @@
                                         <option value="{{ $task->id }}">{{ $task->title }}</option>
 
                                     </select>
-                                </div> --}}
+                                </div>
                                 <br>
 
                              

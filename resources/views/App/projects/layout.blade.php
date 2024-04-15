@@ -7,19 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> --}}
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <!-- Font Awesome -->
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-
-    <!-- Bootstrap JS -->
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
 
 
@@ -34,8 +30,6 @@
 
 
 
-    <!-- Add these lines to your HTML layout file, like resources/views/layouts/app.blade.php -->
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
 
 
 
@@ -325,6 +319,18 @@
                 margin-left: 15%;
             }
         }
+
+        .blink {
+            animation: blinker 1.5s linear infinite;
+            color: black;
+            font-family: sans-serif;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 
 
@@ -441,8 +447,6 @@
                             @role('Project Manager')
                                 <x-btn-link class="ml-4 float-right" href="{{ route('projects.create') }}">Add
                                     Projects</x-btn-link>
-
-                                    
                             @endrole
 
                             <a href="{{ route('finishedproject') }}" class="btn btn-secondary">Show Completed
@@ -450,7 +454,7 @@
 
                             <a class= "btn btn-success" href="{{ route('export_project_pdf') }}">Export PDF</a>
 
-                            
+
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -483,14 +487,15 @@
                                             @endrole
 
                                             <th width="280px">Action</th>
+
                                         </tr>
                                         @foreach ($projects as $project)
                                             <tr>
                                                 <td>{{ $project->id }}</td>
                                                 <td>{{ $project->title }}</td>
                                                 <td>{{ $project->description }}</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>27.689521 </td>
+                                                <td>85.341195</td>
                                                 <td>{{ $project->status == 0 ? 'Not Started' : '' }}
                                                     {{ $project->status == 1 ? 'Started' : '' }}
                                                     {{ $project->status == 2 ? 'Pending' : '' }}
@@ -533,6 +538,8 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
+                                            <th>Lalitude</th>
+                                            <th>Longitude</th>
                                             <th>status</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
@@ -543,10 +550,13 @@
                                         </tr>
                                         @foreach ($projects as $project)
                                             @if (!$project->completed)
-                                                <tr>
+                                                <tr onclick="showmap({{ $project->latitude }},{{ $project->longitude }})">
                                                     <td>{{ $project->id }}</td>
                                                     <td>{{ $project->title }}</td>
                                                     <td>{{ $project->description }}</td>
+                                                    <td>{{ $project->latitude }}</td>
+                                                    <td>{{ $project->longitude }}</td>
+
                                                     <td>{{ $project->status == 0 ? 'Not Started' : '' }}
                                                         {{ $project->status == 1 ? 'Started' : '' }}
                                                         {{ $project->status == 2 ? 'Pending' : '' }}
@@ -586,11 +596,51 @@
 
                             @endrole
 
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlm67NPf8HL9XL8zyiFAMyX2RSRgenQKI&libraries=places">
+                            </script>
+
+
+                            <center>
+                                <div class="mapcontainer">
+                                    <marquee class="blink" width="20%" behavior="scroll" direction="left"
+                                        scrollamount="5=10">
+                                        Please click the lat and lng of the project to see location
+
+                                    </marquee>
+                                    <div id="map" style="width: 500px; height: 200px;"></div>
+                                </div>
+                            </center>
+
+
+                            <script>
+                                function showmap(lat, lng) {
+                                    var coord = {
+                                        lat: lat,
+                                        lng: lng
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("map"), {
+                                        zoom: 10,
+                                        center: coord
+                                    });
+
+                                    new google.maps.Marker({
+                                        position: coord,
+                                        map: map
+                                    });
+                                }
+                                showmap(0, 0);
+                            </script>
+
+
+
 
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
 
 
 
@@ -697,10 +747,18 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
-        </form> --}}
+        </form> 
+    
+    
+   
+    </div> --}}
+
     </div>
     </div>
-    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
 
 </body>
 

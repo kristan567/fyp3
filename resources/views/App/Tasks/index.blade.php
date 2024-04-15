@@ -60,8 +60,8 @@
                             <x-btn-link class="ml-4 float-right" href="{{ url('task/' . $project->id . '/create') }}">Add
                                 Tasks</x-btn-link>
 
-                            <a href="{{ url('tasks/' . $project->id . '/showcompleted') }}"
-                                class="btn btn-secondary ">Show Completed Tasks</a>
+                            <a href="{{ url('tasks/' . $project->id . '/showcompleted') }}" class="btn btn-secondary ">Show
+                                Completed Tasks</a>
 
                             <a class= "btn btn-success " href="{{ route('export_task_pdf', $project->id) }}">Export PDF</a>
 
@@ -146,7 +146,7 @@
 
                                                     </td>
 
-                                                    <td> <a class="btn btn-primary"
+                                                    <td> <a class="btn btn-primary" onclick="return confirm('Are you sure you want to send email to Project Manager?')"
                                                             href="{{ url('tasks/' . $task->id . '/usermail') }}">Send
                                                             Mail</a>
                                                     </td>
@@ -185,7 +185,7 @@
 
                                 @role('Project Manager')
                                     @if ($project->tasks)
-                                        @foreach ($project->tasks as $task)
+                                        @foreach ($tasks as $task)
                                             @if (!$task->completed)
                                                 <tr>
                                                     {{-- <td>{{ $task->id }}</td> --}}

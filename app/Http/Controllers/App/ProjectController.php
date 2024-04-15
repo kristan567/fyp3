@@ -45,6 +45,8 @@ class ProjectController extends Controller
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
 
         ]);
 
@@ -96,7 +98,17 @@ class ProjectController extends Controller
 
         $categories = Category::get();
         $project = Project::findOrFail($id);
-        $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
+        // $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
+
+        $tasks = Task::where('completed', false)
+            ->whereHas('project', function ($query) use ($id) {
+                $query->where('id', $id);
+            })
+            ->orderBy('priority', 'desc')
+            ->orderBy('end_date')
+            ->get();
+
+
         // $tasks = Task::get();
 
 
@@ -109,7 +121,7 @@ class ProjectController extends Controller
         // $user = Auth::user();
         // $tasks =  $user->tasks()->get(); // Assuming you have defined a relationship between User and Task models
 
- 
+
         //for percantage
         $totalTasks = Task::where('project_id', $id)->count();
         $completedTasks = Task::where('project_id', $id)->where('completed', true)->count();
@@ -123,7 +135,7 @@ class ProjectController extends Controller
         $manager = User::first();
 
 
-        return view('App.projects.show', compact('project', 'categories', 'tasks','completionPercentage','totalTasks','totalUsers','manager'));
+        return view('App.projects.show', compact('project', 'categories', 'tasks', 'completionPercentage', 'totalTasks', 'totalUsers', 'manager'));
     }
 
     /**
@@ -153,6 +165,8 @@ class ProjectController extends Controller
             'status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
 
         ]);
 
@@ -198,15 +212,14 @@ class ProjectController extends Controller
         return view('App.projects.finishedproject', compact('Completedproject'));
     }
 
-    public function pdf(){
+    public function pdf()
+    {
 
-   
+
         $projects = Project::get();
-   
 
-        $pdf = Pdf::loadView('App.pdf.project',compact('projects'));
+
+        $pdf = Pdf::loadView('App.pdf.project', compact('projects'));
         return $pdf->download('project.pdf');
-
-      
     }
 }
