@@ -446,7 +446,7 @@
                                                 <th>Name</th>
                                                 <th>Sku</th>
                                                 <th>Price</th>
-                                                <th>Quantity</th>
+                                                <th>Quantity in ( m<sup>3</sup>/nop/bag)</th>
                                                 <th>total Cost</th>
                                                 <th>item Added At</th>
                                                 <th>image</th>

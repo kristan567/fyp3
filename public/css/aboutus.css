@@ -71,7 +71,7 @@
     animation: fadeInRight 2s ease;
 }
 
-img {
+.banner {
     width: 100%;
     height: auto;
     border-radius: 10px;

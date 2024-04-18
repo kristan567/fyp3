@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\App;
 
+use App\Mail\VerifyImage;
 use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class ImageController extends Controller
 {
@@ -71,11 +73,27 @@ class ImageController extends Controller
      */
     public function store(Request $request, $id)
     {
-        
-        $request->validate([
-            'images.*' => 'required|image|mimes:png,jpg,jpeg,webp'
+
+      
+        $validatedData = $request->validate([
+
+           'reason'=>'nullable',
 
         ]);
+
+
+        // // create a new project in thr database
+
+        // Image::insert($validatedData);
+      
+        
+        $request->validate([
+            'images.*' => 'required|image|mimes:png,jpg,jpeg,webp',
+            'reason'=>'required',
+
+        ]);
+
+      
 
         $tasks = Task::findorfail($id);
         $project = Project::get();
@@ -99,12 +117,59 @@ class ImageController extends Controller
                 $imageData[] = [
                     'task_id' => $tasks->id,
                     'images' => $path.$filename,
+                    'reason' => $validatedData['reason'],
                 ];
             }
         }
 
-        Image::insert($imageData);
+        $ans=Image::insert($imageData);
+        // dd($ans);
         return redirect()->back()->with('status', "Uploaded Successfully") ;
+    }
+
+
+    public function complete(Request $request, $id)
+    {
+        $image = Image::findOrFail($id);
+        $image->update([
+            'is_approved' => true,
+            // 'completed_at' => now(),
+        ]);
+        return redirect()->back()->with('success', ' the imag has been verified');
+    }
+
+    public function storeemail(Request $request, $id)
+    {
+
+
+        $taskImage = Image::findOrFail($id);
+
+        
+
+
+        $from= 'project manager';
+        $to = $taskImage->task->user->email;
+        $task_name = $taskImage->task->title;
+        $subject = "Task Assigned: " . $task_name;
+        $message = "The Image you have uploaded has been verified by:" .$from.  " for the task: ".$task_name." you can change the task status" ;
+
+        // dd($task_name);
+
+        try {
+
+            Mail::to($to)->send(new VerifyImage($subject, $message,));
+
+
+            // if (Mail::hasFailures()) {
+            //     // Handle email sending failure
+            //     return response()->json(['message' => 'Email sending failed'], 500);
+            // }
+            return redirect()->back()->with('success', 'email sent successfully.');
+        } catch (\Exception $e) {
+      
+
+            return response()->json(['message' => 'An error occurred while sending the email'], 500);
+        }
     }
 
     /**

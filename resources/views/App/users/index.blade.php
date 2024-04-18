@@ -445,8 +445,9 @@
                                             <th>name</th>
                                             <th>Email</th>
                                             <th>role</th>
+                                            <th>User Created at</th>
                                             <th>Action</th>
-                                            <th>Available user</th>
+                                            <th>Remove from team</th>
                                         </tr>
                                     </thead>
 
@@ -461,6 +462,7 @@
                                                         {{ $role->name }} {{ $loop->last ? '' : ',' }}
                                                     @endforeach
                                                 </td>
+                                                <td>{{ $user->created_at }}</td>
 
                                                 <td style="display: flex;">
                                                     <a class="btn btn-primary"

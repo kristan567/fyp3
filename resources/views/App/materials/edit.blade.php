@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label h5" for="">Qty </label>
+                                <label class="form-label h5" for="">Qty in ( m<sup>3</sup>/nop/bag) </label>
                                 <input value="{{ old('qty', $material->qty) }}" type="text"
                                     class="@error('qty') is-invalid @enderror form-control form-control-lg"
                                     placeholder="qty" name="qty">

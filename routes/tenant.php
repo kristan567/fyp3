@@ -83,7 +83,9 @@ Route::middleware([
             
 
 
+            Route::get('taskimage/{id}/verified', [App\Http\Controllers\App\ImageController::class, 'complete'])->name('taskimage.complete');
 
+            Route::get('taskimage/{id}/mail', [App\Http\Controllers\App\ImageController::class, 'storeemail']);
 
         });
 

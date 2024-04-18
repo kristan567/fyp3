@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label h5" for="">Qty </label>
+                                <label class="form-label h5" for="">Availability in (Count) </label>
                                 <input value="{{ old('qty', $equipment->qty) }}" type="text"
                                     class="@error('qty') is-invalid @enderror form-control form-control-lg"
                                     placeholder="qty" name="qty">

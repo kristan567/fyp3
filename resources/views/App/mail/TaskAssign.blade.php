@@ -4,7 +4,7 @@
     <title>{{ $subject }}</title>
 </head>
 <body>
-   this is the email 
+
 
    {{ $message }}
    

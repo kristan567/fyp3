@@ -12,7 +12,7 @@
 
    <p>Your email :-{{ $email }}</p>
 
-   <p>your name :- {{ $password }}</p>
+   <p>your Password :- {{ $password }}</p>
 
 
 

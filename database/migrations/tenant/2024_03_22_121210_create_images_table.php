@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('task_id')->constrained()->onDelete('cascade');
             $table->string('images');
+            $table->string('reason')->nullable(true);
+            $table->boolean('is_approved')->default(false)->nullable(true);
             $table->timestamps();
         });
     }

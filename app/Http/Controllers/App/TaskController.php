@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -170,10 +171,11 @@ class TaskController extends Controller
         $projects = Project::get();
         $users = User::get();
         $manager = User::first();
+        // $taskImages = Image::where('task_id',$task)->findOrFail($task);
 
    
 
-        return view('App.Tasks.edit', compact('task', 'categories', 'projects', 'users','manager'));
+        return view('App.Tasks.edit', compact('task', 'categories', 'projects', 'users','manager',));
     }
 
     /**

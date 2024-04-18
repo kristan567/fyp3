@@ -123,12 +123,19 @@
                             <div class="alert alert-success">{{ session('status') }}</div>
                         @endif
 
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
 
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
                             <strong>
-                                <h1 class="text-center" style="font-size:30px">Upload Images for  {{ $task->title }}</h1>
+                                <h1 class="text-center" style="font-size:30px">Upload Images for {{ $task->title }}
+                                </h1>
                             </strong>
-{{-- 
+                            {{-- 
                             <a class="btn btn-primary float-right" href="{{ url('tasks/' . $task->id . '/show') }}">
                                 Back</a> --}}
                         </h2>
@@ -180,7 +187,7 @@
                                         value="{{ $project->description }}" disabled />
                                 </div>
                             </form>
-                        </div> --}}     
+                        </div> --}}
 
                         {{-- <strong>
                             <hr style="">
@@ -225,7 +232,6 @@
                                 enctype="multipart/form-data">
                                 @csrf
 
-
                                 <div class="mt-4">
                                     <x-input-label for="task_id" :value="__('Enter Task')" /><br>
                                     <select class="block mt-1 w-full" id="task_id" name="task_id">
@@ -236,8 +242,18 @@
                                     </select>
                                 </div>
                                 <br>
+                                {{-- <div class="mt-4">
+                                    <x-input-label for="task_id" :value="__('Enter Task')" /><br>
+                                    <select class="block mt-1 w-full" id="task_id" name="task_id">
+                                        <option value="">Select Task</option>
 
-                             
+                                        <option value="{{ $task->id }}">{{ $task->title }}</option>
+
+                                    </select>
+                                </div>
+                                <br> --}}
+
+
 
                                 <br>
                                 <br>
@@ -245,8 +261,20 @@
                                 <div class="mb-3">
                                     <label for="new_photo">Upload New Photo:</label>
                                     <input type="file" id="new_photo" name="images[]" multiple class="form-control">
-                                    
+
                                 </div>
+
+                                <div class="mb-3">
+                                    <div class="mt-4">
+                                        <x-input-label for="reason" :value="__('reason')" />
+
+                                        <textarea id="reason" cols="30" rows="4" class="block mt-1 w-full" name="reason"
+                                            :value="old('reason')"required autofocus style="border-radius: 5px;"></textarea>
+                                        <x-input-error :messages="$errors->get('reason')" class="mt-2" />
+                                    </div>
+                                </div>
+
+
 
                                 <!-- Submit Button -->
                                 <div>
@@ -259,44 +287,104 @@
                                 <br>
                                 <br>
 
-                                <div class="col-sm-4">
-                                    {{-- <h3>Before</h3> --}}
-                                    <div class="image-container">
-                                        <div class="image">
-                                            <strong>
-                                                <h2 style="font-size: 30px; ">Progress Images:</h2>
-                                            </strong>
-                                            <br>
-                                            <div class="image-row">
-                                                @foreach ($taskImages as $image)
-                                                    <div class="img" style="">
-                                                        <img src="{{ global_asset($image->images) }}" />
-                                                    </div>
-                                                    <a class="btn btn-danger" style="margin-bottom: 7%"
-                                                        href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
-                                                        Image</a><br />
-                                                @endforeach
-                                            </div>
+                            </form>
 
+                            <div class="col-sm-4">
+                                {{-- <h3>Before</h3> --}}
+                                <div class="image-container">
+                                    <div class="image">
+                                        <strong>
+                                            <h2 style="font-size: 30px; ">Progress Images:</h2>
+                                        </strong>
+                                        <br>
+                                        <div class="image-row">
+                                            @foreach ($taskImages as $image)
+                                                <div class="img" style="">
+                                                    <img src="{{ global_asset($image->images) }}" />
+                                                </div>
+                                                <a class="btn btn-danger" style="margin-bottom: 7%"
+                                                    href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
+                                                    Image</a><br />
+
+                                                @role('Project Manager')
+                                                    <td>
+                                                        @if (!$image->is_approved)
+                                                            <a class="btn btn-success"
+                                                                href="{{ url('taskimage/' . $image->id . '/verified') }}"
+                                                                onclick="return confirm('Are you sure you want to verify this task progress?')">Verify</a>
+                                                        @else
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-check2-all"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
+                                                                <path
+                                                                    d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+                                                            </svg>
+                                                            <p>Verified
+                                                                <a class="btn btn-primary"
+                                                                    href="{{ url('taskimage/' . $image->id . '/mail') }}"
+                                                                    onclick="return confirm('Are you sure you want to send email to this user?')">Send
+                                                                    Mail</a>
+                                                            </p>
+                                                        @endif
+                                                    </td>
+                                                @endrole
+
+                                                @role('worker')
+                                                    @if ($image->is_approved)
+                                                        <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-check2-all"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
+                                                            <path
+                                                                d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+                                                        </svg>
+                                                        <p style="color:rgb(0, 182, 0);">Verified</p>
+                                                    @else
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-check-lg"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
+                                                        </svg>
+                                                        <p>Unverified</p>
+                                                    @endif
+                                                @endrole
+
+                                                <hr>
+
+                                                <div class="form-group">
+                                                    Description:
+                                                    <td>{{ $image->reason }}</td>
+
+                                                </div>
 
 
                                         </div>
+
+                                        <div>
+
+                                        </div>
+                                        @endforeach
                                     </div>
 
+
+
                                 </div>
-
-
-
-
-
-                            </form>
+                            </div>
 
                         </div>
 
 
                     </div>
+
+
+
                 </div>
             </div>
+        </div>
         </div>
 
 

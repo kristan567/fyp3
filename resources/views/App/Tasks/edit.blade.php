@@ -59,7 +59,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                   @if ($errors->any())
+                    @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
@@ -68,7 +68,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif 
+                    @endif
 
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -132,14 +132,14 @@
                             </div>
                             <br>
 
-                       
-                                <x-input-label for="priority" :value="__('priority')" /><br>
-                                <select class="block mt-1 w-full" id="priority" name="priority">
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
-                      
+
+                            <x-input-label for="priority" :value="__('priority')" /><br>
+                            <select class="block mt-1 w-full" id="priority" name="priority">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+
 
                             <!-- status -->
                             <div class="mt-4">
@@ -364,24 +364,34 @@
                             </div>
 
                             <!-- Status field for Worker -->
-                            <div class="mt-4">
-                                <x-input-label for="status" :value="__('Enter Status')" /><br>
-                                <select class="block mt-1 w-full" id="status" name="status">
-                                    <option value="0" {{ $task->status == 0 ? 'selected' : '' }}>Not started</option>
-                                    <option value="1" {{ $task->status == 1 ? 'selected' : '' }}>Started</option>
-                                    <option value="2" {{ $task->status == 2 ? 'selected' : '' }}>Pending</option>
-                                    <option value="3" {{ $task->status == 3 ? 'selected' : '' }}>Complete</option>
-                                </select>
-                                <x-input-error :messages="$errors->get('status')" class="mt-2" />
-                            </div>
+                            {{-- @if ($taskImages->is_approved) --}}
+                                <div class="mt-4">
+                                    <x-input-label for="status" :value="__('Enter Status')" /><br>
+                                    <select class="block mt-1 w-full" id="status" name="status">
+                                        <option value="0" {{ $task->status == 0 ? 'selected' : '' }}>Not started
+                                        </option>
+                                        <option value="1" {{ $task->status == 1 ? 'selected' : '' }}>Started
+                                        </option>
+                                        <option value="2" {{ $task->status == 2 ? 'selected' : '' }}>Pending
+                                        </option>
+                                        <option value="3" {{ $task->status == 3 ? 'selected' : '' }}>Complete
+                                        </option>
+                                    </select>
+                                    <x-input-error :messages="$errors->get('status')" class="mt-2" />
+                                </div>
 
-                            <!-- Update Button for Worker -->
-                            <div class="flex items-center justify-end mt-4">
-                                <a class="btn btn-primary" href="{{ route('projects.index') }}"> Back</a>
-                                <x-primary-button class="ms-4">
-                                    {{ __('Update') }}
-                                </x-primary-button>
-                            </div>
+                                <!-- Update Button for Worker -->
+                                <div class="flex items-center justify-end mt-4">
+                                    <a class="btn btn-primary" href="{{ route('projects.index') }}"> Back</a>
+                                    <x-primary-button class="ms-4">
+                                        {{ __('Update') }}
+                                    </x-primary-button>
+                                </div>
+                            {{-- @else
+                                <p>no verification</p>
+                            @endif --}}
+
+
                         </form>
                     @endrole
 

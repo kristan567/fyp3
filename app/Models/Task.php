@@ -41,4 +41,8 @@ class Task extends Model
         
     }
 
+    public function image(){
+        return $this->hasMany(Image::class,'task_id');
+    }
+
 }

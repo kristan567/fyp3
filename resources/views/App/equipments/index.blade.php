@@ -459,7 +459,7 @@
                                             <th>Name</th>
                                             <th>Equipment Type</th>
                                             <th>Price</th>
-                                            <th>Availability</th>
+                                            <th>Availability in (Count)</th>
                                             <th>total Cost</th>
                                             <th>item Added At</th>
                                             <th>image</th>

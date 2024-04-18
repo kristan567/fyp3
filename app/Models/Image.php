@@ -14,6 +14,13 @@ class Image extends Model
     protected $fillable = [
         'task_id',
         'images',
+        'reason',
+        'is_approved',
 
     ];
+
+
+    public function  task() {
+         return $this->belongsTo(Task::class);
+    }
 }
