@@ -34,4 +34,8 @@ class CreateDomainsTable extends Migration
     {
         Schema::dropIfExists('domains');
     }
+
+
+
+
 }

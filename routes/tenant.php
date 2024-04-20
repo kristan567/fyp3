@@ -13,6 +13,7 @@ use App\Http\Controllers\App\UserController;
 use App\Http\Controllers\App\ProjectController;
 use App\Http\Controllers\App\CategoryController;
 use App\Http\Controllers\App\ChartJSController;
+use App\Http\Controllers\App\CommentController;
 use App\Http\Controllers\App\EquipmentController;
 use App\Http\Controllers\App\MaterialController;
 use App\Http\Controllers\App\RecommendController;
@@ -151,6 +152,10 @@ Route::middleware([
             // Route::get('/recommend/filter', [RecommendController::class, 'filterData'])->name('recommend.filter');
 
             Route::get('recommend/{id}/show', [App\Http\Controllers\App\RecommendController::class, 'show']);
+
+
+            Route::post('comments', [CommentController::class, 'store']);
+            
 
           
 

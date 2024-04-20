@@ -6,7 +6,9 @@ use App\Mail\CreateUser;
 use App\Models\Newuser;
 use App\Models\Tenant;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use \Illuminate\Validation\Rules;
 
@@ -65,9 +67,12 @@ class TenantController extends Controller
 
 
         $Newuser = Tenant::findOrFail($id);
+        $tenant = DB::table('tenants')->where('id', $id)->first();
+        $domain = DB::table('domains')->where('tenant_id', $tenant->id)->first();
 
 
         $from = 'Field magnet';
+        $domain = $domain->domain;
         $name = $Newuser->name;
         $to = $Newuser->email;
         $email = $Newuser->email;
@@ -77,7 +82,7 @@ class TenantController extends Controller
 
         try {
 
-            Mail::to($to)->send(new CreateUser($subject, $message, $name, $password, $email));
+            Mail::to($to)->send(new CreateUser($subject, $message, $name, $password, $email,$domain));
 
 
             // if (Mail::hasFailures()) {

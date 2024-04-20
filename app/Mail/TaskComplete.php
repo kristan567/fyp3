@@ -18,18 +18,29 @@ class TaskComplete extends Mailable
 
     public $message;
 
+    public $start_date;
+    public $end_date;
+    public $priority;
+    public $updated_at;
+
   
 
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $message)
+    public function __construct($subject, $message,$start_date, $end_date, $priority,$updated_at)
     {
         $this ->subject = $subject;
 
         $this -> message = $message;
 
-    
+        $this -> start_date = $start_date;
+
+        $this -> end_date = $end_date;
+
+        $this ->  priority= $priority;
+
+        $this -> updated_at = $updated_at;
 
 
     }
@@ -59,11 +70,18 @@ class TaskComplete extends Mailable
 
     public function build()
     {
-        return $this
-                    ->subject($this->subject)
-                    ->markdown('App.mail.usermail')
-                    ->with('message', $this->message);
+        return $this->subject($this->subject)
+        ->markdown('App.mail.usermail')
+        ->with([
+            'message' => $this->message,
+            'start_date' => $this->start_date,
+            'end_date' => $this->end_date,
+            'priority' => $this->priority,
+            'updated_at' => $this->updated_at,
+        ]);
+
     }
+
 
 
 

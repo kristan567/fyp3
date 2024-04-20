@@ -17,15 +17,45 @@ class TaskAssign extends Mailable
     public $subject;
     public $message;
 
+    public $name;
+
+    public $project_name;
+
+    public $task_name;
+
+    public $start_date;
+    public $end_date;
+    public $priority;
+    public $des;
+
+
+
+
+
     // public $from;
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $message)
+    public function __construct($subject, $message,$name, $project_name, $task_name, $start_date, $end_date, $priority, $des)
     {
         $this ->subject = $subject;
 
         $this -> message = $message;
+
+        $this -> name = $name;
+
+        $this -> project_name = $project_name;
+
+        $this -> task_name = $task_name;
+
+        $this ->start_date = $start_date;
+
+        $this -> end_date = $end_date;
+
+        $this -> priority = $priority;
+
+        $this->des= $des;
+
 
         // $this -> from = $from;
 
@@ -46,7 +76,20 @@ class TaskAssign extends Mailable
 
     public function build(){
         
-        return $this->subject($this->subject)->markdown('App.mail.TaskAssign')->with('message', $this->message);
+        // return $this->subject($this->subject)->markdown('App.mail.TaskAssign')->with('message', $this->message);
+
+        return $this->subject($this->subject)
+            ->markdown('App.mail.TaskAssign')
+            ->with([
+                'message' => $this->message,
+                'name' => $this->name,
+                'project_name' => $this->project_name,
+                'task_name' => $this->task_name,
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
+                'priority' => $this->priority,
+                'des' =>  $this->des,
+            ]);
 
     }
 

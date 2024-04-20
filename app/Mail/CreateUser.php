@@ -25,6 +25,8 @@ class CreateUser extends Mailable
 
     public $email;
 
+    public $domain;
+
 
 
 
@@ -33,7 +35,7 @@ class CreateUser extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $message, $name, $password, $email)
+    public function __construct($subject, $message, $name, $password, $email,$domain)
     {
         $this ->subject = $subject;
 
@@ -44,6 +46,8 @@ class CreateUser extends Mailable
         $this ->email = $email;
 
         $this->password = $password;
+
+        $this->domain = $domain;
         
   
     }
@@ -65,6 +69,7 @@ class CreateUser extends Mailable
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
+            'domain'=> $this->domain,
        
         ]);
     

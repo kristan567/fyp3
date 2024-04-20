@@ -89,13 +89,17 @@ class TaskController extends Controller
         $name = $task->user->name;
         $project_name = $task->project->title;
         $to = $task->user->email;
+        $start_date = $task->start_date;
+        $end_date = $task->end_date;
+        $priority = $task->priority;
         $task_name = $task->title;
+        $des = $task->description;
         $subject = "Task Assigned: " . $task_name;
-        $message = "You have been assigned to the task of: " . $task_name . " by " . $from . " for Project Name: " . $project_name;
+        $message = "You have been assigned to new task Given are the Details of the task";
 
         try {
 
-            Mail::to($to)->send(new TaskAssign($subject, $message,));
+            Mail::to($to)->send(new TaskAssign($subject, $message,$name, $project_name,$task_name,$start_date, $end_date, $priority, $des));
 
 
             // if (Mail::hasFailures()) {
@@ -126,12 +130,17 @@ class TaskController extends Controller
         $to = $manager->email;
         $task_name = $task->title;
         $subject = "Task Assigned: " . $task_name;
+        $start_date = $task->start_date;
+        $end_date = $task->end_date;
+        $priority = $task->priority;
+        $updated_at = $task->updated_at;
+        $des = $task->description;
         $message = "The " . $task_name . " was completed by " . $name . " for Project Name: " . $project_name;
 
 
         try {
 
-            Mail::to($to)->send(new TaskComplete($subject, $message));
+            Mail::to($to)->send(new TaskComplete($subject, $message,$start_date, $end_date, $priority,$updated_at));
 
 
             // if (Mail::hasFailures()) {

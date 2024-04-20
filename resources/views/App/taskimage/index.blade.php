@@ -129,6 +129,12 @@
                             </div>
                         @endif
 
+                        @if (session('message'))
+                            <div class="alert alert-warning">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
 
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
                             <strong>
@@ -139,6 +145,9 @@
                             <a class="btn btn-primary float-right" href="{{ url('tasks/' . $task->id . '/show') }}">
                                 Back</a> --}}
                         </h2>
+
+                        
+
 
 
 
@@ -289,22 +298,23 @@
 
                             </form>
 
-                            <div class="col-sm-4">
+                            <div>
                                 {{-- <h3>Before</h3> --}}
                                 <div class="image-container">
-                                    <div class="image">
+                                    <div class="image" >
                                         <strong>
                                             <h2 style="font-size: 30px; ">Progress Images:</h2>
                                         </strong>
                                         <br>
-                                        <div class="image-row">
+                                        <div class="image-row" >
                                             @foreach ($taskImages as $image)
                                                 <div class="img" style="">
                                                     <img src="{{ global_asset($image->images) }}" />
                                                 </div>
-                                                <a class="btn btn-danger" style="margin-bottom: 7%"
+                                                <a class="btn btn-danger"
                                                     href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
-                                                    Image</a><br />
+                                                    Image</a>
+
 
                                                 @role('Project Manager')
                                                     <td>
@@ -313,7 +323,7 @@
                                                                 href="{{ url('taskimage/' . $image->id . '/verified') }}"
                                                                 onclick="return confirm('Are you sure you want to verify this task progress?')">Verify</a>
                                                         @else
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-check2-all"
                                                                 viewBox="0 0 16 16">
                                                                 <path
@@ -321,7 +331,7 @@
                                                                 <path
                                                                     d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
                                                             </svg>
-                                                            <p>Verified
+                                                            <p style="color:rgb(0, 182, 0);">Verified
                                                                 <a class="btn btn-primary"
                                                                     href="{{ url('taskimage/' . $image->id . '/mail') }}"
                                                                     onclick="return confirm('Are you sure you want to send email to this user?')">Send
@@ -333,9 +343,9 @@
 
                                                 @role('worker')
                                                     @if ($image->is_approved)
-                                                        <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-check2-all"
-                                                            viewBox="0 0 16 16">
+                                                        <svg style="color:green;" xmlns="http://www.w3.org/2000/svg"
+                                                            width="16" height="16" fill="currentColor"
+                                                            class="bi bi-check2-all" viewBox="0 0 16 16">
                                                             <path
                                                                 d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
                                                             <path
@@ -353,21 +363,72 @@
                                                     @endif
                                                 @endrole
 
-                                                <hr>
-
                                                 <div class="form-group">
-                                                    Description:
-                                                    <td>{{ $image->reason }}</td>
+                                                    <strong>Description:</strong>
+                                                    <p>{{ $image->reason }}</p>
+
 
                                                 </div>
 
+                                                <hr>
 
+
+                                                @if ($image->is_approved)
+                                                    No Comments Section Available the Progress has been verified
+                                                @else
+                                                
+                                                    <div class="comment-area mt-4" style="border: black;">
+                                                        <div class="card card-body">
+                                                            <h6 class="card-title">Leave a comment</h6>
+                                                            <form action="{{ url('comments') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="image_id"
+                                                                    value="{{ $image->id }}">
+                                                                <textarea name="comment_body" class="form-control" rows="3" required></textarea>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Submit</button>
+                                                            </form>
+
+                                                            @forelse ($image->comments as $comment)
+                                                                <div class="card card-body shadow-sm mt-3">
+                                                                    <div class="detail-area">
+                                                                        <div class="user-name mb-11">
+                                                                            @if ($comment->user)
+                                                                                {{ $comment->user->name }}
+                                                                            @endif
+                                                                            <small class="ms-3 text-primary">Commented
+                                                                                on:
+                                                                                {{ $comment->created_at->format('d-m-Y') }}</small>
+                                                                        </div>
+                                                                        <p class="user-comment mb-1">
+                                                                            {{ $comment->comment_body }}
+                                                                        </p>
+
+                                                                        @if (Auth::check() && Auth::id() == $comment->user_id)
+                                                                            <div>
+
+                                                                                <a href=""
+                                                                                    class="btn btn-primary btn-sm me-2">Edit</a>
+                                                                                <a href=""
+                                                                                    class="btn btn-danger btn-sm me-2">Delete</a>
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            @empty
+                                                                <h6>no comments yet</h6>
+                                                            @endforelse
+                                                        </div>
+
+                                                    </div>
+                                                @endif
+                                            @endforeach
                                         </div>
+                                    
+                                        {{-- <div>
 
-                                        <div>
+                                        </div> --}}
 
-                                        </div>
-                                        @endforeach
                                     </div>
 
 
