@@ -44,7 +44,7 @@
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 55%;">
+                <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 60%;">
                     <ul class="navbar-nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ route('home') }}">Home <span
@@ -65,8 +65,9 @@
                                 <a class="dropdown-item" href="{{ route('task') }}">Task Mamangement</a>
                                 <a class="dropdown-item" href="{{ route('recommendation') }}">View Recommendation</a>
                                 <a class="dropdown-item" href="{{ route('notification') }}">Notifying Users</a>
-                                <a class="dropdown-item" href="{{ route('inventory') }}">Inventory</a>
+                                <a class="dropdown-item" href="{{ route('inventory') }}">Inventory MAnagment system</a>
                                 <a class="dropdown-item" href="{{ route('dashboardV') }}">Analytical Dashboard</a>
+                                <a class="dropdown-item" href="{{ route('realtimemonitor') }}">Real Time Monitoring</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -74,16 +75,16 @@
                         </li>
                         @if (Route::has('login'))
                             @auth
-                                <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                <a class="nav-link" target="blank" href="{{ url('/dashboard') }}">Dashboard</a>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                    <a class="nav-link" target="blank" href="{{ route('login') }}">Login</a>
                                 </li>
-                                @if (Route::has('register'))
+                                {{-- @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                                     </li>
-                                @endif
+                                @endif --}}
                             @endauth
                         @endif
 
@@ -98,9 +99,10 @@
 
         <div class="firstcontainer">
             <div class="image">
-                <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
+                <img src="https://www.adanirealty.com/-/media/Project/Realty/Blogs/Under-Construction-Projects_-Pros-and-Cons-of-Buying-an-Under-Construction-Property.png" alt="Image Description">
 
-                <p class="imageparagraph">Rocky Cliff</p>
+                <p class="imageparagraph">Field Magnet</p><br>
+                {{-- <h6 class="talakop" >MAKE YOUR BUSINESS AS FLEXIBLE AS POSSIBLE</h6> --}}
             </div>
         </div>
 
@@ -120,16 +122,16 @@
                             innovations</Strong></h3>
                     <br>
 
-                    <p>Submit an application to renowned international colleges and universities. Select a course or
-                        contact our counselor to discuss your options.
-                        Plan to Study Abroad is easier with our mission which is to provide any students who are eager
-                        to study abroad with the opportunity to enroll in the
-                        top international institutions and pursue their dreams.
+                    <p>"Discover Field Magnet: Your Ultimate Construction Management Solution! Seamlessly control every aspect of your projects with Field Magnet—a cutting-edge software designed to empower your construction endeavors. Revolutionize task organization, enhance communication, and elevate decision-making with intuitive features all centralized in one powerful platform."
                     </p>
 
-                    <button class="call"
+                    {{-- <button class="call"
                         style="margin-left: 0px; width:150px; height:50px; border-radius: 15px; border: 0px; background-color: blue; color: white; ">
-                        Join Now! </button>
+                        Join Now! </button> --}}
+
+                        <a class="btn btn-primary"  href="{{ route('contactus') }}">Join Now!</a>
+
+                        
                 </div>
 
 
@@ -151,72 +153,188 @@
 
             <div class="task">
                 <div class="taskimage">
-                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
-                    <div class="taskimageoverlay taskimageoverlay--blur "> info
+                    <img src="https://startinfinity.s3.us-east-2.amazonaws.com/production/blog/post/5/main/1SvzKctRCi8bwB0QPdOZkBP0pRhsOqZpl0wjs6y0.png" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('task') }}">
+                    <div class="taskimageoverlay taskimageoverlay--blur "> Task Management
 
 
                     </div>
-
+                    </a>
 
                 </div>
 
-                <div class="taskdesc">
+                {{-- <div class="taskdesc">
 
                     ggggggggggggggggggggggggggg
 
-                </div>
+                </div> --}}
 
             </div>
 
             <div class="Project">
                 <div class="Projectimage">
-                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
-                    <div class="Projectimageoverlay Projectimageoverlay--blur "> info
+                    <img src="https://www.breathehr.com/hubfs/communication%20resized%20min.jpg" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('realtimemonitor') }}">
+                    <div class="Projectimageoverlay Projectimageoverlay--blur "> 
+                        Real Time Communication
 
-
+                    
                     </div>
+                </a>
                 </div>
 
-                <div class="Projectdesc">
+                {{-- <div class="Projectdesc">
 
                     sssssssssssssssssssssssssssss
-                </div>
+                </div> --}}
 
             </div>
 
             <div class="User">
                 <div class="Userimage">
-                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
-                    <div class="Userimageoverlay Userimageoverlay--blur "> info
+                    <img src="https://s3.resume.io/cdn-cgi/image/width=544,height=476,fit=cover,quality=70,format=auto/uploads/blog_post/featured_image/4477/Letter-of-recommendation.jpg" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('recommendation') }}">
+                    <div class="Userimageoverlay Userimageoverlay--blur "> Recommendation Feature
 
 
                     </div>
+                </a>
                 </div>
 
-                <div class="Userdesc">
+                {{-- <div class="Userdesc">
 
                     wwwwwwwwwwwwwwwwwwww
-                </div>
+                </div> --}}
 
             </div>
 
-            <div class="email">
+            {{-- <div class="email">
                 <div class="emailimage">
                     <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
-                    <div class="emailimageoverlay emailimageoverlay--blur "> info
+                    <div class="emailimageoverlay emailimageoverlay--blur "> Real Time Work Updates
 
 
                     </div>
                 </div>
 
 
-                <div class="emaildesc">
+                {{-- <div class="emaildesc">
 
                     eeeeeeeeeeeeeeeeeee
 
+                </div> 
+
+            </div> --}} 
+
+            {{-- <div class="inventory">
+                <div class="inventoryimage">
+                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
+                    <div class="inventoryimageoverlay inventoryimageoverlay--blur "> real time Work updates
+
+
+                    </div>
                 </div>
 
+
+              
+
+            </div> --}}
+
+        </div>
+
+        <div class="thirdcontainer">
+
+          
+            <div class="task">
+                <div class="taskimage">
+                    <img src="https://cdn.botpenguin.com/assets/website/Inventory_Management_7424602b6c.png" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('inventory') }}">
+                    <div class="taskimageoverlay taskimageoverlay--blur "> Inventory management
+
+
+                    </div>
+                </a>
+                 
+
+
+                </div>
+
+                {{-- <div class="taskdesc">
+
+                    ggggggggggggggggggggggggggg
+
+                </div> --}}
+
             </div>
+
+            <div class="Project">
+                
+                <div class="Projectimage">
+                    <img src="https://www.vervesys.com/wp-content/uploads/2017/10/Image_1_fullsize.jpg" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('dashboardV') }}">
+                    <div class="Projectimageoverlay Projectimageoverlay--blur "> Analytical dashboard
+
+
+                    </div>
+                    </a>
+                </div>
+
+                {{-- <div class="Projectdesc">
+
+                    sssssssssssssssssssssssssssss
+                </div> --}}
+
+            </div>
+
+            <div class="User">
+                <div class="Userimage">
+                    <img src="https://static.wixstatic.com/media/a4978e_f2f10abd6f6f4645a3ad489648b00bc6~mv2.png/v1/fill/w_560,h_390,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Communication-Free-PNG-Image.png" alt="Image Description">
+                    <a class="dropdown-item" href="{{ route('realtimemonitor') }}">
+                    <div class="Userimageoverlay Userimageoverlay--blur "> Real time Comment
+
+
+                    </div>
+                </a>
+                </div>
+
+                {{-- <div class="Userdesc">
+
+                    wwwwwwwwwwwwwwwwwwww
+                </div> --}}
+
+            </div>
+
+            {{-- <div class="email">
+                <div class="emailimage">
+                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
+                    <div class="emailimageoverlay emailimageoverlay--blur "> Project Location
+
+
+                    </div>
+                </div>
+
+
+                {{-- <div class="emaildesc">
+
+                    eeeeeeeeeeeeeeeeeee
+
+                </div> 
+
+            </div> --}}
+
+            {{-- <div class="inventory">
+                <div class="inventoryimage">
+                    <img src="{{ asset('images/homeimages/image1.jpg') }}" alt="Image Description">
+                    <div class="inventoryimageoverlay inventoryimageoverlay--blur "> real time Work updates
+
+
+                    </div>
+                </div>
+
+
+              
+
+            </div> --}}
 
         </div>
 
@@ -226,13 +344,13 @@
 
 
             <div class="anotherbranch">
-                <h1><strong>Push the boundaries of what's possible with Autodesk</strong></h1>
+                <h1><strong>Push the boundaries of what's possible with field magnet</strong></h1>
                 <p><strong>A Field management system is a management assistance by executing operations by
                         involving coordination and optimization of the activities that are performed in the field
                         such as Project Scheduling, cost, quality</strong></p>
                 <button class="call"
                     style="margin-left: 0px; width:200px; height:50px; border-radius: 15px; border: 0px; color: black; ">
-                    <a href="https://www.seek.com.au/" target="blank">Visit </a></button>
+                    <a href="{{ route('login') }}" target="blank">Visit </a></button>
             </div>
 
 
@@ -267,9 +385,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Stay on top of everything in one place</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>1.	Effortless Task Management: </h4>
+                                                <p>Clear assignments, Streamlined progress tracking, and optimized resource allocation. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -279,9 +396,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Update clients without lifting a finger</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>2.	Boosted Collaboration: </h4>
+                                                <p>Seamless communication, updates, and document exchange between office and field teams.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -291,9 +407,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Avoid surprise delays and costly errors</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>3.	Data-Driven Decisions</h4>
+                                                <p>Comprehensive dashboards for project insights, resource analysis, and informed decision-making. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -315,9 +430,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Stand out from the competition</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>4.	Cost Efficiency, Profit Maximization: </h4>
+                                                <p>Reduced costs, and increased profits through streamlined workflows and budget control. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -327,9 +441,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Modern and Easy Communications</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>6.	Robust Security: </h4>
+                                                <p>Strong measures to safeguard your sensitive project data, ensuring peace of mind.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -339,9 +452,8 @@
                                                 <span class="glyphicon glyphicon-cog icon"></span>
                                             </div>
                                             <div class="y-us-content">
-                                                <h4>Real Time Monitoring</h4>
-                                                <p>Globally incubate standards compliant channels before scalable
-                                                    benefits. Quickly disseminate superior del</p>
+                                                <h4>R5.	Enhanced Field Visibility:</h4>
+                                                <p> Clear insights, worker locations, and project progress updates for a comprehensive overview. l</p>
                                             </div>
                                         </div>
                                     </div>
@@ -354,30 +466,31 @@
         </div>
 
 
+
         <div class="sixthcontainer">
 
 
             <div class="product-list">
                 <div class="slider-container">
                     <div class="product-item">
-                        <img src="https://plus.unsplash.com/premium_photo-1675186049574-061fba2d243c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                        <img src="https://c8.alamy.com/comp/D1YP92/building-construction-pokhara-nepal-D1YP92.jpg"
                             alt="Product 1">
                         <div class="button-container">
-                            <a class="btn btn-primary" href="{{ route('blog') }}"> Nepal Construction</a>
+                            <a class="btn btn-primary" href="{{ route('blog') }}"> In himalayas</a>
                         </div>
                     </div>
                     <div class="product-item">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                        <img src="https://c8.alamy.com/comp/A4CRRR/bamboo-scaffolding-on-a-house-being-built-in-kathmandu-nepal-A4CRRR.jpg"
                             alt="Product 2">
                         <div class="button-container">
-                            <a class="btn btn-primary" href="{{ route('blog2') }}">Nepal Construction</a>
+                            <a class="btn btn-primary" href="{{ route('blog2') }}">sustainable construction</a>
                         </div>
                     </div>
                     <div class="product-item">
-                        <img src="https://plus.unsplash.com/premium_photo-1675130119382-6f891206f406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                        <img src="https://c8.alamy.com/comp/2C666MG/new-building-in-kathmandu-in-nepal-2C666MG.jpg"
                             alt="Product 3">
                         <div class="button-container">
-                            <a class="btn btn-primary" href="{{ route('blog3') }}">Nepal Contruction</a>
+                            <a class="btn btn-primary" href="{{ route('blog3') }}">Built Future Shadow</a>
                         </div>
                     </div>
 
@@ -429,7 +542,7 @@
                                 <li><a href="#">affiliate program</a></li>
                             </ul>
                         </div>
-                        <div class="footer-col">
+                        {{-- <div class="footer-col">
                             <h4>get help</h4>
                             <ul>
                                 <li><a href="#">FAQ</a></li>
@@ -438,14 +551,14 @@
                                 <li><a href="#">order status</a></li>
                                 <li><a href="#">payment options</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <div class="footer-col">
-                            <h4>online shop</h4>
+                            <h4>Read Our Blogs</h4>
                             <ul>
-                                <li><a href="#">watch</a></li>
-                                <li><a href="#">bag</a></li>
-                                <li><a href="#">shoes</a></li>
-                                <li><a href="#">dress</a></li>
+                                <li><a href="#">Blog1</a></li>
+                                <li><a href="#">blog2</a></li>
+                                <li><a href="#">blog3</a></li>
+                                {{-- <li><a href="#">dress</a></li> --}}
                             </ul>
                         </div>
                         <div class="footer-col">

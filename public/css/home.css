@@ -38,6 +38,13 @@ body {
     font-family: Quicksand, sans-serif;
   }
   
+/* .image h6 {
+  position: absolute;
+  font-size: 20px;
+  margin-top:3%;
+} */
+  
+  
   .image img {
     width: 100%;
     height: 100%;
@@ -142,25 +149,29 @@ body {
     /* border-top-left-radius: 20px;
       border-top-right-radius: 20px; */
   
-    margin-left: 3%;
+    margin-left: 5%;
     transition: 1s;
+    border-radius: 10px;
   }
   
   .Project,
   .email,
-  .User {
+  .User,
+  .inventory {
     transition: 1s;
     height: 20rem;
     width: 18.75rem;
     /* background-color: #e0d4a2; */
   
-    margin-left: 5%;
+    margin-left: 15%;
+    border-radius: 10px;
   }
   
   .task:hover,
   .Project:hover,
   .User:hover,
-  .email:hover {
+  .email:hover,
+  .inventory:hover {
     transform: scale(1.1);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
   }
@@ -169,31 +180,36 @@ body {
   .taskimage,
   .Projectimage,
   .Userimage,
-  .emailimage {
+  .emailimage,
+  .inventoryimage {
     position: relative;
     height: 100%;
     /* border-radius: 20px; */
     /* border-top-left-radius: 20px;
       border-top-right-radius: 20px; */
-  
+    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
   }
   
   .task img,
   .Project img,
   .User img,
-  .email img {
+  .email img,
+  .inventory img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* border-top-left-radius: 20px;
       border-top-right-radius: 20px; */
+      border-radius: 10px;
   }
   
   .taskimageoverlay,
   .Projectimageoverlay,
   .Userimageoverlay,
-  .emailimageoverlay {
+  .emailimageoverlay,
+  .inventoryimageoverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -207,6 +223,7 @@ body {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.5s;
+    border-radius: 10px;
     /* border-top-left-radius: 20px;
       border-top-right-radius: 20px; */
   
@@ -217,18 +234,20 @@ body {
   .task:hover .taskimageoverlay,
   .Project:hover .Projectimageoverlay,
   .User:hover .Userimageoverlay,
-  .email:hover .emailimageoverlay {
+  .email:hover .emailimageoverlay,
+  .inventory:hover .inventoryimageoverlay {
     opacity: 1;
   }
   
   .taskimageoverlay--blur,
   .Projectimageoverlay--blur,
   .Userimageoverlay--blur,
-  .emailimageoverlay--blur {
+  .emailimageoverlay--blur,
+  .inventoryimageoverlay--blur {
     backdrop-filter: blur(5px);
   }
   
-  .taskdesc,
+  /* .taskdesc,
   .Projectdesc,
   .Userdesc,
   .emaildesc {
@@ -238,7 +257,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: aqua;
-  }
+  } */
   
   @media (max-width: 768px) {
     .thirdcontainer {
@@ -265,7 +284,7 @@ body {
   }
   
   .fourthcontainer {
-    background-image: url('../images/homeimages/image1.jpg');
+    background-image: url('../images/homeimages/work.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;

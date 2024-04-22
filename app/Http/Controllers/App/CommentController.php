@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\App;
 
+use App\Mail\CommentImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Image;
+use Egulias\EmailValidator\Result\Reason\CommentsInIDRight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +20,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        // $comments = Comment::get();
+        // return view('App.taskimage.index',compact('comments'));
     }
 
     /**
@@ -85,6 +88,7 @@ class CommentController extends Controller
 
     //  public function storeemail(Request $request, $id)
     //  {
+    //     dd('working');
  
  
     //      $comment = Comment::findOrFail($id);
@@ -92,13 +96,13 @@ class CommentController extends Controller
  
     //      $from ='User';
     //      $to = $comment->user->email;
-    //      $project_name = $comment->project->title;
+    
     //      $subject = "A New comment ";
     //      $message = "You have been assigned to new comment Given are the Details of the comment";
  
     //      try {
  
-    //          Mail::to($to)->send(new TaskAssign($subject, $message,));
+    //          Mail::to($to)->send(new CommentImage($subject, $message,));
  
  
     //          // if (Mail::hasFailures()) {
@@ -128,8 +132,33 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        if(Auth::check())
+        {
+            $comment=Comment::where('id',$request->comment_id)->where('user_id',Auth::user()->id)
+            ->first();
+
+            if($comment){
+
+                    $comment->delete();
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'comment Deleted Successfully'
+                ]);
+
+            }else{
+                return response()->json([
+                    'status' => 500,
+                    'message' => 'Something went Wrong'
+                ]);
+            }
+            
+
+
+        }else{
+
+        }
     }
 }

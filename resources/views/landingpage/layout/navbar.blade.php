@@ -5,7 +5,7 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 55%;">
+        <div class="collapse navbar-collapse " id="navbarNavDropdown" style="margin-left: 60%;">
             <ul class="navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('home') }}">Home </a>
@@ -27,6 +27,7 @@
                         <a class="dropdown-item" href="{{ route('notification') }}">Notifying Users</a>
                         <a class="dropdown-item" href="{{ route('inventory') }}">Inventory</a>
                         <a class="dropdown-item" href="{{ route('dashboardV') }}">Analytical Dashboard</a>
+                        <a class="dropdown-item" href="{{ route('realtimemonitor') }}">Real Time Monitoring</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -39,11 +40,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">Register</a>
                             </li>
-                        @endif
+                        @endif --}}
                     @endauth
                 @endif
 

@@ -48,15 +48,14 @@
             <section class="ban_sec">
                 <div class="blogcontainer">
                     <div class="ban_img">
-                        <img src="https://www.snsltd.com.np/public/upload/images/slider/sindhuli-road-maintenace-project.jpg"
+                        <img src="https://sendbird.imgix.net/cms/Push-notification-examples.jpg"
                             alt="banner" border="0">
                         <div class="ban_text">
                             <strong>
                                  Notification<br>
                             </strong>
-                            <p>You can prioritize a child’s mental, emotional, <br>
-                                behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <p>Amplify Collaboration, Ensure Clarity</p>
+                            <a href="{{ route('contactus') }}">Create now</a>
                         </div>
                     </div>
                 </div>
@@ -87,20 +86,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Seamless Email Integration: </h2>
+                        <p>Connect effortlessly with confirmation emails and task reminders, ensuring crystal-clear communication. Consolidate all project-related communication in one accessible platform, reducing confusion and streamlining workflows.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Empowered Collaboration: </h2>
+                        <p>Drive teamwork with comment sections attached to visuals, promoting clarity and efficiency.Engage in focused discussions about specific tasks or issues, fostering collaboration and resolving issues efficiently.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">
@@ -115,20 +110,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Instant Messaging: </h2>
+                        <p>Stay connected in real-time with instant messaging features, facilitating quick decision-making and problem-solving.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Document Sharing: </h2>
+                        <p>Share important project documents securely and efficiently, ensuring everyone has access to the information they need.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">

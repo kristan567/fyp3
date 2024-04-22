@@ -36,7 +36,7 @@ class EquipmentController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request->all());
         $rules = [
 
             'name' => 'required|min:5',
@@ -82,6 +82,10 @@ class EquipmentController extends Controller
 
             $image->move(public_path('equipmentuploads/equipmentproducts'), $imageName);
         }
+
+        // dd($equipment);
+
+       
 
         return redirect()->route('equipments.index')->with('success', 'Equipment added Successfully.');
     }

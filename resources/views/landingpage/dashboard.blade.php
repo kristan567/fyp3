@@ -48,15 +48,14 @@
             <section class="ban_sec">
                 <div class="blogcontainer">
                     <div class="ban_img">
-                        <img src="https://www.snsltd.com.np/public/upload/images/slider/sindhuli-road-maintenace-project.jpg"
+                        <img src="https://triare.net/wp-content/uploads/2022/03/TRIARE-cases-logistics-transport-air-01-1920x1080.webp"
                             alt="banner" border="0">
                         <div class="ban_text">
-                            <strong>
+                            <strong style="color: black;">
                                  Dashboard<br>
                             </strong>
-                            <p>You can prioritize a child’s mental, emotional, <br>
-                                behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <p style="color: black;">Drive Decisions with Data</p>
+                            <a href="{{ route('contactus') }}">Create now!</a>
                         </div>
                     </div>
                 </div>
@@ -87,20 +86,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Visualized Progress: </h2>
+                        <p>Stay informed at a glance with interactive dashboards, empowering data-driven decision-making. Anticipate future trends and challenges with predictive analytics, allowing for proactive decision-making and risk mitigation.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Resource Optimization: </h2>
+                        <p>Harness insights to optimize resource allocation, maximizing efficiency and minimizing waste.  Learn from past projects with in-depth analysis of historical data, identifying patterns and trends to inform future strategies. </p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">
@@ -115,20 +110,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Financial Insights: </h2>
+                        <p>Monitor project finances in real-time, ensuring adherence to budget constraints and maximizing profitability.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Custom Reporting:</h2>
+                        <p> Generate tailored reports on project performance metrics, facilitating comprehensive analysis and strategic planning.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">

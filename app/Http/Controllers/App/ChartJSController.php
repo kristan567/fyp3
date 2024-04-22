@@ -60,26 +60,27 @@ class ChartJSController extends Controller
         $incompleteProjectsCount = Project::where('completed', '0')->count();
 
 
-        // Query the database to get the total number of tasks for each project
+    
         $totalTasksByProject = Task::select('project_id')
             ->selectRaw('count(*) as total_tasks')
             ->groupBy('project_id')
             ->get();
 
-        // Prepare data for the chart
+     
         $projectLabels = $totalTasksByProject->pluck('project_id')->toArray();
         $taskCounts = $totalTasksByProject->pluck('total_tasks')->toArray();
 
 
 
-        // Query the database to get the total number of completed and incomplete tasks for each project
+  
         $totalTasksByProject = Task::select('project_id')
             ->selectRaw('sum(case when completed = true then 1 else 0 end) as completed_tasks')
             ->selectRaw('sum(case when completed = false then 1 else 0 end) as incomplete_tasks')
             ->groupBy('project_id')
             ->get();
 
-        // Prepare data for the chart
+
+    
         $projectIds = $totalTasksByProject->pluck('project_id')->toArray();
         $completedTaskCounts = $totalTasksByProject->pluck('completed_tasks')->toArray();
         $incompleteTaskCounts = $totalTasksByProject->pluck('incomplete_tasks')->toArray();
@@ -90,13 +91,13 @@ class ChartJSController extends Controller
         $totalCost = $totalEquipmentCost + $totalMaterialCost;
 
 
-        $equipmentData = Equipment::all();
-        $equipmentTypes = $equipmentData->pluck('type')->toArray();
-        $equipmentQuantities = $equipmentData->pluck('qty')->toArray();
+        // $equipmentData = Equipment::all();
+        // $equipmentTypes = $equipmentData->pluck('type')->toArray();
+        // $equipmentQuantities = $equipmentData->pluck('qty')->toArray();
 
 
 
-        $equipment = Equipment::all(); // Assuming Equipment is your model name
+        $equipment = Equipment::all(); 
         $equipmentLabels = $equipment->pluck('name')->toArray();
         $equipmentQuantities = $equipment->pluck('qty')->toArray();
 
@@ -108,7 +109,7 @@ class ChartJSController extends Controller
 
 
 
-        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost', 'equipmentTypes', 'equipmentQuantities', 'equipmentLabels', 'equipmentQuantities', 'materialLabels', 'materialQuantities','userdata'));
+        return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost',  'equipmentLabels', 'equipmentQuantities', 'materialLabels', 'materialQuantities','userdata'));
     }
 
     // public function taskindex()

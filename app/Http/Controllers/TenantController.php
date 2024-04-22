@@ -51,10 +51,15 @@ class TenantController extends Controller
 
        $tenant =  Tenant::create($validatedData);
        
-       $tenant->domains()-> create([
+       $domain= $tenant->domains()-> create([
             'domain' => $validatedData['domain_name'].'.'.config('app.domain')
 
        ]);
+
+    //    dd("user:",$tenant);
+    //    dd("domain:",$domain);
+
+       
 
 
        return redirect()->route('tenants.index');

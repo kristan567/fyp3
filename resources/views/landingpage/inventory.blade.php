@@ -48,15 +48,14 @@
             <section class="ban_sec">
                 <div class="blogcontainer">
                     <div class="ban_img">
-                        <img src="https://www.snsltd.com.np/public/upload/images/slider/sindhuli-road-maintenace-project.jpg"
+                        <img src="https://403737.fs1.hubspotusercontent-na1.net/hubfs/403737/63bbca2d280184a6813575fa_Inventory-Management.jpg"
                             alt="banner" border="0">
                         <div class="ban_text">
                             <strong>
                                  Inventory<br>
                             </strong>
-                            <p>You can prioritize a child’s mental, emotional, <br>
-                                behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <p>Manage your Work Space.</p>
+                            <a href="{{ route('contactus') }}">Create now</a>
                         </div>
                     </div>
                 </div>
@@ -87,20 +86,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>what is it?</h2>
+                        <p> Efficient management of materials and equipment is crucial for construction projects to stay on schedule and within budget. An inventory management system tailored to the needs of construction projects can provide numerous benefits.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Tracking</h2>
+                        <p>By enabling users to add and track resources needed for construction, such as building materials, tools, and equipment, the system offers visibility into available resources and their locations.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">
@@ -115,20 +110,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>total Budget</h2>
+                        <p>This visibility allows project managers to make informed decisions about resource allocation, preventing shortages or overstocking. Furthermore, integrating budget allocation features into the system enables project teams to monitor expenses in real-time and adjust plans accordingly, ensuring that projects stay within budget constraints.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>conclusion</h2>
+                        <p>Overall, a robust inventory management system can streamline operations, minimize waste, and optimize resource utilization, contributing to the overall success of construction projects.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">

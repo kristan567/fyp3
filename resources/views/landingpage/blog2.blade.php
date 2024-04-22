@@ -64,7 +64,7 @@
 
         <hr style="width: 100%;">
 
-        <h1 class="title">HOW TO CREATE A RESPONSIVE NEWSPAPER LAYOUT</h1>
+        <h1 class="title">Conquering the Himalayas: Sustainable Construction Management in Nepal </h1>
 
 
 
@@ -73,49 +73,29 @@
 
             <p><img class="col-img" src="{{ asset('images/blog/pic.png') }}" alt=""></p>
 
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero blanditiis accusamus
-                ratione voluptates. Sapiente corporis assumenda, perspiciatis eaque blanditiis ex molestiae sunt ducimus
-                veritatis. Non fugiat optio molestiae dolorem laboriosam doloremque labore distinctio officiis. Optio quos
-                dolor ex laudantium sit voluptatem reiciendis eum tempora.</p>
+            <p class="paragraph">Nepal, the land of soaring mountains and breathtaking landscapes, stands at a crossroads. As the nation embarks on a construction boom, it faces a critical challenge: building a future that thrives while preserving its pristine environment. This necessitates a paradigm shift towards sustainable construction management practices. Here's a closer look at how Nepal's construction industry is scaling the heights of sustainability:</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">Harnessing Local Resources: Building with Nature, Not Against It
+                The cornerstone of sustainable construction in Nepal lies in embracing local resources. Construction companies are increasingly turning to readily available, renewable materials that minimize environmental impact. Bamboo, a fast-growing and versatile material, is finding favor for scaffolding, furniture, and even structural elements. Compressed earth blocks, produced by compacting local soil, offer a sustainable alternative to conventional bricks, reducing energy consumption during production and transportation. This shift towards local materials not only reduces transportation emissions but also breathes life into local economies by creating new markets and job opportunities.
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+            <p class="paragraph">Waste Not, Want Not: Embracing Resource Efficiency
+                Sustainable construction goes beyond just material selection. Minimizing construction waste is equally crucial. Nepal's construction industry is implementing stricter waste management practices to reduce debris and promote recycling. On-site waste segregation allows for the separation of recyclable materials like wood, metal, and plastic. Innovative recycling techniques are gaining traction, transforming construction waste into valuable resources. Upcycled materials can be used for various purposes, from creating furniture and decorative elements to constructing pavements and walkways. This not only reduces the burden on landfills but also fosters a culture of resource efficiency within the construction sector.
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">Energy Efficiency Takes Center Stage: Designing for a Greener Future
+                Energy efficiency is paramount for a sustainable built environment. Nepal is actively adopting green building standards that promote energy-saving designs. These standards encourage features like improved insulation in walls and roofs, maximizing natural ventilation to reduce reliance on air conditioning, and incorporating energy-efficient lighting systems. Additionally, architects are exploring passive solar design principles to harness the abundant sunlight for heating and natural lighting. These design strategies not only reduce energy consumption and operational costs for building occupants but also minimize the carbon footprint of the built environment.
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+            <p class="paragraph">Renewable Energy Integration: Powering the Future with Clean Sources
+                Nepal, blessed with abundant sunshine and strong wind currents, has immense potential for harnessing renewable energy sources. The integration of solar panels and wind turbines into building designs is on the rise. Integrating renewable energy generation systems reduces dependence on fossil fuels, leading to cleaner energy production and a significant reduction in greenhouse gas emissions. This not only benefits the immediate environment but also contributes to combating climate change on a global scale.
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
 
         </div>
 
-        <hr style="width: 100%;">
+        {{-- <hr style="width: 100%;">
 
         <!--Next Row-->
 
@@ -123,28 +103,19 @@
 
         <div class="container">
 
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut mollitia quae laudantium facere
-                impedit aperiam possimus? Officia earum cum ut blanditiis magni quasi officiis nulla asperiores quia saepe
-                facere quaerat voluptates, suscipit quos doloremque nesciunt, architecto aut atque perferendis! Totam
-                ratione aut, quae consectetur corporis natus inventore ex eius quibusdam ullam officia unde, dolores, vero
-                id aliquam. Rem, officiis explicabo.</p>
+            <p class="paragraph">Building for the Future: Investing in Knowledge and Awareness
+                The journey towards sustainable construction requires a skilled workforce equipped with the necessary knowledge and expertise. Universities and vocational schools in Nepal are stepping up by offering courses in green building practices. These programs equip the next generation of construction professionals with the skills to implement sustainable construction principles effectively. Additionally, public awareness campaigns are raising awareness of the importance of sustainable construction among the general population. Fostering a culture of environmental responsibility is crucial for ensuring community buy-in and long-term success of sustainable construction initiatives.
+                </p>
 
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ad iure illo velit fuga
-                dolorum qui, facilis veritatis ipsam ea ab hic, consectetur corrupti quis. Hic placeat impedit numquam
-                voluptatibus natus libero aliquid cupiditate amet consequuntur. Consectetur provident enim fugiat.</p>
+            <p class="paragraph">Challenges and Opportunities: Scaling the Peaks of Sustainability
+                The path towards sustainable construction is not without its challenges. The initial investment in sustainable materials and technologies may be higher than conventional methods. However, a long-term perspective is key. The long-term benefits in terms of energy savings, reduced maintenance costs, and environmental protection far outweigh the initial investment. Additionally, upskilling existing construction workers and training future professionals in green building practices is essential to ensure successful implementation of sustainable construction projects
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+            <p class="paragraph">Building a Sustainable Future, Together: A Collective Endeavor
+                Nepal's journey towards sustainable construction management is a testament to its commitment to environmental responsibility. By embracing innovative technologies, promoting local resources, fostering a culture of green building practices, and investing in education and awareness, Nepal is paving the way for a more sustainable future for itself and the Himalayan region. This endeavor requires a collective effort. Green building advocates, sustainability experts, international organizations, and the general public all have a role to play. Sharing knowledge, collaborating with local organizations, and promoting sustainable construction practices can help Nepal conquer the Himalayas of environmental challenges and build a thriving, sustainable future nestled in the lap of these majestic mountains.
+                </p>
 
-            <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos dolore eaque
-                voluptates odio debitis, labore earum adipisci est non explicabo fugit doloribus deserunt dolorem. A
-                blanditiis tenetur, sapiente eum officia reiciendis maiores ducimus sint architecto quae temporibus unde
-                voluptatum itaque modi perspiciatis eius harum ab quis eos expedita odit quia accusamus. At perferendis
-                voluptas saepe?.</p>
-
-        </div>
+        </div> --}}
 
         <hr style="width: 100%;">
 
@@ -155,46 +126,17 @@
         <div class="container">
 
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+                 <p class="paragraph">Building for the Future: Investing in Knowledge and Awareness
+                The journey towards sustainable construction requires a skilled workforce equipped with the necessary knowledge and expertise. Universities and vocational schools in Nepal are stepping up by offering courses in green building practices. These programs equip the next generation of construction professionals with the skills to implement sustainable construction principles effectively. Additionally, public awareness campaigns are raising awareness of the importance of sustainable construction among the general population. Fostering a culture of environmental responsibility is crucial for ensuring community buy-in and long-term success of sustainable construction initiatives.
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">Challenges and Opportunities: Scaling the Peaks of Sustainability
+                The path towards sustainable construction is not without its challenges. The initial investment in sustainable materials and technologies may be higher than conventional methods. However, a long-term perspective is key. The long-term benefits in terms of energy savings, reduced maintenance costs, and environmental protection far outweigh the initial investment. Additionally, upskilling existing construction workers and training future professionals in green building practices is essential to ensure successful implementation of sustainable construction projects
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
-
+            <p class="paragraph">Building a Sustainable Future, Together: A Collective Endeavor
+                Nepal's journey towards sustainable construction management is a testament to its commitment to environmental responsibility. By embracing innovative technologies, promoting local resources, fostering a culture of green building practices, and investing in education and awareness, Nepal is paving the way for a more sustainable future for itself and the Himalayan region. This endeavor requires a collective effort. Green building advocates, sustainability experts, international organizations, and the general public all have a role to play. Sharing knowledge, collaborating with local organizations, and promoting sustainable construction practices can help Nepal conquer the Himalayas of environmental challenges and build a thriving, sustainable future nestled in the lap of these majestic mountains.
+                </p>
             <p><img class="col-img" src="{{ asset('images/blog/pic2.png') }}" alt=""></p>
 
         </div>

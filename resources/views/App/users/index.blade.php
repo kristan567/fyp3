@@ -331,9 +331,7 @@
         <div class="navbar-container">
             <!--logo div-->
             <div class="navbar-logo-div">
-                <a class="navbar-logo-link" href="#">
-                    <i class="fas fa-shield-dog"></i>
-                </a>
+                {{-- <img width="40" height="40" class="rounded-circle" style="border-radius: 30px;" src="{{ global_asset('images/forApp/Untitled-1.png') }}" > --}}
                 <button class="navbar-toggler"><i class='fas fa-solid fa-bars'></i></button>
             </div>
 
@@ -360,7 +358,10 @@
                 @role('Project Manager')
                     <li class="menu-item">
                         <a class="menu-link" href="{{ route('projects.index') }}">
-                            <i class="fas fa-solid fa-paw"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban" viewBox="0 0 16 16">
+                                <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"/>
+                              </svg>
                             <span class="menu-link-text">Project</span>
                         </a>
                     </li>
@@ -377,7 +378,9 @@
                 @role('Project Manager')
                     <li class="menu-item">
                         <a class="menu-link" href="{{ route('recommend.index') }}">
-                            <i class="fas fa-solid fa-paw"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
+                                <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"/>
+                              </svg>
                             <span class="menu-link-text">Recommend</span>
                         </a>
                     </li>
@@ -385,13 +388,17 @@
 
                 <li class="menu-item">
                     <a class="menu-link" href="{{ route('materials.index') }}">
-                        <i class="fas fa-regular fa-stethoscope"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bricks" viewBox="0 0 16 16">
+                            <path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5zM3 4v2h4.5V4zm5.5 0v2H13V4zM3 10v2h4.5v-2zm5.5 0v2H13v-2zM1 1v2h3.5V1zm4.5 0v2h5V1zm6 0v2H15V1zM1 7v2h3.5V7zm4.5 0v2h5V7zm6 0v2H15V7zM1 13v2h3.5v-2zm4.5 0v2h5v-2zm6 0v2H15v-2z"/>
+                          </svg>
                         <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="{{ route('equipments.index') }}">
-                        <i class="fas fa-duotone fa-gear"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                            <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
+                          </svg>
                         <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
@@ -403,8 +410,8 @@
             <div class="user-info">
                 {{-- <i class="fas fa-solid fa-user-secret"></i> --}}
                 <div class="user-details">
-                    <h3 class="user-name">Eleanor Pena</h3>
-                    <p class="user-occupation">Veterinary </p>
+                    <h3 class="user-name"><div>{{ Auth::user()->name }}</div></h3>
+                  
                 </div>
             </div>
             <a class="logout-btn" href="#">

@@ -23,6 +23,8 @@ class TaskController extends Controller
      */
     public function index()
     {
+        // task::get();
+        // return view('App.Taks.index');
     }
 
     /**
@@ -69,11 +71,13 @@ class TaskController extends Controller
 
 
 
-        Task::create($validatedData);
+        $data = Task::create($validatedData);
 
         $projectId = $validatedData['project_id'];
         $categoryID = $validatedData['category_id'];
         $userID = $validatedData['user_id'];
+
+        // dd($data);
 
         return redirect()->route('projects.show', [$projectId, $categoryID, $userID])->with('success', 'Task created successfully.');
     }
@@ -162,6 +166,7 @@ class TaskController extends Controller
      */
     public function show(Task $id)
     {
+        
 
         $categories = Category::get();
         $projects = Project::get();

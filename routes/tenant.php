@@ -155,8 +155,12 @@ Route::middleware([
 
 
             Route::post('comments', [CommentController::class, 'store']);
-            
+            Route::post('delete-comment', [CommentController::class, 'destroy']);
+            // Route::get('comment/{id}/commentmail', [App\Http\Controllers\App\CommentController::class, 'storeemail']);
 
+           
+
+          
           
 
         });

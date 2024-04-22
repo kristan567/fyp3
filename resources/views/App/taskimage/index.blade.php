@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
@@ -20,6 +21,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 
 
@@ -146,7 +150,7 @@
                                 Back</a> --}}
                         </h2>
 
-                        
+
 
 
 
@@ -236,6 +240,7 @@
                         @endif
 
                         <div class="uploadimg" style="padding: 100px;">
+                            @role('worker')
 
                             <form action="{{ url('tasks/' . $task->id . '/upload') }}" method="POST"
                                 enctype="multipart/form-data">
@@ -271,7 +276,13 @@
                                     <label for="new_photo">Upload New Photo:</label>
                                     <input type="file" id="new_photo" name="images[]" multiple class="form-control">
 
+                                    {{-- <label for="new_photo" class="custom-button">Choose Photos</label>
+                                    <input type="file" id="new_photo" name="images[]" multiple class="form-control"> --}}
+
+
                                 </div>
+
+
 
                                 <div class="mb-3">
                                     <div class="mt-4">
@@ -297,23 +308,26 @@
                                 <br>
 
                             </form>
+                            @endrole
 
                             <div>
                                 {{-- <h3>Before</h3> --}}
                                 <div class="image-container">
-                                    <div class="image" >
+                                    <div class="image">
                                         <strong>
                                             <h2 style="font-size: 30px; ">Progress Images:</h2>
                                         </strong>
                                         <br>
-                                        <div class="image-row" >
+                                        <div class="image-row">
                                             @foreach ($taskImages as $image)
                                                 <div class="img" style="">
                                                     <img src="{{ global_asset($image->images) }}" />
                                                 </div>
-                                                <a class="btn btn-danger"
-                                                    href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
-                                                    Image</a>
+                                                @if (Auth::check() && Auth::id() == $image->task->user_id)
+                                                    <a class="btn btn-danger"
+                                                        href ="{{ url('tasks/' . $image->id . '/delete') }}">Remove
+                                                        Image</a>
+                                                @endif
 
 
                                                 @role('Project Manager')
@@ -323,9 +337,9 @@
                                                                 href="{{ url('taskimage/' . $image->id . '/verified') }}"
                                                                 onclick="return confirm('Are you sure you want to verify this task progress?')">Verify</a>
                                                         @else
-                                                            <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-check2-all"
-                                                                viewBox="0 0 16 16">
+                                                            <svg style="color:green;" xmlns="http://www.w3.org/2000/svg"
+                                                                width="16" height="16" fill="currentColor"
+                                                                class="bi bi-check2-all" viewBox="0 0 16 16">
                                                                 <path
                                                                     d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
                                                                 <path
@@ -376,7 +390,6 @@
                                                 @if ($image->is_approved)
                                                     No Comments Section Available the Progress has been verified
                                                 @else
-                                                
                                                     <div class="comment-area mt-4" style="border: black;">
                                                         <div class="card card-body">
                                                             <h6 class="card-title">Leave a comment</h6>
@@ -385,12 +398,18 @@
                                                                 <input type="hidden" name="image_id"
                                                                     value="{{ $image->id }}">
                                                                 <textarea name="comment_body" class="form-control" rows="3" required></textarea>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Submit</button>
+                                                                {{-- @foreach ($image->comments as $comment)
+                                                                <a href="{{ url('comment/' . $comment->id . '/commentmail') }}"> --}}
+                                                                <button type="submit" class="btn btn-primary">Submit
+                                                                </button>
+                                                                </a>
+                                                                {{-- @endforeach --}}
+
                                                             </form>
 
                                                             @forelse ($image->comments as $comment)
-                                                                <div class="card card-body shadow-sm mt-3">
+                                                                <div
+                                                                    class="comment-container card card-body shadow-sm mt-3">
                                                                     <div class="detail-area">
                                                                         <div class="user-name mb-11">
                                                                             @if ($comment->user)
@@ -407,10 +426,10 @@
                                                                         @if (Auth::check() && Auth::id() == $comment->user_id)
                                                                             <div>
 
-                                                                                <a href=""
-                                                                                    class="btn btn-primary btn-sm me-2">Edit</a>
-                                                                                <a href=""
-                                                                                    class="btn btn-danger btn-sm me-2">Delete</a>
+
+                                                                                <button type="button"
+                                                                                    value="{{ $comment->id }}"
+                                                                                    class="deleteComment btn btn-danger ">Delete</button>
                                                                             </div>
                                                                         @endif
                                                                     </div>
@@ -424,7 +443,7 @@
                                                 @endif
                                             @endforeach
                                         </div>
-                                    
+
                                         {{-- <div>
 
                                         </div> --}}
@@ -457,5 +476,41 @@
     </x-tenant-app-layout>
 
 </body>
+
+<script>
+    $(document).ready(function() {
+
+        $(document).on('click', '.deleteComment', function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            if (confirm("Are Sure You Want To DELETE This Comment?")) {
+                var thisClicked = $(this);
+                var comment_id = thisClicked.val();
+
+                $.ajax({
+                    type: "post",
+                    url: "/delete-comment",
+                    data: {
+                        'comment_id': comment_id
+                    },
+
+                    success: function(res) {
+                        if (res.status == 00) {
+                            thisClicked.closet('.comment-container').remove();
+                            alert(res.message);
+                        } else {
+                            alert(res.message);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 </html>

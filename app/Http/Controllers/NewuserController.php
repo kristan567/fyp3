@@ -46,7 +46,7 @@ class NewuserController extends Controller
 
    
             
-        Mail::to('info@example.com')->send(new ContactMail($request)) ;
+        Mail::to('superadmin@gmail.com')->send(new ContactMail($request)) ;
         return redirect()->back()->with('success', 'message sent successfully.');
 
     }

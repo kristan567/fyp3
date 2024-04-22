@@ -47,10 +47,10 @@
                                 <select
                                     class="block appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline mt-1 w-64"
                                     style="width: 100%;" id="type" name="type">
-                                    <option value="0" {{ old('type') == '0' ? 'selected' : '' }}>Electric</option>
-                                    <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>Manual</option>
-                                    <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>Pending</option>
-                                    <option value="3" {{ old('type') == '3' ? 'selected' : '' }}>Complete</option>
+                                    <option value="0" {{ old('type') == '0' ? 'selected' : '' }}>hauling</option>
+                                    <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>Earth Moving</option>
+                                    <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>compact</option>
+                                    <option value="3" {{ old('type') == '3' ? 'selected' : '' }}>Excavating Equipment</option>
                                 </select>
                                 @error('type')
                                     <p class="invalid-feedback">{{ $message }}</p>

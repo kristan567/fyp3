@@ -49,7 +49,7 @@
                             </strong>
                             <p>You can prioritize a child’s mental, emotional, <br>
                                 behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <a href="{{ route('contactus') }}">Create now</a>
                         </div>
                     </div>
                 </div>

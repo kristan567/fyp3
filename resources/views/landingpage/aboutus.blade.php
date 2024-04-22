@@ -60,7 +60,7 @@
             <div class="hero-content">
                 <h2>What We Provide</h2>
                 <p>Beyond our commitment to our clients, we are also deeply invested in the communities we serve. We believe that sustainable development is not just a buzzword, but a responsibility, and we're proud to support environmentally friendly practices that minimize our impact on the planet. From utilizing cutting-edge construction materials to implementing energy-efficient technologies, we're constantly seeking ways to build a better future for generations to come.</p>
-                <button class="cta-button">Learn more</button>
+                {{-- <button class="cta-button">Learn more</button> --}}
             </div>
             <div class="hero-image">
                 <img class="banner" src="{{ asset('images/blog/newspaper.jpg') }}" style="height: 400px;" alt="Image banner which reads Tech Talk Tutorials">

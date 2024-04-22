@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
@@ -27,6 +28,7 @@ class ImageController extends Controller
         $task = Task::findorfail($id);
         $taskImages = Image::where('task_id',$id)->get();
         // $manager = User::first();
+        // $comments = Comment::get();
     
 
         

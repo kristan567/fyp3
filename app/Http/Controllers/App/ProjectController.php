@@ -18,7 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::Latest()->paginate(5);
+        $projects = Project::Latest()->paginate(10);
 
         return view('App.projects.Layout', compact('projects'))->with(request()->input('page'));
     }
@@ -137,6 +137,8 @@ class ProjectController extends Controller
 
         return view('App.projects.show', compact('project', 'categories', 'tasks', 'completionPercentage', 'totalTasks', 'totalUsers', 'manager'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

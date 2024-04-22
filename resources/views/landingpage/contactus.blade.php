@@ -34,7 +34,7 @@
 
     <style>
         .mainbody {
-            background-image: url('../images/homeimages/image1.jpg');
+            background-image: url('../images/homeimages/contactus.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;

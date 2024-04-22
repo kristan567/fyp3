@@ -55,7 +55,7 @@
                             </strong>
                             <p>You can prioritize a child’s mental, emotional, <br>
                                 behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <a href="{{ route('contactus') }}">Crear=te Now</a>
                         </div>
                     </div>
                 </div>

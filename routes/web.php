@@ -61,6 +61,10 @@ Route::get('/inventory', function () {
     return view('landingpage.inventory');
 })->name('inventory');
 
+Route::get('/realtimemonitor', function () {
+    return view('landingpage.realtimemonitor');
+})->name('realtimemonitor');
+
 Route::get('/dashboardV', function () {
     return view('landingpage.dashboard');
 })->name('dashboardV');

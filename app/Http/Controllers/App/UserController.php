@@ -121,7 +121,7 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->back()
-                        ->with('success','Task deleted successfully');
+                        ->with('success','User deleted successfully');
 
 
     }

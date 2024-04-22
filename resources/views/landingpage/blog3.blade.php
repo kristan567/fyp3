@@ -64,7 +64,7 @@
 
         <hr style="width: 100%;">
 
-        <h1 class="title">HOW TO CREATE A RESPONSIVE NEWSPAPER LAYOUT</h1>
+        <h1 class="title">Nepal's Seismic Shift: Building a Resilient Future in the Shadow of the Himalayas </h1>
 
 
 
@@ -73,40 +73,22 @@
 
             <p><img class="col-img" src="{{ asset('images/blog/pic.png') }}" alt=""></p>
 
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero blanditiis accusamus
-                ratione voluptates. Sapiente corporis assumenda, perspiciatis eaque blanditiis ex molestiae sunt ducimus
-                veritatis. Non fugiat optio molestiae dolorem laboriosam doloremque labore distinctio officiis. Optio quos
-                dolor ex laudantium sit voluptatem reiciendis eum tempora.</p>
+            <p class="paragraph">Nepal, a nation forever etched with the dramatic scars of its geological history, faces a unique challenge in the realm of construction. Nestled amidst towering peaks forged by immense seismic forces, the country is highly susceptible to earthquakes. This reality demands a robust and innovative approach to construction management, particularly in areas with high seismic activity. Here's a closer look at how Nepal is navigating this ever-present threat and building a more resilient future</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">Building Back Better: Lessons Learned from the Rubble
+                The devastating 2015 earthquake that shook Nepal to its core served as a stark wake-up call. In the aftermath, the nation embarked on a massive reconstruction effort, determined to emerge stronger and more prepared for future seismic events. A key focus of this initiative has been on implementing stricter building codes and promoting earthquake-resistant construction practices. This multi-pronged approach includes:
+                </p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+            <p class="paragraph">Focus on Retrofitting Existing Structures: Many existing buildings in Nepal, particularly those constructed before the implementation of modern seismic codes, require retrofitting to withstand the destructive forces of an earthquake. Construction companies are specializing in these techniques, employing a range of strategies such as reinforcing foundations, adding shear walls, and strengthening load-bearing elements. Retrofitting existing structures plays a crucial role in ensuring the safety of residents and safeguarding the nation's cultural heritage</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">Embracing New Materials for a Seismic Future: Research and development efforts are driving the adoption of innovative, earthquake-resistant building materials like Engineered Wood Products (EWP). These advanced materials, such as laminated veneer lumber (LVL) and cross-laminated timber (CLT), offer superior strength, flexibility, and lighter weight compared to traditional methods. This not only enhances the seismic performance of structures but also facilitates faster construction times.</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+            <p class="paragraph">	Community Involvement: Building Ownership and Resilience: Local communities are actively engaged in the reconstruction process, moving beyond being passive recipients of aid. Training programs empower residents with basic construction skills and knowledge of earthquake-resistant building techniques. This fosters a sense of ownership and preparedness within communities, enabling them to participate actively in building a safer future.</p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <p class="paragraph">p class="paragraph">Looking Ahead: A Seismic Shift Towards a Safer Future
+                The unwavering emphasis on earthquake-resistant construction management in Nepal is a testament to the nation's unwavering commitment to building a safer future for its citizens. By embracing innovative technologies, fostering community involvement, and implementing stricter building codes, Nepal is setting a strong example for other earthquake-prone regions around the world. This ongoing journey towards seismic resilience serves as a beacon of hope, demonstrating that even in the face of immense geological challenges, proactive measures and a spirit of innovation can pave the way for a more secure and sustainable future.        </p>/p>
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+                <p class="paragraph"> </p>
 
             <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
                 consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
@@ -119,7 +101,7 @@
 
         <!--Next Row-->
 
-        <h1 class="title">This Is The Second Article</h1>
+        {{-- <h1 class="title">This Is The Second Article</h1>
 
         <div class="container">
 
@@ -146,34 +128,18 @@
 
         </div>
 
-        <hr style="width: 100%;">
+        <hr style="width: 100%;"> --}}
 
         <!--Next Row-->
 
-        <h1 class="title">This Is The Third Article</h1>
+        {{-- <h1 class="title">This Is The Third Article</h1>
 
         <div class="container">
 
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+    
 
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
-                doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio assumenda
-                iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, doloribus, eos ad
-                consequatur quibusdam debitis quod perspiciatis, sequi hic quisquam itaque facilis. A dolor deleniti culpa,
-                aperiam voluptatem dolore saepe voluptatum modi ratione possimus, sint, porro ipsam reprehenderit eligendi.
-                Ipsa.</p>
+            <
 
             <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum nesciunt,
                 doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
@@ -197,7 +163,7 @@
 
             <p><img class="col-img" src="{{ asset('images/blog/pic2.png') }}" alt=""></p>
 
-        </div>
+        </div> --}}
 
 
 

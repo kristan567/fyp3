@@ -67,7 +67,7 @@
 
             <hr style="width: 100%;">
 
-            <h1 class="title">HOW TO CREATE A RESPONSIVE NEWSPAPER LAYOUT</h1>
+            <h1 class="title">Building a Better Nepal: The Rise of Construction Management in the Shadow of the Himalayas</h1>
 
 
 
@@ -76,19 +76,9 @@
 
                 <p><img class="col-img" src="{{ asset('images/blog/pic.png') }}" alt=""></p>
 
-                <p class="paragraph">Nestled amidst the awe-inspiring peaks of the Himalayas, Nepal, a landlocked nation
-                    steeped in rich history and breathtaking beauty, is experiencing a surge in construction activity.
-                    From ambitious infrastructure projects carving paths through rugged terrain to modern high-rises
-                    transforming urban landscapes, the face of Nepal is undergoing a rapid metamorphosis. However, with
-                    this growth comes a critical need for efficient and effective construction management practices.</p>
+                <p class="paragraph">Nestled amidst the awe-inspiring peaks of the Himalayas, Nepal, a landlocked nation steeped in rich history and breathtaking beauty, is experiencing a surge in construction activity. From ambitious infrastructure projects carving paths through rugged terrain to modern high-rises transforming urban landscapes, the face of Nepal is undergoing a rapid metamorphosis. However, with this growth comes a critical need for efficient and effective construction management practices.</p>
 
-                <p class="paragraph">Historically, construction projects in Nepal grappled with significant challenges
-                    that hampered progress and inflated costs. Poor planning and scheduling resulted in frequent delays
-                    and missed deadlines, leading to frustration among stakeholders and ballooning project budgets.
-                    Disjointed communication between field workers, project managers, and clients created confusion and
-                    errors, jeopardizing quality control. Additionally, the absence of data-driven decision making meant
-                    crucial choices were often based on intuition rather than real-time data on project progress and
-                    resource utilization.</p>
+                <p class="paragraph">Historically, construction projects in Nepal grappled with significant challenges that hampered progress and inflated costs. Poor planning and scheduling resulted in frequent delays and missed deadlines, leading to frustration among stakeholders and ballooning project budgets. Disjointed communication between field workers, project managers, and clients created confusion and errors, jeopardizing quality control. Additionally, the absence of data-driven decision making meant crucial choices were often based on intuition rather than real-time data on project progress and resource utilization.</p>
 
                 <p class="paragraph">A Wave of Change: However, a wave of change is sweeping across the Nepalese
                     construction industry. Modern construction management practices are gaining traction, offering a
@@ -103,12 +93,7 @@
                     project control, improved collaboration across teams, and ultimately, a significant reduction in
                     errors and rework, leading to cost savings and faster project completion times.</p>
 
-                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum
-                    nesciunt,
-                    doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                    necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio
-                    assumenda
-                    iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
+                <p class="paragraph">A Wave of Change: However, a wave of change is sweeping across the Nepalese construction industry. Modern construction management practices are gaining traction, offering a solution to these longstanding issues and paving the way for a brighter future. Here's a closer look at the current state of construction management in Nepal as of October 26, 2024:</p>
 
                 <p class="paragraph">Focus on a Skilled Workforce: Recognizing the pivotal role a skilled workforce
                     plays in achieving project success, institutions like Pokhara University are stepping up by offering
@@ -140,7 +125,7 @@
 
             <!--Next Row-->
 
-            <h1 class="title">This Is The Second Article</h1>
+            <h1 class="title">This Goes way back</h1>
 
             <div class="container">
 
@@ -172,20 +157,7 @@
                     movement towards a more efficient and successful construction industry in Nepal!
                 </p>
 
-                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam explicabo laborum
-                    nesciunt,
-                    doloribus, sint excepturi provident repudiandae eius voluptatem veniam, aspernatur odit perferendis
-                    necessitatibus cumque officia aliquam. Quos accusantium nesciunt temporibus, impedit enim optio
-                    assumenda
-                    iusto itaque praesentium. Eos nisi esse consequuntur fugit autem? Doloremque!</p>
-
-                <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos dolore eaque
-                    voluptates odio debitis, labore earum adipisci est non explicabo fugit doloribus deserunt dolorem. A
-                    blanditiis tenetur, sapiente eum officia reiciendis maiores ducimus sint architecto quae temporibus
-                    unde
-                    voluptatum itaque modi perspiciatis eius harum ab quis eos expedita odit quia accusamus. At
-                    perferendis
-                    voluptas saepe?.</p>
+           
 
             </div>
 
@@ -193,7 +165,7 @@
 
             <!--Next Row-->
 
-            <h1 class="title">This Is The Third Article</h1>
+            {{-- <h1 class="title">This Is The Third Article</h1>
 
             <div class="container">
 
@@ -256,7 +228,7 @@
 
                 <p><img class="col-img" src="{{ asset('images/blog/pic2.png') }}" alt=""></p>
 
-            </div>
+            </div> --}}
 
 
 

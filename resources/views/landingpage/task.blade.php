@@ -42,15 +42,14 @@
             <section class="ban_sec">
                 <div class="blogcontainer">
                     <div class="ban_img">
-                        <img src="https://www.snsltd.com.np/public/upload/images/slider/sindhuli-road-maintenace-project.jpg"
+                        <img src="https://thedigitalprojectmanager.com/wp-content/uploads/2022/01/15-Best-Task-Management-Software-For-Teams-In-2022.jpg"
                             alt="banner" border="0">
                         <div class="ban_text">
-                            <strong>
+                            <strong style="">
                                  Task Managment<br>
                             </strong>
-                            <p>You can prioritize a child’s mental, emotional, <br>
-                                behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
+                            <p >"Task Mastery: Empower Your Projects, Amplify Your Success!" </p>
+                            <a href="{{ route('contactus') }}">Create Now!!    </a>
                         </div>
                     </div>
                 </div>
@@ -81,20 +80,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Empower Your Team: </h2>
+                        <p>Effortlessly create and assign tasks to specific workers or teams with intuitive ease, ensuring clarity and accountability from start to finish.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Priority Perfection: </h2>
+                        <p> Ensure the most crucial tasks take precedence by setting clear priorities, guaranteeing that your team focuses on what matters most. Enjoy unparalleled accessibility with mobile-friendly features, enabling task management from anywhere, anytime, and empowering your team to excel on-site with unparalleled flexibility.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">
@@ -109,20 +104,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Seamless Communication Hub: </h2>
+                        <p>Facilitate seamless communication and collaboration among team members with integrated commenting, file sharing, and messaging features, fostering a cohesive and efficient work environment.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Deadline Domination</h2>
+                        <p>Stay ahead of deadlines with automatic notifications, ensuring timely completion and eliminating the risk of missed milestones.Keep a comprehensive record of all tasks, including creation details, assigned personnel, and completion timestamps, providing invaluable insights for project management and accountability.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">

@@ -34,9 +34,10 @@ class RecommendController extends Controller
 
         $filteredData = $query->get();
 
+        // dd($filteredData);
+
         return view('App.recommends.recommend')->with('data', $filteredData);
         
-
 
     }
 
@@ -63,6 +64,8 @@ class RecommendController extends Controller
         }
 
         $filteredData = $query->get();
+
+        // dd($filteredData);
 
         return view('App.recommends.recommendlayout')->with('data', $filteredData);
         

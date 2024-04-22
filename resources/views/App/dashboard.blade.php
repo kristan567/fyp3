@@ -607,9 +607,7 @@
         <div class="navbar-container">
             <!--logo div-->
             <div class="navbar-logo-div">
-                <a class="navbar-logo-link" href="#">
-                    <i class="fas fa-shield-dog"></i>
-                </a>
+                <img width="40" height="40" class="rounded-circle" style="border-radius: 30px;" src="{{ global_asset('images/forApp/Untitled-1.png') }}" >
                 <button class="navbar-toggler"><i class='fas fa-solid fa-bars'></i></button>
             </div>
 
@@ -636,7 +634,10 @@
                 @role('Project Manager')
                     <li class="menu-item">
                         <a class="menu-link" href="{{ route('projects.index') }}">
-                            <i class="fas fa-solid fa-paw"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban" viewBox="0 0 16 16">
+                                <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"/>
+                              </svg>
                             <span class="menu-link-text">Project</span>
                         </a>
                     </li>
@@ -653,7 +654,9 @@
                 @role('Project Manager')
                     <li class="menu-item">
                         <a class="menu-link" href="{{ route('recommend.index') }}">
-                            <i class="fas fa-solid fa-paw"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
+                                <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"/>
+                              </svg>
                             <span class="menu-link-text">Recommend</span>
                         </a>
                     </li>
@@ -661,13 +664,17 @@
 
                 <li class="menu-item">
                     <a class="menu-link" href="{{ route('materials.index') }}">
-                        <i class="fas fa-regular fa-stethoscope"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bricks" viewBox="0 0 16 16">
+                            <path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5zM3 4v2h4.5V4zm5.5 0v2H13V4zM3 10v2h4.5v-2zm5.5 0v2H13v-2zM1 1v2h3.5V1zm4.5 0v2h5V1zm6 0v2H15V1zM1 7v2h3.5V7zm4.5 0v2h5V7zm6 0v2H15V7zM1 13v2h3.5v-2zm4.5 0v2h5v-2zm6 0v2H15v-2z"/>
+                          </svg>
                         <span class="menu-link-text">Materials</span>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a class="menu-link" href="{{ route('equipments.index') }}">
-                        <i class="fas fa-duotone fa-gear"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                            <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
+                          </svg>
                         <span class="menu-link-text">Equipment</span>
                     </a>
                 </li>
@@ -748,22 +755,32 @@
                                 <div class="page">
 
                                     <div class="layout">
-                                        <div>
+                                        <div style="background-color:#86afec; color:whitesmoke; ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                                              </svg>
+
+                                              
                                             <div>
-                                                <h2>Total user: {{ $totaluser }}</h2>
+                                                <h2>   Total user: {{ $totaluser }}</h2>
                                             </div>
                                         </div>
-                                        <div class="hovercontainer">
-                                            <div>
-                                                <div>
+                                        <div class="hovercontainer" style="background-color:#edcd8d; color:whitesmoke  ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+                                                <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                                              </svg>
 
-                                                    <p class="icon">users engaged in tasks: {{ $totaluserwithtasks }}
-                                                    </p>
+                                            <div>
+                                                
+                                                <div>
+                                                   
+                                                    <h2>users engaged: {{ $totaluserwithtasks }}
+                                                    </h2>
 
                                                 </div>
 
                                             </div>
-                                            <div class="popup">
+                                            <div class="popup" style="border-radius: 10px;">
                                                 <p>
 
                                                 <ul>
@@ -778,20 +795,24 @@
                                             </div>
                                         </div>
 
-                                        <div class="hovercontainer">
+                                        <div class="hovercontainer" style="background-color:#5fa88e; color:whitesmoke ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                                <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                                              </svg>
                                             <div>
                                                 <div>
 
                                                     <p class="icon">
 
-                                                        users not engaged in tasks:
+                                                        users not engaged:
                                                         {{ $totalUsersWithoutTasks }}
 
                                                     </p>
                                                 </div>
 
                                             </div>
-                                            <div class="popup">
+                                            <div class="popup" style="border-radius: 10px;">
                                                 <p>
                                                 <div class="users-without-tasks">
                                                     <ul>
@@ -805,9 +826,14 @@
                                         </div>
 
 
-                                        <div>
+                                        <div style="background-color:#ca6e65; color:whitesmoke  ">
+                                            
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"  fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                                <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                                <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
+                                              </svg>
                                             <div>
-                                                <h2>Total Budget: {{ $totalCost }}</h2>
+                                                <h2 style="margin-left: 10px;">Total Budget: {{ $totalCost }}</h2>
                                             </div>
                                         </div>
 
@@ -973,21 +999,6 @@
 
                                     </div>
 
-                                    <div data-aos="flip-left" class="descharts">
-                                        <div class="head">
-                                            <strong>
-                                                <h1 style="font-size:30px; ">Quantity of each Material</h1>
-                                            </strong>
-
-                                        </div>
-                                        <div class="text"
-                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
-                                            <p>To allow users to detect the number of materials they can utilize before
-                                                needing to restore a certain material</p>
-                                        </div>
-
-
-                                    </div>
 
                                     <div data-aos="flip-right" class="descharts">
                                         <div class="head">
@@ -1004,6 +1015,26 @@
 
 
                                     </div>
+
+
+
+                                    <div data-aos="flip-left" class="descharts">
+                                        <div class="head">
+                                            <strong>
+                                                <h1 style="font-size:30px; ">Quantity of each Material</h1>
+                                            </strong>
+
+                                        </div>
+                                        <div class="text"
+                                            style="display: flex; justify-content:center; align-items: center; text-align:center; margin-top:10%; font-size:20px; !important">
+                                            <p>To allow users to detect the number of materials they can utilize before
+                                                needing to restore a certain material</p>
+                                        </div>
+
+
+                                    </div>
+
+                                    
 
 
                                     <div data-aos="fade-up-left" class="charts">
@@ -1111,9 +1142,7 @@
                                                                 <td>{{ $task->start_date }}</td>
                                                                 <td>{{ $task->end_date }}</td>
                                                                 <td>{{ $task->user->name }}</td>
-
-
-
+                                                                
                                                             </tr>
                                                         @endforeach
                                                     @else
@@ -1157,7 +1186,7 @@
 
     @stack('scripts') --}}
 
-    @push('scripts')
+    {{-- @push('scripts')
         <script>
             const data = {
                 labels: @json($data->map(fn($data) => $data->date)),
@@ -1172,11 +1201,11 @@
                 type: 'bar',
                 data: data,
                 options: {
-                    maintainAspectRatio: false, // Disable aspect ratio to allow resizing
+                    maintainAspectRatio: false,
                     responsive: true,
                     scales: {
                         y: {
-                            beginAtZero: true // Start y-axis from zero
+                            beginAtZero: true 
                         }
                     }
                 }
@@ -1186,7 +1215,44 @@
                 config
             );
         </script>
-    @endpush
+    @endpush --}}
+
+    @push('scripts')
+    <script>
+        try {
+            const data = {
+                labels: @json($data->map(fn($data) => $data->date)),
+                datasets: [{
+                    label: 'Registered users in the last 30 days',
+                    backgroundColor: 'rgba(255, 99, 132, 0.3)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: @json($data->map(fn($data) => $data->aggregate)),
+                }]
+            };
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true 
+                        }
+                    }
+                }
+            };
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        } catch (error) {
+            console.error('Error occurred while rendering chart:', error);
+            alert('An error occurred while rendering the chart. Please try again later or contact support for assistance.');
+        }
+    </script>
+@endpush
+
 
     @push('scripts')
         <script>
@@ -1256,6 +1322,8 @@
             var completedCount = {{ $completedProjectsCount }};
             var incompleteCount = {{ $incompleteProjectsCount }};
 
+    
+
             // Render pie chart
             var ctx = document.getElementById('projectStatusChart').getContext('2d');
             var myChartproject = new Chart(ctx, {
@@ -1317,6 +1385,7 @@
             var completedTaskCounts = <?php echo json_encode($completedTaskCounts); ?>;
             var incompleteTaskCounts = <?php echo json_encode($incompleteTaskCounts); ?>;
 
+ 
             // Create the grouped bar chart
             var ctx = document.getElementById('totalTasksByProjectChart').getContext('2d');
             var totalcompleteincomplete = new Chart(ctx, {
@@ -1348,53 +1417,15 @@
         </script>
     @endpush
 
-    // @push('scripts')
-        //
-        <script>
-            //         var equipmentTypes = <?php echo json_encode($equipmentTypes); ?>;
-            //         var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
 
-            //         var ctx = document.getElementById('equipmentPieChart').getContext('2d');
-            //         var equipmentChart = new Chart(ctx, {
-            //             type: 'pie',
-            //             data: {
-            //                 labels: equipmentTypes,
-            //                 datasets: [{
-            //                     data: equipmentQuantities,
-            //                     backgroundColor: [
-            //                         'rgba(255, 99, 132, 0.2)',
-            //                         'rgba(54, 162, 235, 0.2)',
-            //                         'rgba(255, 206, 86, 0.2)',
-            //                         'rgba(75, 192, 192, 0.2)',
-            //                         'rgba(153, 102, 255, 0.2)',
-            //                         'rgba(255, 159, 64, 0.2)'
-            //                     ],
-            //                     borderColor: [
-            //                         'rgba(255, 99, 132, 1)',
-            //                         'rgba(54, 162, 235, 1)',
-            //                         'rgba(255, 206, 86, 1)',
-            //                         'rgba(75, 192, 192, 1)',
-            //                         'rgba(153, 102, 255, 1)',
-            //                         'rgba(255, 159, 64, 1)'
-            //                     ],
-            //                     borderWidth: 1
-            //                 }]
-            //             },
-            //             options: {
-            //                 // You can add more options here
-            //                 responsive: true,
-            //                 maintainAspectRatio: false
-            //             }
-            //         });
-            //     
-        </script>
-        //
-    @endpush
 
     @push('scripts')
         <script>
             var equipmentLabels = <?php echo json_encode($equipmentLabels); ?>;
             var equipmentQuantities = <?php echo json_encode($equipmentQuantities); ?>;
+
+            console.log('Completed  Count:',equipmentLabels);
+            console.log('Incomplete  Count:',equipmentQuantities);
 
             var ctx = document.getElementById('equipmentChart').getContext('2d');
             var qtyChart = new Chart(ctx, {
@@ -1425,6 +1456,8 @@
         <script>
             var materialLabels = <?php echo json_encode($materialLabels); ?>;
             var materialQuantities = <?php echo json_encode($materialQuantities); ?>;
+
+    
 
             var ctx = document.getElementById('materialChart').getContext('2d');
             var materialChart = new Chart(ctx, {

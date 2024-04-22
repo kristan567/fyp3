@@ -102,7 +102,7 @@
                                 @role('worker')
                                     @if ($project->tasks)
                                         {{-- @if ($tasks) --}}
-                                        @foreach ($project->tasks as $task)
+                                        @foreach ($tasks as $task)
                                             {{-- @foreach ($tasks as $task) --}}
                                             @if ($task->user_id == auth()->id())
                                                 <tr>

@@ -48,16 +48,15 @@
             <section class="ban_sec">
                 <div class="blogcontainer">
                     <div class="ban_img">
-                        <img src="https://www.snsltd.com.np/public/upload/images/slider/sindhuli-road-maintenace-project.jpg"
+                        <img src="  https://online.abertay.ac.uk/wp-content/uploads/2023/06/recommender-systems.jpg"
                             alt="banner" border="0">
-                        <div class="ban_text">
+                        {{-- <div class="ban_text">
                             <strong>
                                  Recommendation<br>
                             </strong>
-                            <p>You can prioritize a child’s mental, emotional, <br>
-                                behavioral, and physical health </p>
-                            <a href="#">Lend a hand</a>
-                        </div>
+                            <p>"Build Smarter with Personalized Insights"</p>
+                            <a href="{{ route('contactus') }}">Create Now</a>
+                        </div> --}}
                     </div>
                 </div>
             </section>
@@ -87,20 +86,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Tailored Guidance:</h2>
+                        <p> Receive personalized suggestions for materials, construction methods, and project planning, based on the data from previous successful projects. Anticipate potential issues and challenges by leveraging data-driven recommendations, allowing you to address them before they impact your project.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Customized Plans:</h2>
+                        <p> Get tailored recommendations to suit your specific needs and budget, ensuring your construction project aligns perfectly with your vision. Continuously refine and optimize your construction plans and strategies based on feedback and insights gathered from previous projects, ensuring ongoing success and innovation.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">
@@ -115,20 +110,16 @@
                 </div><!-- .col-sm-4 -->
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Data-Driven Decision Making: </h2>
+                        <p>Utilize insights from past projects to make informed choices, maximizing efficiency and achieving optimal outcomes for your build..</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
             <div class="row">
                 <div class="col-sm-8">
                     <div class="description">
-                        <h2>Heading</h2>
-                        <p>Bacon ipsum dolor amet short ribs doner jowl capicola. Rump drumstick pork pork loin. Shankle
-                            meatball beef ribs, short ribs leberkas meatloaf beef swine picanha. Ribeye ham hock jowl
-                            fatback picanha turkey, ground round shankle salami brisket.</p>
+                        <h2>Expert Advice:</h2>
+                        <p> Benefit from expert guidance and recommendations, backed by real-world data and experience, to navigate the complexities of construction with confidence.</p>
                     </div><!-- .description -->
                 </div><!-- .col-sm-8 -->
                 <div class="col-sm-4">

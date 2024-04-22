@@ -15,9 +15,10 @@ class CategoryController extends Controller
 
     public function index()
     {
-        // $project = Project::findOrFail($id);
+        // $project = Project::get();
+        // $category = category::get();
       
-        // return view('App.projects.show',compact('project'));
+        // return view('App.projects.show',compact('project','category'));
         
     }
 
