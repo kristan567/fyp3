@@ -97,7 +97,7 @@
 </style>
 
 <footer class="footer">
-    <div class="footercontainer">
+    <div class="container">
         <div class="row">
             <div class="footer-col">
                 <h4>company</h4>
@@ -108,7 +108,7 @@
                     <li><a href="#">affiliate program</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            {{-- <div class="footer-col">
                 <h4>get help</h4>
                 <ul>
                     <li><a href="#">FAQ</a></li>
@@ -117,14 +117,14 @@
                     <li><a href="#">order status</a></li>
                     <li><a href="#">payment options</a></li>
                 </ul>
-            </div>
+            </div> --}}
             <div class="footer-col">
-                <h4>online shop</h4>
+                <h4>Read Our Blogs</h4>
                 <ul>
-                    <li><a href="#">watch</a></li>
-                    <li><a href="#">bag</a></li>
-                    <li><a href="#">shoes</a></li>
-                    <li><a href="#">dress</a></li>
+                    <li><a href="#">Blog1</a></li>
+                    <li><a href="#">blog2</a></li>
+                    <li><a href="#">blog3</a></li>
+                    {{-- <li><a href="#">dress</a></li> --}}
                 </ul>
             </div>
             <div class="footer-col">

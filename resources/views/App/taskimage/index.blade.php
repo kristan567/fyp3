@@ -242,7 +242,7 @@
                         <div class="uploadimg" style="padding: 100px;">
                             @role('worker')
 
-                            <form action="{{ url('tasks/' . $task->id . '/upload') }}" method="POST"
+                            <f action="{{ url('tasks/' . $task->id . '/upload') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 
@@ -307,7 +307,7 @@
                                 <br>
                                 <br>
 
-                            </form>
+                            </f orm>
                             @endrole
 
                             <div>

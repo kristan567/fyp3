@@ -37,6 +37,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+    
         if(Auth::check())
         {
 
@@ -53,12 +54,14 @@ class CommentController extends Controller
             $image=Image::where('id',$request->image_id)->where('is_approved','0')->first();
             if($image){
 
-                Comment::create([
+                $comment = Comment::create([
                     'image_id' => $image->id,
                     'user_id'=> Auth::User()->id,
                     'comment_body' =>  $request->comment_body,
 
                 ]);
+
+                dd($comment);
 
                 return redirect()->back()->with('message','comment success');
 

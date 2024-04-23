@@ -52,32 +52,37 @@ class ChartJSController extends Controller
         $project = Project::get();
         $tasks = Task::where('completed', false)->orderBy('priority', 'desc')->orderBy('end_date')->get();
 
-        // $projectuser = Task::where('project_id')
-        //              ->distinct('user_id')
-        //              ->count('user_id');
 
         $completedProjectsCount = Project::where('completed', '1')->count();
         $incompleteProjectsCount = Project::where('completed', '0')->count();
 
 
     
-        $totalTasksByProject = Task::select('project_id')
-            ->selectRaw('count(*) as total_tasks')
-            ->groupBy('project_id')
+
+        $totalTasksByProject = Project::leftJoin('tasks', 'projects.id', '=', 'tasks.project_id')
+            ->select('projects.id as project_id')
+            ->selectRaw('coalesce(count(tasks.id), 0) as total_tasks')
+            ->groupBy('projects.id')
             ->get();
 
      
+
         $projectLabels = $totalTasksByProject->pluck('project_id')->toArray();
         $taskCounts = $totalTasksByProject->pluck('total_tasks')->toArray();
 
 
 
   
-        $totalTasksByProject = Task::select('project_id')
-            ->selectRaw('sum(case when completed = true then 1 else 0 end) as completed_tasks')
-            ->selectRaw('sum(case when completed = false then 1 else 0 end) as incomplete_tasks')
-            ->groupBy('project_id')
+
+        $totalTasksByProject = Project::leftJoin('tasks', 'projects.id', '=', 'tasks.project_id')
+            ->select('projects.id as project_id')
+            ->selectRaw('coalesce(sum(case when tasks.completed = true then 1 else 0 end), 0) as completed_tasks')
+            ->selectRaw('coalesce(sum(case when tasks.completed = false then 1 else 0 end), 0) as incomplete_tasks')
+            ->groupBy('projects.id')
             ->get();
+
+   
+
 
 
     
@@ -91,9 +96,6 @@ class ChartJSController extends Controller
         $totalCost = $totalEquipmentCost + $totalMaterialCost;
 
 
-        // $equipmentData = Equipment::all();
-        // $equipmentTypes = $equipmentData->pluck('type')->toArray();
-        // $equipmentQuantities = $equipmentData->pluck('qty')->toArray();
 
 
 
@@ -112,15 +114,7 @@ class ChartJSController extends Controller
         return view('App.Dashboard', compact('data', 'taskdata', 'usersWithoutTasks', 'totalUsersWithoutTasks', 'userwithtasks', 'totaluserwithtasks', 'totaluser', 'categories', 'project', 'tasks', 'completedProjectsCount', 'incompleteProjectsCount', 'projectLabels', 'taskCounts', 'projectIds', 'completedTaskCounts', 'incompleteTaskCounts', 'totalCost',  'equipmentLabels', 'equipmentQuantities', 'materialLabels', 'materialQuantities','userdata'));
     }
 
-    // public function taskindex()
-    // {
-    //     $taskdata = Task::selectRaw("date_format(completed_at, '%Y-%m-%d') as date, count(*) as aggregate")
-    //         ->whereDate('completed_at','>=',now()->subdays(30))
-    //         ->groupBy('date')
-    //         ->get();
-    //     return view('App.Dashboard', compact( 'taskdata'));
 
-    // }
 
     /**
      * Show the form for creating a new resource.
