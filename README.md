@@ -1,8 +1,26 @@
-The project I have recently worked on is developing a full on SAAS Website. The Project Name is Field Management system(Field Magnet).
-2.1. Aim
-The aim of this project is to develop a Construction field Management System that helps business and organization to design their field operation by enhancing their resource and productivity so that a company can make data driven decision.
-2.2. goals
-Field management systems (CMS) are tools that assist in coordinating and optimizing activities in the field, such as project scheduling, cost, and quality. They help construction professionals and field workers improve various aspects of construction project management by providing tools for creating schedules and assigning tasks. By using CMS, project failure risks are reduced due to increased visibility, efficiency, and collaboration. This results in maximized profits and fewer reworks. The CMS also focuses on supervision through real-time monitoring, allowing users to send emails and upload images to show progress in their tasks. This system helps in promoting collaboration among field workers. The main goal of the project is to periodize goals and schedules, implement real-time monitoring, and improve construction practices. The CMS also allows project managers to manage documents, generate reports, and review them, eliminating the risk of losing important files. The website offers personalized recommendations for building houses and buildings, leveraging plans and management data from previous projects.
+# Construction Field Management System
+
+## 2.1 Aim
+
+The aim of this project is to develop a Construction Field Management System that assists businesses and organizations in designing their field operations. By enhancing resource management and productivity, the system enables companies to make data-driven decisions.
+
+## 2.2 Goals
+
+Field Management Systems (CMS) are tools that assist in coordinating and optimizing field activities such as project scheduling, cost management, and quality control. The CMS provides construction professionals and field workers with tools to:
+
+- **Create Schedules and Assign Tasks:** Improve project management by organizing tasks and timelines effectively.
+- **Reduce Project Failure Risks:** Increase visibility, efficiency, and collaboration to minimize the risk of project failure.
+- **Enhance Supervision:** Enable real-time monitoring of progress, including the ability to send emails and upload images to show task progress.
+- **Promote Collaboration:** Facilitate better communication and collaboration among field workers.
+- **Manage Documents and Reports:** Allow project managers to handle documents, generate reports, and review them, reducing the risk of losing important files.
+- **Provide Personalized Recommendations:** Offer recommendations for building houses and buildings based on plans and management data from previous projects.
+
+The main goals of the project are to:
+
+- Periodize goals and schedules.
+- Implement real-time monitoring.
+- Improve construction practices.
+
 
 # Commit History
 
