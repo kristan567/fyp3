@@ -1,66 +1,19 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+The project I have recently worked on is developing a full on SAAS Website. The Project Name is Field Management system(Field Magnet).
+2.1. Aim
+The aim of this project is to develop a Construction field Management System that helps business and organization to design their field operation by enhancing their resource and productivity so that a company can make data driven decision.
+2.2. goals
+Field management systems (CMS) are tools that assist in coordinating and optimizing activities in the field, such as project scheduling, cost, and quality. They help construction professionals and field workers improve various aspects of construction project management by providing tools for creating schedules and assigning tasks. By using CMS, project failure risks are reduced due to increased visibility, efficiency, and collaboration. This results in maximized profits and fewer reworks. The CMS also focuses on supervision through real-time monitoring, allowing users to send emails and upload images to show progress in their tasks. This system helps in promoting collaboration among field workers. The main goal of the project is to periodize goals and schedules, implement real-time monitoring, and improve construction practices. The CMS also allows project managers to manage documents, generate reports, and review them, eliminating the risk of losing important files. The website offers personalized recommendations for building houses and buildings, leveraging plans and management data from previous projects.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Commit |	Message
+First Commit|	The Commit contains the basic development of the web Application such as project setup, user management with login and register features, the website was also able to create an website for each user( As a SAAS), each with its own domain name and database. 
 
-## About Laravel
+Fourth Commit | By the fourth commit the website was able to Manage user task, upload images, and send basic notification on the development on the given task.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Fifth Commit(update on inventory and equipment and user management) |Marks the development of inventory and equipment management system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sixth Commit(recommend feature has been completed)	 | Recommending user with plans was completed in this commit.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Tenth Commit(this commit has updates on email sending when the user is created) | the Commit includes graph, creating PDF and development in the frontend of the Web application. 
 
-## Learning Laravel
+Fifteenth Commit (this is last commit with comment feature) | Includes development on comment section, integration of map, email sending for all users
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
